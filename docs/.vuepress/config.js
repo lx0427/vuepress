@@ -1,6 +1,7 @@
 module.exports = {
   title: 'Litter Flying Bears', // 网站标题
   description: 'Litter Flying Bears',
+  base:'/vuepress/',
   themeConfig: {
     sidebarDepth:2,
     activeHeaderLinks:true,
