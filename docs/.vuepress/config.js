@@ -2,6 +2,9 @@ module.exports = {
   title: 'Litter Flying Bears', // 网站标题
   description: 'Litter Flying Bears',
   base:'/vuepress/',
+  head: [
+		['link', { rel: 'icon', href: '/favicon.ico' }]
+	],
   themeConfig: {
     sidebarDepth:2,
     activeHeaderLinks:true,
