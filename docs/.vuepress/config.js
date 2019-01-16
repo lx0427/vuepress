@@ -24,16 +24,29 @@ module.exports = {
     sidebar: {
       '/note/': [{
           title: 'tools',
-          collapsable: false
+          collapsable: false, // 是否可以折叠
+          children: [
+            ['tools/', 'vuepress'], // 第一项为link, 第二项为标题
+            ['tools/hexo', 'hexo'],
+            ['tools/webpack', 'webpack'],
+          ]
         },
-        ['tools/', 'vuepress'], // 第一项为link, 第二项为标题
-        ['tools/hexo', 'hexo'],
+        {
+          title: 'vue',
+          collapsable: false,
+          children:[
+            ['vue/v-model', 'v-model'],
+            'vue/vue-router'
+          ]
+        },
         {
           title: 'markdown',
-          collapsable: false // 是否可以折叠
+          collapsable: false,
+          children:[
+            ['markdown/', '学习使用'],
+            ['markdown/difficulty', '难点'],
+          ]
         },
-        ['markdown/', '学习使用'],
-        ['markdown/difficulty', '难点'],
       ],
       '/work/': [
         ['home-config', '后台首页配置'],
