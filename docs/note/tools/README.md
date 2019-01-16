@@ -14,7 +14,7 @@ yarn global add vuepress@next   // 安装1.x版本
     |-- .vuepress
     |   |-- config.js        // 配置文件
     |-- note
-        |-- sidebar
+        |-- tools
         |   |-- one.md
         |   |-- README.md
         |   |-- two.md
@@ -50,17 +50,17 @@ module.exports = {
   themeConfig: {
     nav: [{ // 顶部右侧导航栏
         text: '笔记',
-        link: '/note/sidebar/'
+        link: '/note/tools/'
       }
     ],
-    sidebar: [ // 侧边栏
+    tools: [ // 侧边栏
       {
-        title: 'sidebar',
+        title: 'tools',
         collapsable: false // 是否可以折叠
       },
-      ['/note/sidebar/', 'vuepress'], 
-      ['/note/sidebar/one', 'one'],
-      ['/note/sidebar/two', 'two'], // 第一项为link, 第二项为标题
+      ['/note/tools/', 'vuepress'], 
+      ['/note/tools/one', 'one'],
+      ['/note/tools/two', 'two'], // 第一项为link, 第二项为标题
       {
         title: '分类2',
         collapsable: false
@@ -85,7 +85,7 @@ module.exports = {
 home: true
 tagline: 读万卷书，不如行万里路！
 actionText: 查看笔记 →
-actionLink: /note/sidebar/
+actionLink: /note/tools/
 features:
 - title: 简洁至上
   details: 以 Markdown 为中心的项目结构，以最少的配置帮助你专注于写作。

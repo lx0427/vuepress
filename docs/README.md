@@ -2,7 +2,7 @@
 home: true
 tagline: 读万卷书，不如行万里路！
 actionText: 查看笔记 →
-actionLink: /note/sidebar/
+actionLink: /note/tools/
 features:
 - title: 简洁至上
   details: 以 Markdown 为中心的项目结构，以最少的配置帮助你专注于写作。
