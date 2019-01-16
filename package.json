@@ -4,8 +4,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "vuepress dev docs",
-    "build": "vuepress build docs",
-    "pub": "cd docs/.vuepress/dist && git add -A && git commit -m 'deploy' && git push -f https://github.com/lx0427/vuepress master:gh-pages && cd ../../"
+    "build": "vuepress build docs"
   },
   "license": "MIT",
   "devDependencies": {
