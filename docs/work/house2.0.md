@@ -2,6 +2,13 @@
 
 ## 复用代码
 
+### html
+```html
+@@include('header/header.html', {
+  "title": "indexPage" // 传入的变量参数
+})
+```
+
 ### scss
 ```
 @import '../../include/header/header.scss'
