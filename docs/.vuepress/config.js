@@ -26,6 +26,7 @@ module.exports = {
           title: 'tools',
           collapsable: false, // 是否可以折叠
           children: [
+            ['tools/git', 'git'],
             ['tools/', 'vuepress'], // 第一项为link, 第二项为标题
             ['tools/hexo', 'hexo'],
             ['tools/webpack', 'webpack'],
