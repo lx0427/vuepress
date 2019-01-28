@@ -51,6 +51,7 @@ module.exports = {
       ],
       '/work/': [
         ['house2.0', 'm端重构'],
+        ['measurement', '测评文章'],
         ['home-config', '后台首页配置'],
         ['welfare-apply', '福利报名'],
       ],

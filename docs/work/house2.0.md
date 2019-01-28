@@ -36,14 +36,15 @@ $ yarn build
 ```
 
 ### scss
+`*.scss`
+```scss
+@import '../../include/header/header.scss'
+```
 ::: warning 页面引用css
 使用产出后路径
 :::
 ```html
 <link rel="stylesheet" href="/static/css/index.css">
-```
-```scss
-@import '../../include/header/header.scss'
 ```
 
 ### js
