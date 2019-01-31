@@ -54,6 +54,7 @@ module.exports = {
         ['measurement', '测评文章'],
         ['home-config', '后台首页配置'],
         ['welfare-apply', '福利报名'],
+        ['record', '备忘'],
       ],
     },
   },
