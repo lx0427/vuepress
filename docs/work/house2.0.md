@@ -1,5 +1,22 @@
 # m端重构
 
+## 我的订阅
+
+```html
+@@include('order-dialog/order-dialog.html')
+<script src="./include/order-dialog/order-dialog.js"></script>
+```
+
+```scss
+@import '../../include/order-dialog/order-dialog.scss';
+```
+
+DOM
+* 订阅id(埋值):  `houseId` 
+* 订阅按钮id:  `footerOrder`
+* 订阅按钮文字id:  `footerOrderTip`
+* 取消订阅显示文字id(埋值):  `footerOrderTipHide`  
+
 ## 运行+打包
 ```
 // 本地运行
