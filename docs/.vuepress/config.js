@@ -23,6 +23,21 @@ module.exports = {
     ],
     sidebar: {
       '/note/': [{
+          title: 'vue',
+          collapsable: false,
+          children: [
+            ['vue/v-model', 'v-model'],
+            'vue/vue-router'
+          ]
+        },
+        {
+          title: 'css',
+          collapsable: false,
+          children: [
+            ['css/selector', 'selector']
+          ]
+        },
+        {
           title: 'tools',
           collapsable: false, // 是否可以折叠
           children: [
@@ -33,17 +48,9 @@ module.exports = {
           ]
         },
         {
-          title: 'vue',
-          collapsable: false,
-          children:[
-            ['vue/v-model', 'v-model'],
-            'vue/vue-router'
-          ]
-        },
-        {
           title: 'markdown',
           collapsable: false,
-          children:[
+          children: [
             ['markdown/', '学习使用'],
             ['markdown/difficulty', '难点'],
           ]
