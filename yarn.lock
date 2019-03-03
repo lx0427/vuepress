@@ -3,25 +3,25 @@
 
 
 "@vuepress/plugin-active-header-links@^1.0.0-alpha.0":
-  version "1.0.0-alpha.0"
-  resolved "http://192.168.1.91:4873/@vuepress%2fplugin-active-header-links/-/plugin-active-header-links-1.0.0-alpha.0.tgz#aa127fb5bd5d504fb9cbd65ca5e2fa37fd1cc324"
+  version "1.0.0-alpha.42"
+  resolved "https://registry.npmjs.org/@vuepress/plugin-active-header-links/-/plugin-active-header-links-1.0.0-alpha.42.tgz#036b688b26360237824cfeec623f44790a58914a"
   dependencies:
     lodash.throttle "^4.1.1"
 
 "@vuepress/plugin-back-to-top@^1.0.0-alpha.0":
-  version "1.0.0-alpha.0"
-  resolved "http://192.168.1.91:4873/@vuepress%2fplugin-back-to-top/-/plugin-back-to-top-1.0.0-alpha.0.tgz#401513b39d5dd081f49404c35ab6f51002c1cca0"
+  version "1.0.0-alpha.42"
+  resolved "https://registry.npmjs.org/@vuepress/plugin-back-to-top/-/plugin-back-to-top-1.0.0-alpha.42.tgz#9bd01b6ab42845c4b63dd1fffa9ef88662bab6fd"
   dependencies:
     lodash.debounce "^4.0.8"
 
 "@vuepress/plugin-search@^1.0.0-alpha.0":
-  version "1.0.0-alpha.0"
-  resolved "http://192.168.1.91:4873/@vuepress%2fplugin-search/-/plugin-search-1.0.0-alpha.0.tgz#9faf04047d03a16f0bb5d98bee0df3435e3c8c58"
+  version "1.0.0-alpha.42"
+  resolved "https://registry.npmjs.org/@vuepress/plugin-search/-/plugin-search-1.0.0-alpha.42.tgz#cebdea26da1872071fa651865d128cff7c67e30b"
 
 lodash.debounce@^4.0.8:
   version "4.0.8"
-  resolved "http://192.168.1.91:4873/lodash.debounce/-/lodash.debounce-4.0.8.tgz#82d79bff30a67c4005ffd5e2515300ad9ca4d7af"
+  resolved "https://registry.npmjs.org/lodash.debounce/-/lodash.debounce-4.0.8.tgz#82d79bff30a67c4005ffd5e2515300ad9ca4d7af"
 
 lodash.throttle@^4.1.1:
   version "4.1.1"
-  resolved "http://192.168.1.91:4873/lodash.throttle/-/lodash.throttle-4.1.1.tgz#c23e91b710242ac70c37f1e1cda9274cc39bf2f4"
+  resolved "https://registry.npmjs.org/lodash.throttle/-/lodash.throttle-4.1.1.tgz#c23e91b710242ac70c37f1e1cda9274cc39bf2f4"

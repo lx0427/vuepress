@@ -55,6 +55,13 @@ module.exports = {
             ['markdown/difficulty', '难点'],
           ]
         },
+        {
+          title: '其他',
+          collapsable: false,
+          children: [
+            ['other/interview', 'interview'],
+          ]
+        },
       ],
       '/work/': [
         ['house2.0', 'm端重构'],
