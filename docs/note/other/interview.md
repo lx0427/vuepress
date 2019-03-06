@@ -3,13 +3,13 @@
 ## 问题
 1. 清除浮动
 2. get,post,url长度
-3. 对es6的理解
+3. 对es6的理解，es7 8 9
 4. promise,几个状态
 5. 闭包，堆栈溢出，内存泄漏，怎么会导致内存泄漏？怎么防止？
 6. ajax流程，回调函数
 7. 自执行函数，构造函数
 8. 事件委托，好处？
-9. onload `vs` DOMContentLoaded
+9.  onload `vs` DOMContentLoaded
 10. 节点(nodeType),`12389`
 11. jq多库共存($.onConflict())
 12. 点击穿透(touch)
@@ -18,6 +18,40 @@
      Array.prototype.push.apply(arr1,arr2);
     ```
 14. 左边定宽，右边自适应
+
+## 知识点
+#### 清除浮动
+```scss
+.clearfloat {
+    zoom: 1; // 设置值后，宽高重新计算，渲染
+    &:after { // 撑开父元素的高度
+        content: "";
+        display: block;
+        clear: both;
+        visibility: hidden;
+        height: 0
+    }
+}
+```
+#### promise
+```js
+promise
+// 状态：
+    pending
+    fulfilled
+    rejected
+// 方法：
+    .then()
+    .catch()
+    .all([]) // 多个请求全部完成
+    .race([]) // 封装请求超时
+```
+#### 闭包，堆栈溢出，内存泄漏
+1. 闭包：私有变量
+2. 堆栈溢出：写入数据过多 -- `死循环`,`递归`
+3. 内存泄漏：动态储存分配函数内存空间，常驻 -- `闭包`
+   * 不要动态绑定事件
+   * destroy 
 
 ## 小计
 1. 变量、函数声明
