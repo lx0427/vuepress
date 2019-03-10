@@ -17,6 +17,10 @@ module.exports = {
         link: '/note/tools/'
       },
       {
+        text: 'leetcode',
+        link: '/leetcode/array'
+      },
+      {
         text: '工作',
         link: '/work/home-config'
       }
@@ -60,6 +64,7 @@ module.exports = {
           collapsable: false,
           children: [
             ['other/interview', 'interview'],
+            ['other/answer', 'answer'],
           ]
         },
       ],
