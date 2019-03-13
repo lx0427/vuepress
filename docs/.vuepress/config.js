@@ -9,64 +9,68 @@ module.exports = {
     }]
   ],
   themeConfig: {
-    sidebarDepth: 2,
+    sidebarDepth: 4,
     activeHeaderLinks: true,
     lastUpdated: 'Last Updated',
     nav: [{
-        text: '笔记',
-        link: '/note/tools/'
-      },
-      {
-        text: 'leetcode',
-        link: '/leetcode/array'
-      },
-      {
-        text: '工作',
-        link: '/work/home-config'
-      }
+      text: '笔记',
+      link: '/note/tools/'
+    },
+    {
+      text: 'interview',
+      link: '/interview/pattern'
+    },
+    {
+      text: 'leetcode',
+      link: '/leetcode/'
+    },
+    {
+      text: '工作',
+      link: '/work/home-config'
+    }
     ],
     sidebar: {
       '/note/': [{
-          title: 'vue',
-          collapsable: false,
-          children: [
-            ['vue/v-model', 'v-model'],
-            'vue/vue-router'
-          ]
-        },
-        {
-          title: 'css',
-          collapsable: false,
-          children: [
-            ['css/selector', 'selector']
-          ]
-        },
-        {
-          title: 'tools',
-          collapsable: false, // 是否可以折叠
-          children: [
-            ['tools/git', 'git'],
-            ['tools/', 'vuepress'], // 第一项为link, 第二项为标题
-            ['tools/hexo', 'hexo'],
-            ['tools/webpack', 'webpack'],
-          ]
-        },
-        {
-          title: 'markdown',
-          collapsable: false,
-          children: [
-            ['markdown/', '学习使用'],
-            ['markdown/difficulty', '难点'],
-          ]
-        },
-        {
-          title: '其他',
-          collapsable: false,
-          children: [
-            ['other/interview', 'interview'],
-            ['other/answer', 'answer'],
-          ]
-        },
+        title: 'vue',
+        collapsable: false,
+        children: [
+          ['vue/v-model', 'v-model'],
+          'vue/vue-router'
+        ]
+      },
+      {
+        title: 'css',
+        collapsable: false,
+        children: [
+          ['css/selector', 'selector']
+        ]
+      },
+      {
+        title: 'tools',
+        collapsable: false, // 是否可以折叠
+        children: [
+          ['tools/git', 'git'],
+          ['tools/', 'vuepress'], // 第一项为link, 第二项为标题
+          ['tools/hexo', 'hexo'],
+          ['tools/webpack', 'webpack'],
+        ]
+      },
+      {
+        title: 'markdown',
+        collapsable: false,
+        children: [
+          ['markdown/', '学习使用'],
+          ['markdown/difficulty', '难点'],
+        ]
+      },
+      ],
+      '/interview/': [
+        ['pattern', 'pattern'],
+        ['array', 'array'],
+        ['question', 'question'],
+        ['answer', 'answer'],
+      ],
+      '/leetcode/': [
       ],
       '/work/': [
         ['house2.0', 'm端重构'],
