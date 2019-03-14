@@ -1,5 +1,6 @@
 # interview
 
+1. 1px问题
 ## css
 1. 清除浮动
 2. css盒子模型
