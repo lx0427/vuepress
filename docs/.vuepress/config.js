@@ -35,6 +35,7 @@ module.exports = {
         collapsable: false,
         children: [
           ['vue/v-model', 'v-model'],
+          ['vue/vue-eslint', 'eslint'],
           'vue/vue-router'
         ]
       },
