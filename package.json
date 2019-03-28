@@ -2,14 +2,18 @@
   "name": "vuepress",
   "version": "1.0.0",
   "main": "index.js",
+  "license": "MIT",
   "scripts": {
     "dev": "vuepress dev docs",
     "build": "vuepress build docs"
   },
-  "license": "MIT",
   "devDependencies": {
+    "vuepress": "^0.14.10",
     "@vuepress/plugin-active-header-links": "^1.0.0-alpha.0",
     "@vuepress/plugin-back-to-top": "^1.0.0-alpha.0",
     "@vuepress/plugin-search": "^1.0.0-alpha.0"
+  },
+  "dependencies": {
+    "webpack-dev-middleware": "^3.6.0"
   }
 }
