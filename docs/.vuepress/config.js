@@ -9,28 +9,30 @@ module.exports = {
     }]
   ],
   themeConfig: {
-    sidebarDepth: 4,
+    sidebarDepth: 2,
     activeHeaderLinks: true,
     lastUpdated: 'Last Updated',
     nav: [{
       text: '笔记',
-      link: '/note/tools/'
+      link: '/note/react/'
+    },
+    {
+      text: '工作',
+      link: '/work/hy/'
     },
     {
       text: 'interview',
       link: '/interview/pattern'
-    },
-    {
-      text: 'leetcode',
-      link: '/leetcode/'
-    },
-    {
-      text: '工作',
-      link: '/work/home-config'
     }
     ],
     sidebar: {
       '/note/': [{
+        title: 'react',
+        collapsable: false,
+        children: [
+          ['react/', '开始学习']
+        ]
+      },{
         title: 'vue',
         collapsable: false,
         children: [
@@ -71,15 +73,27 @@ module.exports = {
         ['question', 'question'],
         ['answer', 'answer'],
       ],
-      '/leetcode/': [
-      ],
       '/work/': [
-        ['house2.0', 'm端重构'],
-        ['measurement', '测评文章'],
-        ['home-config', '后台首页配置'],
-        ['welfare-apply', '福利报名'],
-        ['nsop', 'nsop后台'],
-        ['record', '备忘'],
+        {
+          title: '恒逸',
+          collapsable: false,
+          children: [
+            ['hy/', '首页'],
+            ['hy/cangcu', '仓储管理'],
+          ]
+        },
+        {
+          title: '亿房',
+          collapsable: false,
+          children: [
+            ['yf/house2.0', 'm端重构'],
+            ['yf/measurement', '测评文章'],
+            ['yf/home-config', '后台首页配置'],
+            ['yf/welfare-apply', '福利报名'],
+            ['yf/nsop', 'nsop后台'],
+            ['yf/record', '备忘'],
+          ]
+        },
       ],
     },
   },
