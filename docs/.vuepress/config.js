@@ -27,13 +27,19 @@ module.exports = {
     ],
     sidebar: {
       '/note/': [{
-        title: 'react',
+        title: 'JS',
+        collapsable: false,
+        children: [
+          ['js/es6', 'ES6']
+        ]
+      }, {
+        title: 'REACT',
         collapsable: false,
         children: [
           ['react/', '开始学习']
         ]
-      },{
-        title: 'vue',
+      }, {
+        title: 'VUE',
         collapsable: false,
         children: [
           ['vue/v-model', 'v-model'],
@@ -42,14 +48,14 @@ module.exports = {
         ]
       },
       {
-        title: 'css',
+        title: 'CSS',
         collapsable: false,
         children: [
           ['css/selector', 'selector']
         ]
       },
       {
-        title: 'tools',
+        title: 'TOOLS',
         collapsable: false, // 是否可以折叠
         children: [
           ['tools/git', 'git'],
@@ -59,7 +65,7 @@ module.exports = {
         ]
       },
       {
-        title: 'markdown',
+        title: 'MARKDOWN',
         collapsable: false,
         children: [
           ['markdown/', '学习使用'],
@@ -80,6 +86,7 @@ module.exports = {
           children: [
             ['hy/', '首页'],
             ['hy/cangcu', '仓储管理'],
+            ['hy/yuanquwuliu', '园区物流'],
           ]
         },
         {
