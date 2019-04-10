@@ -44,8 +44,8 @@ module.exports = {
         title: 'VUE',
         collapsable: false,
         children: [
+          ['vue/', 'VUE'],
           ['vue/v-model', 'v-model'],
-          ['vue/vue-eslint', 'eslint'],
           'vue/vue-router',
           ['vue/vue-cli', 'Vue Cli'],
         ]
@@ -65,6 +65,7 @@ module.exports = {
           ['tools/', 'vuepress'], // 第一项为link, 第二项为标题
           ['tools/hexo', 'hexo'],
           ['tools/webpack', 'webpack'],
+          ['tools/vscode', 'vscode'],
         ]
       },
       {
