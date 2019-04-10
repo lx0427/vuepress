@@ -36,7 +36,9 @@ module.exports = {
         title: 'REACT',
         collapsable: false,
         children: [
-          ['react/', '开始学习']
+          ['react/', '开始学习'],
+          ['react/antd', 'Ant Design'],
+          ['react/record', '记录'],
         ]
       }, {
         title: 'VUE',
@@ -44,7 +46,8 @@ module.exports = {
         children: [
           ['vue/v-model', 'v-model'],
           ['vue/vue-eslint', 'eslint'],
-          'vue/vue-router'
+          'vue/vue-router',
+          ['vue/vue-cli', 'Vue Cli'],
         ]
       },
       {
