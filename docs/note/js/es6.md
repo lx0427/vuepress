@@ -81,4 +81,23 @@ baz // "aaa"
 
 ### 数值
 * isFinite(),isNaN()
-  * 
+
+
+## 函数
+
+### 尾调用
+:::tip
+函数最后一步是函数调用，`return g(x)`
+:::
+```js
+// 复杂度O(n)
+function factorial(n) {
+  if (n === 1) return 1;
+  return n * factorial(n - 1);
+}
+
+function factorial (n, total = 1) {
+  if (n === 1) return total;
+  return factorial(n - 1, n * total) // 执行 n * 1 * (n - 1) * (n - 2) * ... * 2
+}
+```
