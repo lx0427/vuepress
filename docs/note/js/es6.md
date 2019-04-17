@@ -101,3 +101,27 @@ function factorial (n, total = 1) {
   return factorial(n - 1, n * total) // 执行 n * 1 * (n - 1) * (n - 2) * ... * 2
 }
 ```
+
+## module
+
+### export
+```js
+// `abc.js`
+export {a, b, c}
+
+import {a, b, c} from 'abc.js'
+
+// `api.js`
+export function get(){}
+export function post(){}
+
+import {get, post} from 'api.js'
+
+// `http.js`
+export default {
+  get(){},
+  post(){}
+}
+
+import http from 'http.js'
+```
