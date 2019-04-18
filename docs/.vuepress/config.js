@@ -30,6 +30,7 @@ module.exports = {
         title: 'JS',
         collapsable: false,
         children: [
+          ['js/', 'JS'],
           ['js/es6', 'ES6']
         ]
       }, {
