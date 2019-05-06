@@ -55,6 +55,7 @@ module.exports = {
         title: 'CSS',
         collapsable: false,
         children: [
+          ['css/', 'CSS'],
           ['css/selector', 'selector']
         ]
       },
@@ -62,6 +63,7 @@ module.exports = {
         title: 'TOOLS',
         collapsable: false, // 是否可以折叠
         children: [
+          ['tools/fork', 'fork'],
           ['tools/git', 'git'],
           ['tools/npm', 'npm'],
           ['tools/webpack', 'webpack'],
