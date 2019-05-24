@@ -46,6 +46,7 @@ module.exports = {
         collapsable: false,
         children: [
           ['vue/', 'VUE'],
+          ['vue/new', 'new'],
           ['vue/v-model', 'v-model'],
           'vue/vue-router',
           ['vue/vue-cli', 'Vue Cli'],
