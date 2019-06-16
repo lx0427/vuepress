@@ -17,13 +17,17 @@ module.exports = {
       link: '/note/react/'
     },
     {
-      text: '工作',
-      link: '/work/hy/'
+      text: 'learn',
+      link: '/learn/js/answer'
     },
     {
-      text: 'interview',
-      link: '/interview/pattern'
-    }
+      text: 'blog',
+      link: '/blog/static-engineering'
+    },
+    {
+      text: '备忘',
+      link: '/record/cangcu'
+    },
     ],
     sidebar: {
       '/note/': [{
@@ -82,34 +86,26 @@ module.exports = {
         ]
       },
       ],
-      '/interview/': [
-        ['pattern', 'pattern'],
-        ['array', 'array'],
-        ['question', 'question'],
-        ['answer', 'answer'],
+      '/learn/': [
+        {
+          title: 'JS',
+          collapsable: false,
+          children: [
+            ['js/pattern', 'pattern'],
+            ['js/array', 'array'],
+            ['js/question', 'question'],
+            ['js/answer', 'answer'],
+          ]
+        }
+
       ],
-      '/work/': [
-        {
-          title: '恒逸',
-          collapsable: false,
-          children: [
-            ['hy/', '首页'],
-            ['hy/cangcu', '仓储管理'],
-            ['hy/yuanquwuliu', '园区物流'],
-          ]
-        },
-        {
-          title: '亿房',
-          collapsable: false,
-          children: [
-            ['yf/house2.0', 'm端重构'],
-            ['yf/measurement', '测评文章'],
-            ['yf/home-config', '后台首页配置'],
-            ['yf/welfare-apply', '福利报名'],
-            ['yf/nsop', 'nsop后台'],
-            ['yf/record', '备忘'],
-          ]
-        },
+      '/blog/': [
+        ['static-engineering', '工程化项目（静态页面）'],
+      ],
+      '/record/': [
+        ['cangcu', '仓储管理'],
+        ['yuanquwuliu', '园区物流'],
+        ['fdc-record', '亿房'],
       ],
     },
   },
