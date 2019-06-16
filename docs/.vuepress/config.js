@@ -22,7 +22,7 @@ module.exports = {
     },
     {
       text: 'blog',
-      link: '/blog/static-engineering'
+      link: '/blog/nvm'
     },
     {
       text: '备忘',
@@ -100,6 +100,7 @@ module.exports = {
 
       ],
       '/blog/': [
+        ['nvm', 'nvm'],
         ['static-engineering', '工程化项目（静态页面）'],
       ],
       '/record/': [
