@@ -71,7 +71,6 @@ module.exports = {
           children: [
             ['tools/fork', 'fork'],
             ['tools/git', 'git'],
-            ['tools/npm', 'npm'],
             ['tools/webpack', 'webpack'],
             ['tools/', 'vuepress'], // 第一项为link, 第二项为标题
             ['tools/hexo', 'hexo'],
