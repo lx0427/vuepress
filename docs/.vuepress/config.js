@@ -29,6 +29,10 @@ module.exports = {
         link: '/blog/nvm'
       },
       {
+        text: 'ppt',
+        link: '/ppt/font'
+      },
+      {
         text: '备忘',
         link: '/record/cangcu'
       }
@@ -100,6 +104,7 @@ module.exports = {
         ['vscode', 'vscode'],
         ['static-engineering', '工程化项目（静态页面）']
       ],
+      '/ppt/': [['font', 'font']],
       '/record/': [
         ['cangcu', '仓储管理'],
         ['yuanquwuliu', '园区物流'],
