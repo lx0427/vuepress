@@ -15,7 +15,10 @@ common.less => .uploadImg
 
 ```html
 <!-- 上传组件指定容器id及相关参数 -->
-<div id="xyUploader" mode="nodelete" max="9" multiple="multiple"></div>
+<!-- 单图 -->
+<div id="xyUploader" mode="nodelete"></div>
+<!-- 多图 -->
+<div id="xyUploader" max="9" multiple="multiple"></div>
 
 <!-- 置于<% include ../../_foot.html %>之后 -->
 <% include ../include/_upload.html %>
@@ -26,12 +29,10 @@ common.less => .uploadImg
 
 ### js
 
-| 参数     | 描述           | 补充                     |
-| -------- | -------------- | ------------------------ |
-| wrapId   | 容器 id        | 与上述容器上的标签一致   |
-| imgId    | 图片 id        |                          |
-| multiple | 多图上传       |                          |
-| imgUrl   | 已上传图片回显 | 需要回显图片＜相对路径＞ |
+| 参数   | 描述           | 补充                     |
+| ------ | -------------- | ------------------------ |
+| wrapId | 容器 id        | 与上述容器上的标签一致   |
+| imgUrl | 已上传图片回显 | 需要回显图片＜相对路径＞ |
 
 ```js
 uploadTemplate(wrapId, imgUrl)
