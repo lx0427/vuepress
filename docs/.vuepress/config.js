@@ -42,7 +42,10 @@ module.exports = {
         {
           title: 'JS',
           collapsable: false,
-          children: [['js/', 'JS'], ['js/es6', 'ES6']]
+          children: [
+            ['js/', 'JS'],
+            ['js/es6', 'ES6']
+          ]
         },
         {
           title: 'REACT',
@@ -67,7 +70,10 @@ module.exports = {
         {
           title: 'CSS',
           collapsable: false,
-          children: [['css/', 'CSS'], ['css/selector', 'selector']]
+          children: [
+            ['css/', 'CSS'],
+            ['css/selector', 'selector']
+          ]
         },
         {
           title: 'TOOLS',
@@ -84,7 +90,15 @@ module.exports = {
         {
           title: 'MARKDOWN',
           collapsable: false,
-          children: [['markdown/', '学习使用'], ['markdown/difficulty', '难点']]
+          children: [
+            ['markdown/', '学习使用'],
+            ['markdown/difficulty', '难点']
+          ]
+        },
+        {
+          title: 'WEBPACK',
+          collapsable: false,
+          children: [['markdown/01', '插件配置']]
         }
       ],
       '/learn/': [
