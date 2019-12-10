@@ -72,7 +72,8 @@ module.exports = {
           collapsable: false,
           children: [
             ['css/', 'CSS'],
-            ['css/selector', 'selector']
+            ['css/selector', 'last-child & last-of-type'],
+            ['css/scroll-penetrate', '滚动穿透']
           ]
         },
         {
