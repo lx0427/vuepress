@@ -122,6 +122,7 @@ module.exports = {
       '/ppt/': [['font', 'font']],
       '/record/': [
         ['wsc-components', '微商城前端组件'],
+        ['wsc-record', '微商城问题处理'],
         ['cangcu', '仓储管理'],
         ['yuanquwuliu', '园区物流'],
         ['fdc-record', '亿房']
