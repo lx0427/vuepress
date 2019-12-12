@@ -1,5 +1,7 @@
 # vue+ts 项目搭建
 
+## 项目安装
+
 1. 使用 nvm 安装`node v10.17.0`
 
 ```bash
@@ -45,9 +47,11 @@ vue add typescript
    })
    ```
 
-4. 处理使用 this.\$http 报错问题
+## 问题处理
 
-修改`shims-vue.d.ts`文件
+### `this.$http` 报错
+
+新建`custom-vue.d.ts`文件
 
 ```ts
 // 1. 确保在声明补充的类型之前导入 'vue'
@@ -69,9 +73,9 @@ declare module 'vue/types/vue' {
 }
 ```
 
-5. 处理插件安装导致 emmet 无法展开
+### emmet 异常
 
-_卸载不常用插件_
+1. 不触发
 
 ```json
 {
@@ -83,6 +87,32 @@ _卸载不常用插件_
 }
 ```
 
-6. 引入插件报错问题
+2. 无法展开
+   _卸载不常用插件_
+
+### 引入插件报错问题
 
 > declare module 'vue-ele-form'
+
+`package.d.ts`
+
+```ts
+declare module 'vue-ele-form' {
+  export const install: () => any
+}
+```
+
+### 路由跳转问题
+
+如下：匹配路由为`/content/edit/123`
+_不能匹配`/content/edit`_
+
+```js
+{
+  // 编辑课程
+  path: '/content/edit/:id',
+  name: 'course-edit',
+  component: CourseEdit,
+  props: true // 配置接收参数,开启props接收
+}
+```

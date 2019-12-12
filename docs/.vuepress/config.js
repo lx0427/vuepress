@@ -113,6 +113,7 @@ module.exports = {
           children: [
             ['setup-project', '项目搭建'],
             ['interface', '接口'],
+            ['element', 'element-ui使用'],
             ['vue-ts', '后台管理系统'],
             ['define-template', '自定义vue-ts模板']
           ]
@@ -133,6 +134,7 @@ module.exports = {
       '/blog/': [
         ['nvm', 'nvm'],
         ['vscode', 'vscode'],
+        ['yarn', 'yarn'],
         ['static-engineering', '工程化项目（静态页面）']
       ],
       '/ppt/': [['font', 'font']],
