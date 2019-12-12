@@ -21,6 +21,10 @@ module.exports = {
         link: '/note/react/'
       },
       {
+        text: 'NestJs',
+        link: '/nestjs/interface'
+      },
+      {
         text: 'learn',
         link: '/learn/js/answer'
       },
@@ -100,6 +104,18 @@ module.exports = {
           title: 'WEBPACK',
           collapsable: false,
           children: [['markdown/01', '插件配置']]
+        }
+      ],
+      '/nestjs/': [
+        {
+          title: 'NestJs',
+          collapsable: false,
+          children: [
+            ['setup-project', '项目搭建'],
+            ['interface', '接口'],
+            ['vue-ts', '后台管理系统'],
+            ['define-template', '自定义vue-ts模板']
+          ]
         }
       ],
       '/learn/': [
