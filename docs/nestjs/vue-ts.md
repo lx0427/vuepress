@@ -116,3 +116,23 @@ _不能匹配`/content/edit`_
   props: true // 配置接收参数,开启props接收
 }
 ```
+
+### watch 使用
+
+```ts
+// watch
+@Watch("$route")
+getRoute(to, from) {
+  this.fetchOption();
+  this.fetch();
+  console.log(to, from, '$route')
+}
+```
+
+### avue 上传图片
+
+`main.ts`
+
+```ts
+Vue.prototype.$httpajax = http // 给avue上传图片使用
+```
