@@ -111,6 +111,7 @@ module.exports = {
           title: 'NestJs',
           collapsable: false,
           children: [
+            ['ts', 'typescript'],
             ['setup-project', '项目搭建'],
             ['interface', '接口'],
             ['element', 'element-ui使用'],
