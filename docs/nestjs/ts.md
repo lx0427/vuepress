@@ -141,3 +141,83 @@ interface SquareConfig {
   readonly x: string
 }
 ```
+
+### 函数类型
+
+```ts
+interface SearchFunc {
+  (name: string): boolean
+}
+
+let mySearch: SearchFunc
+mySearch = (name: string) => {
+  return 'zhangsan'.indexOf(name) > -1
+}
+```
+
+### 类类型
+
+```ts
+interface Student {
+  name: string
+}
+
+class Person implements Student {
+  name: string
+  constructor() {}
+}
+```
+
+### 继承接口
+
+```ts
+interface Shape {
+  color: string
+}
+
+interface Square extends Shape {
+  sideLength: number
+}
+
+let square = <Square>{}
+square.color = 'red'
+square.sideLength = 10
+```
+
+### 混合类型
+
+```ts
+interface Counter {
+  (start: number): string
+  interval: number
+  reset(): void
+}
+function getCounter(): Counter {
+  let counter = <Counter>function(start: number) {}
+  counter.interval = 123
+  counter.reset = function() {}
+  return counter
+}
+
+let c = getCounter()
+c(10)
+c.reset()
+c.interval = 5.1
+```
+
+### 接口继承类
+
+```ts
+class Control {
+  private state: any
+}
+interface SelectableControl extends Control {
+  select(): void
+}
+class Button extends Control implements SelectableControl {
+  select() {}
+}
+class TextBox extends Control {
+  select() {}
+}
+```
