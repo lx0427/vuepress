@@ -21,6 +21,10 @@ module.exports = {
         link: '/note/react/'
       },
       {
+        text: 'NestJs',
+        link: '/nestjs/interface'
+      },
+      {
         text: 'learn',
         link: '/learn/js/answer'
       },
@@ -42,7 +46,10 @@ module.exports = {
         {
           title: 'JS',
           collapsable: false,
-          children: [['js/', 'JS'], ['js/es6', 'ES6']]
+          children: [
+            ['js/', 'JS'],
+            ['js/es6', 'ES6']
+          ]
         },
         {
           title: 'REACT',
@@ -67,7 +74,11 @@ module.exports = {
         {
           title: 'CSS',
           collapsable: false,
-          children: [['css/', 'CSS'], ['css/selector', 'selector']]
+          children: [
+            ['css/', 'CSS'],
+            ['css/selector', 'last-child & last-of-type'],
+            ['css/scroll-penetrate', '滚动穿透']
+          ]
         },
         {
           title: 'TOOLS',
@@ -84,7 +95,29 @@ module.exports = {
         {
           title: 'MARKDOWN',
           collapsable: false,
-          children: [['markdown/', '学习使用'], ['markdown/difficulty', '难点']]
+          children: [
+            ['markdown/', '学习使用'],
+            ['markdown/difficulty', '难点']
+          ]
+        },
+        {
+          title: 'WEBPACK',
+          collapsable: false,
+          children: [['markdown/01', '插件配置']]
+        }
+      ],
+      '/nestjs/': [
+        {
+          title: 'NestJs',
+          collapsable: false,
+          children: [
+            ['ts', 'typescript'],
+            ['setup-project', '项目搭建'],
+            ['interface', '接口'],
+            ['element', 'element-ui使用'],
+            ['vue-ts', '后台管理系统'],
+            ['define-template', '自定义vue-ts模板']
+          ]
         }
       ],
       '/learn/': [
@@ -102,11 +135,13 @@ module.exports = {
       '/blog/': [
         ['nvm', 'nvm'],
         ['vscode', 'vscode'],
+        ['yarn', 'yarn'],
         ['static-engineering', '工程化项目（静态页面）']
       ],
       '/ppt/': [['font', 'font']],
       '/record/': [
         ['wsc-components', '微商城前端组件'],
+        ['wsc-record', '微商城问题处理'],
         ['cangcu', '仓储管理'],
         ['yuanquwuliu', '园区物流'],
         ['fdc-record', '亿房']
