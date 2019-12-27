@@ -4,6 +4,15 @@
 
 ### 无法加载文件
 
+1. 使用管理員身份打開 powershell
+
+```bash
+set-ExecutionPolicy RemoteSigned
+# A
+```
+
+2. 設置 vscode 兼容性
+
 - 软件图标 - 属性 - 兼容性
 - 以管理员身份运行此程序 - 应用 - 确定
 

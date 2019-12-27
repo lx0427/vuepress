@@ -1,63 +1,63 @@
-# 后台项目搭建
-
-## 项目启动
-
-```bash
-node -v # 10.17.0
-
-# 切换到接口项目
-cd .\fullstack\server\
-# 安装依赖
-yarn
-# 启动服务端指定模块
-# -w 监听
-nest start -w admin
-```
+# nestJS 服务端
 
 ## 项目搭建步骤
+
+### CLI
 
 ```bash
 node -v # >=10
 
 # 安装nest-cli
 yarn global add @nestjs/cli
+```
 
+### 新建项目
+
+```bash
 # 新建项目(服务端代码在server目录下)
 nest new server
 # yarn
+```
 
+### 新建子项目
+
+```bash
 cd server
 
 # Monorepo模式（单体仓库模式）
 # 新建子项目
 nest g app admin
-
-# main.ts 当前子项目服务配置
-# 打印服务端访问地址
-# console.log('http://localhost:3000');
-
-# 启动子项目
-nest start -w admin
-
-# 共用库(数据库)
-nest g lib db
-# @libs
-# `libs/db/src`
-# `db.module.ts`导出DbModule
-
-# 在admin中引入数据库模块
-# `app.module.ts`中引入DbModule
-
-# 连接数据库
-# nestjs-typegoose在nest中连接数据库
-# @typegoose/typegoose支持ts
-yarn add nestjs-typegoose @typegoose/typegoose
-# nestjs-typegoose依赖mongoose
-# @types/mongoose（ts对mongoose的类型定义与提示）
-yarn add mongoose @types/mongoose
 ```
 
-连接数据库
+### 启动子项目
+
+- `-w`:监听
+- 启动服务端指定项目
+
+```bash
+nest start -w admin
+```
+
+### 新建共用库(数据库)
+
+```bash
+nest g lib db
+# @libs
+```
+
+**在 admin 下`app.module.ts`中引入 DbModule**
+
+### 连接数据库
+
+- `nestjs-typegoose`:在 nest 中连接数据库
+- `@typegoose/typegoose`:支持 ts
+- `mongoose`:nestjs-typegoose 依赖 mongoose
+- `@types/mongoose`:ts 对 mongoose 的类型定义与提示
+
+```bash
+yarn add nestjs-typegoose @typegoose/typegoose mongoose @types/mongoose
+```
+
 `db.module.ts`
 
 ```ts
@@ -74,24 +74,32 @@ import { TypegooseModule } from 'nestjs-typegoose'
 })
 ```
 
-定义用户模型：`libs/db/src/models/user.model.ts`
+## Crud
+
+### 新建模型类
+
+`libs/db/src/models/user.model.ts`
 
 ```ts
-import { prop } from '@typegoose/typegoose'
+import { prop, arrayProp, Ref } from '@typegoose/typegoose'
 
 export class User {
   @prop()
   username: string
   @prop()
   password: string
+  // 数组字段
+  @arrayProp({ itemsRef: 'Episode' })
+  // 泛型：使用Ref<参考类型>[] -- ([]表示值为数组)
+  courses: Ref<Episode>[]
 }
 ```
 
-`db.module.ts`，全局引入导出
+### 数据库中引用模型类
+
+`db.module.ts`
 
 ```ts
-import { Module, Global } from '@nestjs/common'
-import { DbService } from './db.service'
 import { TypegooseModule } from 'nestjs-typegoose'
 import { User } from './models/user.model'
 
@@ -100,37 +108,40 @@ const models = TypegooseModule.forFeature([User])
 @Global() // 将模型标记为全局
 @Module({
   imports: [
-    TypegooseModule.forRoot('mongodb://localhost/topfullstack', {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useCreateIndex: true,
-      useFindAndModify: false
-    }),
     models // 导入模型
   ],
-  providers: [DbService],
-  exports: [DbService, models] // 导出模型
+  exports: [models] // 导出模型
 })
 export class DbModule {}
 ```
 
-新建`User`模块
+### 新建模块与控制器
+
+- `-p <子项目名>`:在 <子项目> 下建立模块
 
 ```bash
-# 在admin下建立users模块
-# -p指定子项目
+# module
 nest g mo -p admin users
-# 创建控制器
+# controller
 nest g co -p admin users
-
-# 安装crud
-yarn add nestjs-mongoose-crud
-# 使用@nestjs/swagger书写文档
-# swagger-ui-express基于express的swagger
-yarn add @nestjs/swagger swagger-ui-express
 ```
 
-书写控制器：`users.controller.ts`
+### nestjs-mongoose-crud
+
+- `nestjs-mongoose-crud`: 封装的 crud 插件
+- `@nestjs/swagger`: 书写文档
+- `swagger-ui-express`: swagger-ui-express 基于 express 的 swagger
+
+```bash
+yarn add nestjs-mongoose-crud @nestjs/swagger swagger-ui-express
+```
+
+### 控制器中完成接口
+
+- `@InjectModel`：注入模型,传入模型类,注册到 model 属性上
+- `private readonly`：属性声明
+
+`users.controller.ts`
 
 ```ts
 import { Controller } from '@nestjs/common'
@@ -143,15 +154,15 @@ import { Crud } from 'nestjs-mongoose-crud'
 })
 @Controller('users')
 export class UsersController {
-  // 1. 使用nestjs-typegoose注入模型,传入模型类,注册到model属性上
-  // 2. private readonly 属性声明
   constructor(@InjectModel(User) private readonly model) {}
 }
 ```
 
-接口文档
+## 接口文档
 
-在引导文件`main.ts`中配置
+### 配置引导文件
+
+`main.ts`
 
 ```ts
   import { NestFactory } from '@nestjs/core'
@@ -176,64 +187,85 @@ export class UsersController {
   bootstrap()
 ```
 
-给每个模块添加一个标签
-
-`users.controller.ts`
-
-```ts
-  import { Controller } from '@nestjs/common'
-  import { InjectModel } from 'nestjs-typegoose'
-  import { User } from '../../../../libs/db/src/models/user.model'
-  import { Crud } from 'nestjs-mongoose-crud'
-+ import { ApiTags } from '@nestjs/swagger'
-
-  @Crud({
-    model: User // 用于创建更新的dto(数据传输对象)
-  })
-  @Controller('users')
-+ @ApiTags('用户')
-  export class UsersController {
-    // 1. 使用nestjs-typegoose注入模型,传入模型类,注册到model属性上
-    // 2. private readonly 属性声明
-    constructor(@InjectModel(User) private readonly model) {}
-  }
-```
+### 配置创建时间+更新时间
 
 `user.model.ts`:
 
-1. 添加创建时间+更新时间
-2. 添加接口描述
-3. 数组类型属性
-
 ```ts
-+ import { prop, modelOptions, arrayProp, Ref  } from '@typegoose/typegoose'
-+ import { ApiProperty } from '@nestjs/swagger'
++ import { modelOptions } from '@typegoose/typegoose'
 
 + @modelOptions({
 +   // 定义schema
 +   schemaOptions: {
-+     // 添加创建时间+更新时间
 +     timestamps: true
 +   }
 + })
+  export class User {}
+```
+
+### 接口描述
+
+`users.controller.ts`
+
+```ts
++ @Crud({
++   routes: {
++     find: {
++       decorators: [ApiOperation({ summary: '用户列表' })],
++     },
++   },
++ })
+  export class UsersController {}
+```
+
+### 属性描述
+
+- `description`：属性描述
+- `user1`：示例值
+
+```ts
++ import { ApiProperty } from '@nestjs/swagger'
   export class User {
-    // 属性描述+示例值设置
 +   @ApiProperty({ description: '用户名', example: 'user1' })
     @prop()
     username: string
-
-+   @ApiProperty({ description: '密码', example: '123456' })
-    @prop()
-    password: string
-
-    // 数组字段
-+   @arrayProp({ itemsRef: 'Episode' })
-    // 泛型：使用Ref<参考类型>[] -- ([]表示值为数组)
-+   episodes: Ref<Episode>[];
   }
 ```
 
+## 验证
+
+### 开启全局管道
+
+`main.ts`
+
 ```ts
++ import { ValidationPipe } from '@nestjs/common'
+  async function bootstrap() {
+   const app = await NestFactory.create(AppModule)
+    // 开启全局验证管道
++   app.useGlobalPipes(new ValidationPipe())
+    await app.listen(3000)
+  }
+  bootstrap()
+```
+
+### 依赖包
+
+```bash
+yarn add class-validator class-transformer
+```
+
+### 模型类中设置验证
+
+```ts
++ import { IsNotEmpty } from 'class-validator'
+
+  export class User {
+    @ApiProperty({ description: '用户名', example: 'username1' })
++   @IsNotEmpty({ message: '请输入标题' })
+    @prop()
+    username: string
+  }
 ```
 
 ```ts

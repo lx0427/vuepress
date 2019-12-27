@@ -15,8 +15,7 @@ module.exports = {
     sidebarDepth: 2,
     activeHeaderLinks: true,
     lastUpdated: 'Last Updated',
-    nav: [
-      {
+    nav: [{
         text: '笔记',
         link: '/note/react/'
       },
@@ -42,8 +41,7 @@ module.exports = {
       }
     ],
     sidebar: {
-      '/note/': [
-        {
+      '/note/': [{
           title: 'JS',
           collapsable: false,
           children: [
@@ -103,42 +101,42 @@ module.exports = {
         {
           title: 'WEBPACK',
           collapsable: false,
-          children: [['markdown/01', '插件配置']]
-        }
-      ],
-      '/nestjs/': [
-        {
-          title: 'NestJs',
-          collapsable: false,
           children: [
-            ['ts', 'typescript'],
-            ['setup-project', '项目搭建'],
-            ['interface', '接口'],
-            ['element', 'element-ui使用'],
-            ['vue-ts', '后台管理系统'],
-            ['define-template', '自定义vue-ts模板']
+            ['markdown/01', '插件配置']
           ]
         }
       ],
-      '/learn/': [
-        {
-          title: 'JS',
-          collapsable: false,
-          children: [
-            ['js/pattern', 'pattern'],
-            ['js/array', 'array'],
-            ['js/question', 'question'],
-            ['js/answer', 'answer']
-          ]
-        }
-      ],
+      '/nestjs/': [{
+        title: 'NestJs',
+        collapsable: false,
+        children: [
+          ['ts', 'typescript'],
+          ['setup-project', 'nestJS服务端'],
+          ['interface', '接口'],
+          ['element', 'element-ui使用'],
+          ['vue-ts', '后台管理系统'],
+          ['define-template', '自定义vue-ts模板']
+        ]
+      }],
+      '/learn/': [{
+        title: 'JS',
+        collapsable: false,
+        children: [
+          ['js/pattern', 'pattern'],
+          ['js/array', 'array'],
+          ['js/question', 'question'],
+          ['js/answer', 'answer']
+        ]
+      }],
       '/blog/': [
         ['nvm', 'nvm'],
         ['vscode', 'vscode'],
         ['yarn', 'yarn'],
         ['static-engineering', '工程化项目（静态页面）']
       ],
-      '/ppt/': [['font', 'font']],
+      '/ppt/': [
+        ['font', 'font']
+      ],
       '/record/': [
         ['wsc-components', '微商城前端组件'],
         ['wsc-record', '微商城问题处理'],
