@@ -268,5 +268,24 @@ yarn add class-validator class-transformer
   }
 ```
 
-```ts
+```bash
+# 新建server
+nest new server
+ad server
+# 新建子项目admin
+nest g app admin
+nest start -w admin
+# hello world
+# 公用数据库
+nest g lib db
+@libs
+# `app.module`中导入DbModule
+# 连接数据库
+yarn add nestjs-typegoose @typegoose/typegoose mongoose @types/mongoose
+# TypegooseModule.forRoot('',{})
+# user.model.ts
+# db.module中引入全局暴露
+nest g mo -p admin users
+nest g co -p admin users
+
 ```
