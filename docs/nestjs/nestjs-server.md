@@ -126,7 +126,7 @@ nest g mo -p admin users
 nest g co -p admin users
 ```
 
-### nestjs-mongoose-crud
+### 依赖包
 
 - `nestjs-mongoose-crud`: 封装的 crud 插件
 - `@nestjs/swagger`: 书写文档
@@ -337,3 +337,15 @@ export class CommonModule {}
 ```
 
 `main.ts`中引入 ConfigModule(包含 DbModule)，删掉 DbModule
+
+## 其他问题
+
+### 接口跨域
+
+```ts
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule)
+  app.enableCors() // 允许跨域
+  await app.listen(3000)
+}
+```
