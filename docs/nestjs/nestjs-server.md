@@ -289,3 +289,51 @@ nest g mo -p admin users
 nest g co -p admin users
 
 ```
+
+## 环境变量
+
+### 依赖包
+
+```
+yarn add @nestjs/config
+```
+
+### 配置.env 文件
+
+`.env`
+
+```
+DB=mongodb://localhost/fullstak
+SERVER_PORT=3008
+ADMIN_PORT=3009
+```
+
+### 通用模块
+
+```
+nest g lib common
+```
+
+`common.module.ts`
+
+```ts
+import { Module } from '@nestjs/common'
+import { CommonService } from './common.service'
+import { ConfigModule } from '@nestjs/config'
+import { DbModule } from '../../db/src/db.module'
+
+@Module({
+  imports: [
+    // 环境变量异步加载
+    ConfigModule.forRoot({
+      isGlobal: true // 表示ConfigModule在任意地方都可以使用
+    }),
+    DbModule
+  ],
+  providers: [CommonService],
+  exports: [CommonService]
+})
+export class CommonModule {}
+```
+
+`main.ts`中引入 ConfigModule(包含 DbModule)，删掉 DbModule
