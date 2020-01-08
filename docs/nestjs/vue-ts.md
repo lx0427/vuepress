@@ -173,6 +173,43 @@ VUE_APP_API_URL=http://localhost:3009
 VUE_APP_API_URL=http://localhost:3002
 ```
 
+## 组件
+
+### v-model
+
+`父组件`
+
+```html
+<template>
+  <upload-file
+    v-if="item.upload"
+    :key="i"
+    :url.sync="form[item.prop]"
+  ></upload-file>
+</template>
+<script lang="ts">
+  import { Vue, Component, Prop } from "vue-property-decorator";
+  import UploadFile from "./UploadFile.vue";
+  @Component({
+    components: {
+      UploadFile
+    }
+  })
+</script>
+```
+
+`子组件`
+
+```html
+<script lang="ts">
+  import { Vue, Component, PropSync } from 'vue-property-decorator'
+  @Component({})
+  export default class UploadFile extends Vue {
+    @PropSync('url', { type: String }) imgUrl!: string
+  }
+</script>
+```
+
 ## 问题处理
 
 ### any 类型报错
