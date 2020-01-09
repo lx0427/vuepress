@@ -113,6 +113,7 @@ module.exports = {
           children: [
             ['nestjs-server', 'NestJS服务端'],
             ['vue-ts', '后台管理系统'],
+            ['nuxt-vuetify', 'nuxt+vuetify'],
             ['typescript-grammar', 'TypeScript'],
             ['interface', '接口'],
             ['element-ui', 'Element-UI使用'],
@@ -158,5 +159,8 @@ module.exports = {
         searchMaxSuggestions: 10
       }
     ]
-  ]
+  ],
+  markdown: {
+    lineNumbers: true
+  }
 }

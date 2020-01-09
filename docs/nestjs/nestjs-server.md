@@ -60,7 +60,7 @@ yarn add nestjs-typegoose @typegoose/typegoose mongoose @types/mongoose
 
 `db.module.ts`
 
-```ts
+```ts {3-10}
 import { TypegooseModule } from 'nestjs-typegoose'
 @Module({
   imports:[
@@ -74,13 +74,47 @@ import { TypegooseModule } from 'nestjs-typegoose'
 })
 ```
 
+### 通用模块
+
+```
+nest g lib common
+```
+
+`common.module.ts`
+
+> 通用模块中引入数据库模块
+
+```ts {4,12}
+import { Module } from '@nestjs/common'
+import { CommonService } from './common.service'
+import { ConfigModule } from '@nestjs/config'
+import { DbModule } from '../../db/src/db.module'
+
+@Module({
+  imports: [
+    // 环境变量异步加载
+    ConfigModule.forRoot({
+      isGlobal: true // 表示ConfigModule在任意地方都可以使用
+    }),
+    DbModule
+  ],
+  providers: [CommonService],
+  exports: [CommonService]
+})
+export class CommonModule {}
+```
+
+### 子项目中引入通用模块
+
+`main.ts`中引入 ConfigModule(包含 DbModule)，删掉 DbModule
+
 ## Crud
 
 ### 新建模型类
 
 `libs/db/src/models/user.model.ts`
 
-```ts
+```ts {8-11}
 import { prop, arrayProp, Ref } from '@typegoose/typegoose'
 
 export class User {
@@ -99,7 +133,7 @@ export class User {
 
 `db.module.ts`
 
-```ts
+```ts {4,6,9,11}
 import { TypegooseModule } from 'nestjs-typegoose'
 import { User } from './models/user.model'
 
@@ -158,64 +192,100 @@ export class UsersController {
 }
 ```
 
+### 虚拟字段
+
+#### 定义
+
+```ts {11-17}
+import { prop, modelOptions, arrayProp, Ref } from '@typegoose/typegoose'
+import { Episode } from './episode.model'
+
+@modelOptions({
+  schemaOptions: {
+    timestamps: true,
+    toJSON: { virtuals: true } // 开启获取虚拟字段
+  }
+})
+export class Course {
+  // 定义虚拟字段
+  @arrayProp({
+    ref: 'Episode', // 参考模型
+    localField: '_id', // 本地键，course._id关联了episode
+    foreignField: 'course' // 外键，对应episode.course
+  })
+  episodes: Ref<Episode>[] // 参考Episode的数组
+}
+```
+
+#### 查询
+
+```ts
+const course = await axios.get(`courses/${id}`, {
+  params: {
+    query: {
+      populate: 'episodes'
+    }
+  }
+})
+```
+
 ## 接口文档
 
 ### 配置引导文件
 
 `main.ts`
 
-```ts
-  import { NestFactory } from '@nestjs/core'
-  import { AppModule } from './app.module'
-+ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger'
+```ts {3,8-15}
+import { NestFactory } from '@nestjs/core'
+import { AppModule } from './app.module'
+import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger'
 
-  async function bootstrap() {
-    const app = await NestFactory.create(AppModule)
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule)
 
-+   const options = new DocumentBuilder()
-+     .setTitle('全栈之巅后台管理API')
-+     .setDescription('供后台管理界面调用的服务端API')
-+     .setVersion('1.0')
-+     .addTag('admin')
-+     .build()
-+   const document = SwaggerModule.createDocument(app, options)
-+   SwaggerModule.setup('api-docs', app, document)
+  const options = new DocumentBuilder()
+    .setTitle('全栈之巅后台管理API')
+    .setDescription('供后台管理界面调用的服务端API')
+    .setVersion('1.0')
+    .addTag('admin')
+    .build()
+  const document = SwaggerModule.createDocument(app, options)
+  SwaggerModule.setup('api-docs', app, document)
 
-    await app.listen(3000)
-    console.log('http://localhost:3000/api-docs')
-  }
-  bootstrap()
+  await app.listen(3000)
+  console.log('http://localhost:3000/api-docs')
+}
+bootstrap()
 ```
 
 ### 配置创建时间+更新时间
 
 `user.model.ts`:
 
-```ts
-+ import { modelOptions } from '@typegoose/typegoose'
-
-+ @modelOptions({
-+   // 定义schema
-+   schemaOptions: {
-+     timestamps: true
-+   }
-+ })
-  export class User {}
+```ts {2-7}
+import { modelOptions } from '@typegoose/typegoose'
+@modelOptions({
+  // 定义schema
+  schemaOptions: {
+    timestamps: true
+  }
+})
+export class User {}
 ```
 
 ### 接口描述
 
 `users.controller.ts`
 
-```ts
-+ @Crud({
-+   routes: {
-+     find: {
-+       decorators: [ApiOperation({ summary: '用户列表' })],
-+     },
-+   },
-+ })
-  export class UsersController {}
+```ts {2-6}
+@Crud({
+  routes: {
+    find: {
+      decorators: [ApiOperation({ summary: '用户列表' })]
+    }
+  }
+})
+export class UsersController {}
 ```
 
 ### 属性描述
@@ -223,13 +293,13 @@ export class UsersController {
 - `description`：属性描述
 - `user1`：示例值
 
-```ts
-+ import { ApiProperty } from '@nestjs/swagger'
-  export class User {
-+   @ApiProperty({ description: '用户名', example: 'user1' })
-    @prop()
-    username: string
-  }
+```ts {1,3}
+import { ApiProperty } from '@nestjs/swagger'
+export class User {
+  @ApiProperty({ description: '用户名', example: 'user1' })
+  @prop()
+  username: string
+}
 ```
 
 ## 验证
@@ -238,15 +308,15 @@ export class UsersController {
 
 `main.ts`
 
-```ts
-+ import { ValidationPipe } from '@nestjs/common'
-  async function bootstrap() {
-   const app = await NestFactory.create(AppModule)
-    // 开启全局验证管道
-+   app.useGlobalPipes(new ValidationPipe())
-    await app.listen(3000)
-  }
-  bootstrap()
+```ts {1,5}
+import { ValidationPipe } from '@nestjs/common'
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule)
+  // 开启全局验证管道
+  app.useGlobalPipes(new ValidationPipe())
+  await app.listen(3000)
+}
+bootstrap()
 ```
 
 ### 依赖包
@@ -257,15 +327,15 @@ yarn add class-validator class-transformer
 
 ### 模型类中设置验证
 
-```ts
-+ import { IsNotEmpty } from 'class-validator'
+```ts {1,5}
+import { IsNotEmpty } from 'class-validator'
 
-  export class User {
-    @ApiProperty({ description: '用户名', example: 'username1' })
-+   @IsNotEmpty({ message: '请输入标题' })
-    @prop()
-    username: string
-  }
+export class User {
+  @ApiProperty({ description: '用户名', example: 'username1' })
+  @IsNotEmpty({ message: '请输入标题' })
+  @prop()
+  username: string
+}
 ```
 
 ```bash
@@ -307,36 +377,6 @@ DB=mongodb://localhost/fullstak
 SERVER_PORT=3008
 ADMIN_PORT=3009
 ```
-
-### 通用模块
-
-```
-nest g lib common
-```
-
-`common.module.ts`
-
-```ts
-import { Module } from '@nestjs/common'
-import { CommonService } from './common.service'
-import { ConfigModule } from '@nestjs/config'
-import { DbModule } from '../../db/src/db.module'
-
-@Module({
-  imports: [
-    // 环境变量异步加载
-    ConfigModule.forRoot({
-      isGlobal: true // 表示ConfigModule在任意地方都可以使用
-    }),
-    DbModule
-  ],
-  providers: [CommonService],
-  exports: [CommonService]
-})
-export class CommonModule {}
-```
-
-`main.ts`中引入 ConfigModule(包含 DbModule)，删掉 DbModule
 
 ## 其他问题
 
