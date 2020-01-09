@@ -103,7 +103,7 @@ module.exports = {
         {
           title: 'WEBPACK',
           collapsable: false,
-          children: [['markdown/01', '插件配置']]
+          children: [['webpack/01', '插件配置']]
         }
       ],
       '/nestjs/': [
