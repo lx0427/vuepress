@@ -2,6 +2,39 @@
 
 ## 问题处理
 
+### `.js`文件保存格式化
+
+> 配合 prettier 插件
+
+`.prettierrc`
+
+```json
+{
+  "semi": true, // 在代码尾部添加分号
+  "singleQuote": true, // 把双引号换成单引号
+  "trailingComma": "es5" // 在代码尾部添加逗号
+}
+```
+
+### 自动保存修复报错
+
+1. 下载 eslint,vetur
+2. `package.json`下载 eslint 依赖
+3. `.eslintrc.js`设置
+4. `setting.json`, 如下配置：
+
+```json
+"editor.formatOnSave"：false,
+"eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    {
+        "language": "vue",
+        "autoFix": true
+    }
+]
+```
+
 ### 无法加载文件
 
 1. 使用管理員身份打開 powershell
@@ -20,7 +53,21 @@ set-ExecutionPolicy RemoteSigned
 tsc : 无法加载文件 c:\dev\nvm\npm\tsc.ps1，因为在此系统上禁止运行脚本。
 ```
 
-## `setting.json`
+## 设置
+
+### 设置中(自动保存添加分号)
+
+```json
+"vetur.format.defaultFormatter.js": "vscode-typescript"
+```
+
+### 函数前空格问题
+
+```json
+"javascript.format.insertSpaceBeforeFunctionParenthesis": true
+```
+
+### 完整`setting.json`配置
 
 ```json
 {

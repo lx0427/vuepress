@@ -96,8 +96,7 @@ module.exports = {
             ['tools/git', 'git'],
             ['tools/webpack', 'webpack'],
             ['tools/', 'vuepress'], // 第一项为link, 第二项为标题
-            ['tools/hexo', 'hexo'],
-            ['tools/vscode', 'vscode']
+            ['tools/hexo', 'hexo']
           ]
         },
         {
