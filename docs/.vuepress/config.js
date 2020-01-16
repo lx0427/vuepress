@@ -21,24 +21,28 @@ module.exports = {
         link: '/note/react/'
       },
       {
+        text: '算法学习',
+        link: '/alg/'
+      },
+      {
         text: 'NestJs',
         link: '/nestjs/interface'
       },
       {
-        text: 'learn',
-        link: '/learn/js/answer'
+        text: 'tool',
+        link: '/tool/nvm'
       },
       {
-        text: 'blog',
-        link: '/blog/nvm'
-      },
-      {
-        text: 'ppt',
-        link: '/ppt/font'
+        text: '微商城',
+        link: '/wsc/components'
       },
       {
         text: '备忘',
         link: '/record/cangcu'
+      },
+      {
+        text: 'other',
+        link: '/other/'
       }
     ],
     sidebar: {
@@ -48,7 +52,11 @@ module.exports = {
           collapsable: false,
           children: [
             ['js/', 'JS'],
-            ['js/es6', 'ES6']
+            ['js/es6', 'ES6'],
+            ['js/pattern', 'pattern'],
+            ['js/array', 'array'],
+            ['js/question', 'question'],
+            ['js/answer', 'answer']
           ]
         },
         {
@@ -106,6 +114,7 @@ module.exports = {
           children: [['webpack/01', '插件配置']]
         }
       ],
+      '/alg/': [['', '算法学习']],
       '/nestjs/': [
         {
           title: 'NestJs',
@@ -121,31 +130,25 @@ module.exports = {
           ]
         }
       ],
-      '/learn/': [
-        {
-          title: 'JS',
-          collapsable: false,
-          children: [
-            ['js/pattern', 'pattern'],
-            ['js/array', 'array'],
-            ['js/question', 'question'],
-            ['js/answer', 'answer']
-          ]
-        }
-      ],
-      '/blog/': [
+      '/tool/': [
         ['nvm', 'nvm'],
         ['vscode', 'vscode'],
-        ['yarn', 'yarn'],
-        ['static-engineering', '工程化项目（静态页面）']
+        ['yarn', 'yarn']
       ],
-      '/ppt/': [['font', 'font']],
+      '/wsc/': [
+        ['components', '前端组件'],
+        ['', '预设规则']
+      ],
       '/record/': [
-        ['wsc-components', '微商城前端组件'],
-        ['wsc-record', '微商城问题处理'],
         ['cangcu', '仓储管理'],
         ['yuanquwuliu', '园区物流'],
         ['fdc-record', '亿房']
+      ],
+      '/other/': [
+        ['', 'other'],
+        ['browser', '浏览器'],
+        ['ppt-font', 'ppt字体'],
+        ['static-engineering', '工程化项目（静态页面）']
       ]
     }
   },
