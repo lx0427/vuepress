@@ -15,7 +15,7 @@ nvm install v10.17.0
 2. 全局安装`@vue/cli`
 
 ```bash
-npm i -g @nestjs/cli
+npm i -g @vue/cli
 ```
 
 ### 新建项目
