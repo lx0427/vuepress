@@ -1,11 +1,7 @@
 # Vue Cli
 
-## 配置
-```js
-
-```
-
 ## 使用
+
 ```
 // 全局安装
 yarn global add @vue/cli
@@ -21,35 +17,33 @@ vue inspect > output.js // 将配置文件导出
 ```
 
 ### .eslintrc.js
+
 ::: tip
-处理eslint报错
+处理 eslint 报错
 :::
+
 ```js
 module.exports = {
-    root: true,
-    parserOptions: {
-      parser: 'babel-eslint'
-    },
-    env: {
-      browser: true,
-    },
-    extends: [
-      'plugin:vue/essential', 
-      'standard'
-    ],
-    plugins: [
-      'vue'
-    ],
-    rules: {
-      'generator-star-spacing': 'off',
-      'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-      'vue/no-parsing-error': 'off',
-      'prefer-promise-reject-errors': 'off'
-    }
+  root: true,
+  parserOptions: {
+    parser: 'babel-eslint',
+  },
+  env: {
+    browser: true,
+  },
+  extends: ['plugin:vue/essential', 'standard'],
+  plugins: ['vue'],
+  rules: {
+    'generator-star-spacing': 'off',
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'vue/no-parsing-error': 'off',
+    'prefer-promise-reject-errors': 'off',
+  },
 }
 ```
 
 ### vue.config.js
+
 ```js
 {
     // <%= BASE_URL %>  => publicPath === BASE_URL
@@ -68,6 +62,7 @@ module.exports = {
 ```
 
 ### pages
+
 ```js
 {
     index: { // 指定页面
@@ -80,6 +75,7 @@ module.exports = {
 ```
 
 ### css.loaderOptions
+
 ```js
 {
     sass: {
@@ -90,12 +86,12 @@ module.exports = {
     'postcss': {
         plugins: [
             require('postcss-px-to-viewport')({
-                viewportWidth: 750, 
+                viewportWidth: 750,
                 unitPrecision: 3,
-                viewportUnit: 'vw', 
+                viewportUnit: 'vw',
                 selectorBlackList: ['.ignore', '.hairlines', '.mobileSelect'],
                 minPixelValue: 1,
-                mediaQuery: false 
+                mediaQuery: false
             })
         ]
     }

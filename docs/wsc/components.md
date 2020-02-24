@@ -1,11 +1,13 @@
+# 组件文档
+
 ## 上传图片
 
-:::tip
+:::tip 组件文件
 \_upload.html <br/>
 common.less => .uploadImg
 :::
 
-### html
+### 属性
 
 | 属性     | 描述         | 补充                                                   |
 | -------- | ------------ | ------------------------------------------------------ |
@@ -13,30 +15,27 @@ common.less => .uploadImg
 | max      | 张数上限     | 默认值：1                                              |
 | multiple | 多图上传     |                                                        |
 
+### 引用
+
 ```html
-<!-- 上传组件指定容器id及相关参数 -->
-<!-- 单图 -->
-<div id="xyUploader" mode="nodelete"></div>
-<!-- 多图 -->
 <div id="xyUploader" max="9" multiple="multiple"></div>
 
 <!-- 置于<% include ../../_foot.html %>之后 -->
 <% include ../include/_upload.html %>
-
-<!-- 若使用图片预览，需添加 -->
-<script src="../../lib/swiper.min.js"></script>
 ```
 
-### js
-
-| 参数   | 描述           | 补充                     |
-| ------ | -------------- | ------------------------ |
-| wrapId | 容器 id        | 与上述容器上的标签一致   |
-| imgUrl | 已上传图片回显 | 需要回显图片＜相对路径＞ |
-
 ```js
+// wrapId：容器 id
+// imgUrl：需要回显图片＜相对路径＞
 uploadTemplate(wrapId, imgUrl)
 
 // 获取上传图片路径
 $('#wrapId').attr('url')
+```
+
+### 图片预览
+
+```html
+<!-- 若使用图片预览，需添加 -->
+<script src="../../lib/swiper.min.js"></script>
 ```

@@ -29,20 +29,24 @@ module.exports = {
         link: '/nestjs/interface',
       },
       {
-        text: 'learn',
-        link: '/learn/js/answer',
+        text: '算法学习',
+        link: '/alg/',
       },
       {
-        text: 'blog',
-        link: '/blog/nvm',
+        text: 'tool',
+        link: '/tool/nvm',
       },
       {
-        text: 'ppt',
-        link: '/ppt/font',
+        text: '微商城',
+        link: '/wsc/components',
       },
       {
         text: '备忘',
         link: '/record/cangcu',
+      },
+      {
+        text: 'other',
+        link: '/other/browser',
       },
     ],
     sidebar: {
@@ -53,6 +57,10 @@ module.exports = {
           children: [
             ['js/', 'JS'],
             ['js/es6', 'ES6'],
+            ['js/pattern', 'pattern'],
+            ['js/array', 'array'],
+            ['js/question', 'question'],
+            ['js/answer', 'answer'],
           ],
         },
         {
@@ -68,10 +76,7 @@ module.exports = {
           title: 'VUE',
           collapsable: false,
           children: [
-            ['vue/', 'VUE'],
-            ['vue/new', 'new'],
             ['vue/v-model', 'v-model'],
-            'vue/vue-router',
             ['vue/vue-cli', 'Vue Cli'],
           ],
         },
@@ -103,11 +108,6 @@ module.exports = {
             ['markdown/difficulty', '难点'],
           ],
         },
-        {
-          title: 'WEBPACK',
-          collapsable: false,
-          children: [['webpack/01', '插件配置']],
-        },
       ],
       '/express/': [
         {
@@ -121,6 +121,7 @@ module.exports = {
           ],
         },
       ],
+      '/alg/': [['', '算法学习']],
       '/nestjs/': [
         {
           title: 'NestJs',
@@ -136,31 +137,30 @@ module.exports = {
           ],
         },
       ],
-      '/learn/': [
-        {
-          title: 'JS',
-          collapsable: false,
-          children: [
-            ['js/pattern', 'pattern'],
-            ['js/array', 'array'],
-            ['js/question', 'question'],
-            ['js/answer', 'answer'],
-          ],
-        },
-      ],
       '/blog/': [
         ['nvm', 'nvm'],
         ['vscode', 'vscode'],
         ['yarn', 'yarn'],
         ['static-engineering', '工程化项目（静态页面）'],
       ],
-      '/ppt/': [['font', 'font']],
+      '/tool/': [
+        ['nvm', 'nvm'],
+        ['vscode', 'vscode'],
+        ['yarn', 'yarn'],
+      ],
+      '/wsc/': [
+        ['components', '前端组件'],
+        ['', '预设规则'],
+      ],
       '/record/': [
-        ['wsc-components', '微商城前端组件'],
-        ['wsc-record', '微商城问题处理'],
         ['cangcu', '仓储管理'],
         ['yuanquwuliu', '园区物流'],
         ['fdc-record', '亿房'],
+      ],
+      '/other/': [
+        ['browser', '浏览器'],
+        ['ppt-font', 'ppt字体'],
+        ['static-engineering', '工程化项目（静态页面）'],
       ],
     },
   },

@@ -35,9 +35,6 @@
 
       nvm ls 
       # * 8.16.0
-
-      # 安装node-gyp
-      npm i node-gyp -g
       ```
 
 ## npm
@@ -58,6 +55,9 @@ npm rebuild node-sass # 重装npm包
 ### 问题
 1. Error: Can't find Python executable "python", you can set the PYTHON env variable.
     ```bash
+    # 安装node-gyp
+    npm i node-gyp -g
+    
     npm install --global --production windows-build-tools
 
     # 临时设置环境变量

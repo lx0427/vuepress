@@ -1,5 +1,7 @@
 # [vue-router](https://router.vuejs.org/zh/installation.html)
 
+## 基本使用
+
 ```js
 import Vue from 'vue'
 import VueRouter from 'vue-router'
@@ -45,4 +47,34 @@ router.beforeEach((to, from, next) => {
 })
 
 export default router
+```
+
+## 路由切块
+
+不切块
+
+```js
+import welfareDetail from './welfare-detail.vue'
+
+export default [
+  {
+    path: '/welfareDetail',
+    name: 'welfareDetail',
+    component: welfareDetail,
+    children: [],
+  },
+]
+```
+
+切块
+
+```js
+export default [
+  {
+    path: '/welfareDetail',
+    name: 'welfareDetail',
+    component: () => import('./welfare-detail.vue'),
+    children: [],
+  },
+]
 ```
