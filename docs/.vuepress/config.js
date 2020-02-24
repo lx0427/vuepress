@@ -7,9 +7,9 @@ module.exports = {
       'link',
       {
         rel: 'icon',
-        href: '/favicon.ico'
-      }
-    ]
+        href: '/favicon.ico',
+      },
+    ],
   ],
   themeConfig: {
     sidebarDepth: 2,
@@ -18,28 +18,32 @@ module.exports = {
     nav: [
       {
         text: '笔记',
-        link: '/note/react/'
+        link: '/note/react/',
+      },
+      {
+        text: 'Express',
+        link: '/express/',
       },
       {
         text: 'NestJs',
-        link: '/nestjs/interface'
+        link: '/nestjs/interface',
       },
       {
         text: 'learn',
-        link: '/learn/js/answer'
+        link: '/learn/js/answer',
       },
       {
         text: 'blog',
-        link: '/blog/nvm'
+        link: '/blog/nvm',
       },
       {
         text: 'ppt',
-        link: '/ppt/font'
+        link: '/ppt/font',
       },
       {
         text: '备忘',
-        link: '/record/cangcu'
-      }
+        link: '/record/cangcu',
+      },
     ],
     sidebar: {
       '/note/': [
@@ -48,8 +52,8 @@ module.exports = {
           collapsable: false,
           children: [
             ['js/', 'JS'],
-            ['js/es6', 'ES6']
-          ]
+            ['js/es6', 'ES6'],
+          ],
         },
         {
           title: 'REACT',
@@ -57,8 +61,8 @@ module.exports = {
           children: [
             ['react/', '开始学习'],
             ['react/antd', 'Ant Design'],
-            ['react/record', '记录']
-          ]
+            ['react/record', '记录'],
+          ],
         },
         {
           title: 'VUE',
@@ -68,8 +72,8 @@ module.exports = {
             ['vue/new', 'new'],
             ['vue/v-model', 'v-model'],
             'vue/vue-router',
-            ['vue/vue-cli', 'Vue Cli']
-          ]
+            ['vue/vue-cli', 'Vue Cli'],
+          ],
         },
         {
           title: 'CSS',
@@ -77,8 +81,8 @@ module.exports = {
           children: [
             ['css/', 'CSS'],
             ['css/selector', 'last-child & last-of-type'],
-            ['css/scroll-penetrate', '滚动穿透']
-          ]
+            ['css/scroll-penetrate', '滚动穿透'],
+          ],
         },
         {
           title: 'TOOLS',
@@ -88,22 +92,34 @@ module.exports = {
             ['tools/git', 'git'],
             ['tools/webpack', 'webpack'],
             ['tools/', 'vuepress'], // 第一项为link, 第二项为标题
-            ['tools/hexo', 'hexo']
-          ]
+            ['tools/hexo', 'hexo'],
+          ],
         },
         {
           title: 'MARKDOWN',
           collapsable: false,
           children: [
             ['markdown/', '学习使用'],
-            ['markdown/difficulty', '难点']
-          ]
+            ['markdown/difficulty', '难点'],
+          ],
         },
         {
           title: 'WEBPACK',
           collapsable: false,
-          children: [['webpack/01', '插件配置']]
-        }
+          children: [['webpack/01', '插件配置']],
+        },
+      ],
+      '/express/': [
+        {
+          title: 'NestJs',
+          collapsable: false,
+          children: [
+            ['', 'express'],
+            ['axios', 'axios'],
+            ['router', 'router'],
+            ['mixins', 'mixins'],
+          ],
+        },
       ],
       '/nestjs/': [
         {
@@ -115,10 +131,10 @@ module.exports = {
             ['nuxt-vuetify', 'nuxt+vuetify'],
             ['typescript-grammar', 'TypeScript'],
             ['interface', '接口'],
-            ['element-ui', 'Element-UI使用'],
-            ['define-template', '自定义Vue-TS模板']
-          ]
-        }
+            ['typescript-vue', 'vue3.0使用'],
+            ['define-template', '自定义Vue-TS模板'],
+          ],
+        },
       ],
       '/learn/': [
         {
@@ -128,15 +144,15 @@ module.exports = {
             ['js/pattern', 'pattern'],
             ['js/array', 'array'],
             ['js/question', 'question'],
-            ['js/answer', 'answer']
-          ]
-        }
+            ['js/answer', 'answer'],
+          ],
+        },
       ],
       '/blog/': [
         ['nvm', 'nvm'],
         ['vscode', 'vscode'],
         ['yarn', 'yarn'],
-        ['static-engineering', '工程化项目（静态页面）']
+        ['static-engineering', '工程化项目（静态页面）'],
       ],
       '/ppt/': [['font', 'font']],
       '/record/': [
@@ -144,9 +160,9 @@ module.exports = {
         ['wsc-record', '微商城问题处理'],
         ['cangcu', '仓储管理'],
         ['yuanquwuliu', '园区物流'],
-        ['fdc-record', '亿房']
-      ]
-    }
+        ['fdc-record', '亿房'],
+      ],
+    },
   },
   plugins: [
     '@vuepress/back-to-top',
@@ -155,11 +171,11 @@ module.exports = {
       '@vuepress/search',
       {
         // 搜索插件，不能搜索代码块内容
-        searchMaxSuggestions: 10
-      }
-    ]
+        searchMaxSuggestions: 10,
+      },
+    ],
   ],
   markdown: {
-    lineNumbers: true
-  }
+    lineNumbers: true,
+  },
 }
