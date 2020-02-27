@@ -38,7 +38,7 @@ module.exports = {
       },
       {
         text: '微商城',
-        link: '/wsc/components',
+        link: '/wsc/issue',
       },
       {
         text: '备忘',
@@ -149,6 +149,7 @@ module.exports = {
         ['yarn', 'yarn'],
       ],
       '/wsc/': [
+        ['issue', '常见问题'],
         ['components', '前端组件'],
         ['', '预设规则'],
       ],
