@@ -115,9 +115,12 @@ module.exports = {
           collapsable: false,
           children: [
             ['', 'express'],
+            ['mongoDB', 'mongoDB'],
+            ['mongoose', 'mongoose'],
             ['axios', 'axios'],
             ['router', 'router'],
             ['mixins', 'mixins'],
+            ['create', 'create project'],
           ],
         },
       ],
@@ -147,6 +150,7 @@ module.exports = {
         ['nvm', 'nvm'],
         ['vscode', 'vscode'],
         ['yarn', 'yarn'],
+        ['code-manager', '代码管理'],
       ],
       '/wsc/': [
         ['issue', '常见问题'],

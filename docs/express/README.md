@@ -1,17 +1,14 @@
 # express
 
-## 常用插件
+## 常用 API
 
-| 插件名              | 用途                         |
-| :------------------ | :--------------------------- |
-| [cors][1]           | 跨域请求                     |
-| [express.json][2]   | 解析带有 JSON 负载的传入请求 |
-| [http-assert][4]    | 接口报错提示                 |
-| [multer][5]         | 上传图片                     |
-| [express.static][3] | 静态文件托管,                |
-| [bcrypt][6]         | 数据散列比较                 |
-| [jsonwebtoken][7]   | token 生成解析               |
-| [inflection][8]     | 数据大小写驼峰转换           |
+| API               | 用法                                       | 用途          |
+| :---------------- | :----------------------------------------- | :------------ |
+| create            | create(req.body)                           | 创建          |
+| find              | find(queryOptions)                         | 查找列表      |
+| findById          | findById(req.params.id, req.body)          | id 查找       |
+| findByIdAndUpdate | findByIdAndUpdate(req.params.id, req.body) | id 查找并更新 |
+| findByIdAndDelete | findByIdAndDelete(req.params.id, req.body) | id 查找并删除 |
 
 ## 入口文件
 
@@ -251,12 +248,3 @@ module.exports = options => {
   }
 }
 ```
-
-[1]: https://www.npmjs.com/package/cors
-[2]: http://www.expressjs.com.cn/4x/api.html
-[3]: http://www.expressjs.com.cn/4x/api.html#express.static
-[4]: https://www.npmjs.com/package/http-assert
-[5]: https://www.npmjs.com/package/multer
-[6]: https://www.npmjs.com/package/bcrypt
-[7]: https://www.npmjs.com/package/jsonwebtoken
-[8]: https://www.npmjs.com/package/inflection
