@@ -153,6 +153,7 @@ module.exports = {
         ['code-manager', '代码管理'],
       ],
       '/wsc/': [
+        ['pwd', '开发常用'],
         ['issue', '常见问题'],
         ['components', '前端组件'],
         ['', '预设规则'],
