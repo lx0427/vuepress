@@ -38,7 +38,7 @@ module.exports = {
       },
       {
         text: '微商城',
-        link: '/wsc/issue',
+        link: '/wsc/develop',
       },
       {
         text: '备忘',
@@ -154,9 +154,9 @@ module.exports = {
       ],
       '/wsc/': [
         ['develop', '开发常用'],
-        ['issue', '常见问题'],
         ['components', '前端组件'],
         ['', '预设规则'],
+        ['issue', '常见问题'],
         ['record', '记录'],
       ],
       '/record/': [
