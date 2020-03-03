@@ -1,47 +1,13 @@
-# 微商城
+# 记录
 
-## 微商城页面地址
-
-### 测试
-
-[公众号首页](http://weisc.hengyi.com/hengyi-mobile/wx/pages/customer/)
-[App 首页](http://weisc.hengyi.com/hengyi-mobile/app/pages/customer/)
-[公众号工作台](http://weisc.hengyi.com/hengyi-mobile/wx/pages/salesman/workbench.html)
-[App 工作台](http://weisc.hengyi.com/hengyi-mobile/app/pages/salesman/workbench.html)
-
-### 正式
-
-[公众号首页](http://wxmall.hengyi.com/hengyi-mobile/wx/pages/customer/)
-[App 首页](http://wxmall.hengyi.com/hengyi-mobile/app/pages/customer/)
-[公众号工作台](http://wxmall.hengyi.com/hengyi-mobile/wx/pages/salesman/workbench.html)
-[App 工作台](http://wxmall.hengyi.com/hengyi-mobile/app/pages/salesman/workbench.html)
-
-## 账号密码
-
-### 测试
-
-```bash
-# 客户
-18000000003 123456
-13685750532 111111
-# 业务员
-15000000003 123456
-# 内勤
-13185066035 111111
-# 后台管理
-hengyi/123456
-```
-
-### 正式
-
-```bash
-# 客户
-18600837536 654321 橘子
-# 业务员
-18668047736 wei654321 位二磊
-# 后台管理
-hengyi/hengyi2019
-```
+[1]: http://weisc.hengyi.com/hengyi-mobile/wx/pages/customer/
+[2]: http://weisc.hengyi.com/hengyi-mobile/app/pages/customer/
+[3]: http://weisc.hengyi.com/hengyi-mobile/wx/pages/salesman/workbench.html
+[4]: http://weisc.hengyi.com/hengyi-mobile/app/pages/salesman/workbench.html
+[5]: http://wxmall.hengyi.com/hengyi-mobile/wx/pages/customer/
+[6]: http://wxmall.hengyi.com/hengyi-mobile/app/pages/customer/
+[7]: http://wxmall.hengyi.com/hengyi-mobile/wx/pages/salesman/workbench.html
+[8]: http://wxmall.hengyi.com/hengyi-mobile/app/pages/salesman/workbench.html
 
 ## 调用 cookie 验证的接口
 
