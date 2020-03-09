@@ -111,12 +111,22 @@ module.exports = {
       ],
       '/express/': [
         {
-          title: 'NestJs',
+          title: 'ExpressJs',
+          collapsable: false,
+          children: [['', 'express']],
+        },
+        {
+          title: 'mongoDB',
           collapsable: false,
           children: [
-            ['', 'express'],
             ['mongoDB', 'mongoDB'],
             ['mongoose', 'mongoose'],
+          ],
+        },
+        {
+          title: 'Vue',
+          collapsable: false,
+          children: [
             ['axios', 'axios'],
             ['router', 'router'],
             ['mixins', 'mixins'],
@@ -124,17 +134,29 @@ module.exports = {
           ],
         },
       ],
-      '/alg/': [['', '算法学习']],
+      '/alg/': [
+        {
+          title: '开始',
+          collapsable: false,
+          children: [['', '算法学习']],
+        },
+      ],
       '/nestjs/': [
         {
           title: 'NestJs',
           collapsable: false,
           children: [
             ['nestjs-server', 'NestJS服务端'],
+            ['interface', '接口'],
+          ],
+        },
+        {
+          title: 'Vue',
+          collapsable: false,
+          children: [
             ['vue-ts', '后台管理系统'],
             ['nuxt-vuetify', 'nuxt+vuetify'],
             ['typescript-grammar', 'TypeScript'],
-            ['interface', '接口'],
             ['typescript-vue', 'vue3.0使用'],
             ['define-template', '自定义Vue-TS模板'],
           ],
@@ -153,11 +175,27 @@ module.exports = {
         ['code-manager', '代码管理'],
       ],
       '/wsc/': [
-        ['develop', '开发常用'],
-        ['components', '前端组件'],
-        ['', '预设规则'],
-        ['issue', '常见问题'],
-        ['record', '记录'],
+        {
+          title: '日常开发',
+          collapsable: false,
+          children: [
+            ['develop', '开发常用'],
+            ['', '预设规则'],
+          ],
+        },
+        {
+          title: '组件',
+          collapsable: false,
+          children: [['components', '前端组件']],
+        },
+        {
+          title: '其他',
+          collapsable: false,
+          children: [
+            ['issue', '常见问题'],
+            ['record', '记录'],
+          ],
+        },
       ],
       '/record/': [
         ['cangcu', '仓储管理'],
