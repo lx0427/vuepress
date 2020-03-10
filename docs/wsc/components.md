@@ -1,6 +1,68 @@
 # 组件文档
 
-## 上传图片
+## select
+
+### 引用
+
+```html
+<% include ../../components/_select.art %>
+```
+
+### 参数
+
+- `class` 必须包含 `top_filter`
+  ```html
+  <ul class="top_filter"></ul>
+  ```
+- `id` \<string\>
+- `label` \<string\> 展示文本
+- `options` \<object\> 参考 [select 组件](http://old.jqweui.com/extends#select)
+  - `onChange` \<callback\> 重置默认效果，参考`_select.art`
+
+### 示例
+
+```js
+selectInit(
+  'pm',
+  '品名',
+  {
+    title: '选择品名',
+    items: [
+      { title: '不限', value: '' },
+      { title: 'DTY', value: 'DTY' },
+      { title: 'POY', value: 'POY' },
+    ],
+  },
+  queryData // 选择完成执行回调
+)
+```
+
+## calendar
+
+### 引用
+
+```html
+<% include ../../components/_calendar.art %>
+```
+
+### 参数
+
+- `class` 必须包含 `top_filter`
+  ```html
+  <ul class="top_filter"></ul>
+  ```
+- `id` \<string\>
+- `label` \<string\> 展示文本
+- `options` \<object\> 参考 [日历组件](http://old.jqweui.com/extends#calendar)
+- `callback` \<string\> 回调函数
+
+### 示例
+
+```js
+calendarInit('rqStart', '开始日期', {}, initPage)
+```
+
+## upload
 
 :::tip 组件文件
 \_upload.html <br/>
