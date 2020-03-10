@@ -84,6 +84,13 @@ hengyi/hengyi2019
 // @endif
 ```
 
+## 发布
+
+### 文件地址
+
+- 测试：`/home/jboss-4.2.3.GA/server/default/deploy/hengyi-mobile.war`
+- 正式：`/app/server/jboss-4.2.2.GA/server/default/deploy/hengyi-mobile.war`
+
 ## 本地启动
 
 ### 微信端
