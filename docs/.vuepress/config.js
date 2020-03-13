@@ -186,7 +186,10 @@ module.exports = {
         {
           title: '组件',
           collapsable: false,
-          children: [['components', '前端组件']],
+          children: [
+            ['art-template', 'art-template'],
+            ['components', '自定义组件'],
+          ],
         },
         {
           title: '其他',

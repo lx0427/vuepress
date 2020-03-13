@@ -1,10 +1,69 @@
-# 组件文档
+# 自定义组件
+
+## infinite
+
+### 封装
+
+`_footer.art`
+
+- 根据`id:infinitePage`默认设置加载更多样式
+- `getPageParam()`中默认设置请求页码+1
+- 注册了上拉加载更多事件
+
+### 注意点
+
+- 容器上绑定 id `infinitePage`
+- 获取列表数据的函数名为 `queryData`
+- 接口调用使用 `$.ajaxjsonp(url, dataMap, fnSuccess, isPage, fnComplete)`
+  - `isPage` 必须设置为 true
+
+### 示例
+
+html
+
+```html
+<!-- 滚动容器必须设置id:infinitePage -->
+<section class="wx_main" id="infinitePage">
+  <div id="list"></div>
+</section>
+```
+
+js
+
+```js
+$(function() {
+  initPage()
+})
+function initPage() {
+  $('#pageIndex').val(0) // 初始化当前页数
+  $('#list').html('') // 清空列表
+  queryData()
+}
+function queryData() {
+  var url = requestPath + '/m/purchase/myPurchase.htm'
+  $.ajaxjsonp(
+    url,
+    {
+      pm: $('#pm').attr('value') || 'FDY',
+      pageSize: 10, // 设置每页数据条数，默认10条(可不传)
+    },
+    function(res) {
+      $('#list').append(template('listTmp', { data: res.data.result }))
+      console.log(res.data)
+    },
+    true // 当前页面使用加载更多，默认false(不使用)
+  )
+}
+```
 
 ## select
 
 ### 引用
 
 ```html
+<!-- 下拉框样式引入 -->
+<link rel="stylesheet" href="../../css/weui-select.min.css" />
+<!-- 自定义下拉组件引入 -->
 <% include ../../components/_select.art %>
 ```
 
