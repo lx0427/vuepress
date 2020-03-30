@@ -119,7 +119,7 @@ module.exports = {
           title: 'mongoDB',
           collapsable: false,
           children: [
-            ['mongoDB', 'mongoDB'],
+            ['mongodb', 'mongoDB'],
             ['mongoose', 'mongoose'],
           ],
         },
