@@ -160,3 +160,75 @@ $('#wrapId').attr('url')
 <!-- 若使用图片预览，需添加 -->
 <script src="../../lib/swiper.min.js"></script>
 ```
+
+## 信息反馈
+
+### 单项容器
+
+- `class`: align-center (垂直居中)
+
+```html
+<div class="visited__row align-center"></div>
+```
+
+### 提示
+
+- class:
+  - `visited__row-tip` (默认宽度)
+  - `visited__row-tip_dy` (自适应宽度)
+
+```html
+<span class="visited__row-tip">突发状况</span>
+```
+
+### 输入框
+
+- `class`：whole(占整行，不设置默认宽度)
+- `required`: 必填项（必须设置 title）
+- `title`: 同提示
+
+```html
+<input
+  id="emergency"
+  required
+  title="突发状况"
+  placeholder="请输入客户本身或市场等突发状况"
+  class="visited__input whole"
+  type="text"
+/>
+```
+
+::: warning messageVistAddressAddNew.js
+在`tempInput`中添加需要传递的字段
+:::
+
+```js
+var tempInput = ['emergency']
+```
+
+### 选择框
+
+- `class`: checkbox (多选框, 不设置为单选框)
+- `required`: 必填项（必须设置 title，默认勾选第一项）
+- `title`: 同提示
+
+```html
+<div
+  required
+  id="downstreamMarket"
+  title="下游市场"
+  class="visited__row-content checkbox"
+></div>
+```
+
+::: warning messageVistAddressAddNew.js
+
+1. 插入选择框模板
+2. 在`tempRadio`中添加需要传递的字段
+
+:::
+
+```js
+tagTemplate('creditExtension', bankCredit)
+var tempRadio = ['creditExtension']
+```
