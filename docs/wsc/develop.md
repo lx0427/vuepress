@@ -55,7 +55,39 @@ hengyi/123456
 hengyi/hengyi2019
 ```
 
-## 打包环境
+## 本地启动
+
+### 微信端
+
+1. 拉取 develop 分支代码
+2. `config.js` 中修改接口请求路径
+   ![solar](../../../vuepress/docs/.vuepress/images/wsc-config.png)
+3. 启动`微信端`命令
+   ```bash
+   npm run dev_app
+   ```
+4. 打开首页[`http://localhost:3000/wx/pages/customer`](http://localhost:3000/wx/pages/customer)
+
+### App 端
+
+1. 拉取 develop 分支代码
+2. `config.js` 中修改接口请求路径
+   ![solar](../../../vuepress/docs/.vuepress/images/wsc-config.png)
+3. 启动`微信端`命令
+   ```bash
+   npm run dev_app
+   ```
+4. 打开首页[`http://localhost:3000/app/pages/customer`](http://localhost:3000/app/pages/customer)
+
+## 打包注意
+
+### html 中背景图片路径错误
+
+> 公司配备电脑时才有
+
+- 注释掉`gulpfile.js`中`minifyCSS: true,`
+
+## 打包场景
 
 ### 仅用于本地
 
@@ -90,27 +122,3 @@ hengyi/hengyi2019
 
 - 测试：`/home/jboss-4.2.3.GA/server/default/deploy/hengyi-mobile.war`
 - 正式：`/app/server/jboss-4.2.2.GA/server/default/deploy/hengyi-mobile.war`
-
-## 本地启动
-
-### 微信端
-
-1. 拉取 develop 分支代码
-2. `config.js` 中修改接口请求路径
-   ![solar](../../../vuepress/docs/.vuepress/images/wsc-config.png)
-3. 启动`微信端`命令
-   ```bash
-   npm run dev_app
-   ```
-4. 打开首页[`http://localhost:3000/wx/pages/customer`](http://localhost:3000/wx/pages/customer)
-
-### App 端
-
-1. 拉取 develop 分支代码
-2. `config.js` 中修改接口请求路径
-   ![solar](../../../vuepress/docs/.vuepress/images/wsc-config.png)
-3. 启动`微信端`命令
-   ```bash
-   npm run dev_app
-   ```
-4. 打开首页[`http://localhost:3000/app/pages/customer`](http://localhost:3000/app/pages/customer)
