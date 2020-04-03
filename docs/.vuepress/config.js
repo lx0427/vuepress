@@ -176,7 +176,14 @@ module.exports = {
       ],
       '/wsc/': [
         {
-          title: '日常开发',
+          title: '闭环',
+          collapsable: false,
+          children: [
+            ['closed-loop', '老闭环'],
+          ],
+        },
+        {
+          title: '商城开发',
           collapsable: false,
           children: [
             ['develop', '开发常用'],
@@ -184,7 +191,7 @@ module.exports = {
           ],
         },
         {
-          title: '组件',
+          title: '商城组件',
           collapsable: false,
           children: [
             ['art-template', 'art-template'],
@@ -192,7 +199,7 @@ module.exports = {
           ],
         },
         {
-          title: '其他',
+          title: '商城问题',
           collapsable: false,
           children: [
             ['issue', '常见问题'],
