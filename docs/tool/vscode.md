@@ -163,3 +163,9 @@ tsc : 无法加载文件 c:\dev\nvm\npm\tsc.ps1，因为在此系统上禁止运
   "code-runner.saveFileBeforeRun": false // 设置是否在运行前保存当前文件（默认为false）
 }
 ```
+
+## 插件
+
+### element-ui 语法提示
+
+`Element UI snippets`

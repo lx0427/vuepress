@@ -222,8 +222,25 @@ module.exports = {
 }
 ```
 
-## element-ui
+## 格式化报错
 
-```bash
-npm i element-ui -S
+### 格式设置
+
+`.prettierrc`
+
+```
+{
+  "semi": false,
+  "singleQuote": true
+}
+```
+
+### eslint 规则设置
+
+```js
+module.exports = {
+  rules: {
+    'space-before-function-paren': 0, // 函数名与小括号中间空格数
+  },
+}
 ```

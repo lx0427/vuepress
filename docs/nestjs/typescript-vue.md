@@ -72,8 +72,8 @@ import HelloWorld from './components/HelloWorld.vue'
 
 @Component({
   components: {
-    HelloWorld // 引入组件
-  }
+    HelloWorld, // 引入组件
+  },
 })
 export default class App extends Vue {
   data = {} // 定义数据
@@ -103,12 +103,12 @@ const routes: RouteConfig[] = [
     path: '/',
     name: 'main',
     component: Main,
-    children: []
-  }
+    children: [],
+  },
 ]
 
 const router = new VueRouter({
-  routes
+  routes,
 })
 
 export default router
@@ -122,7 +122,3 @@ export default router
 [avue 文档](https://avuejs.com/doc/crud/crud)
 
 [vue-ele-form 文档](https://www.yuque.com/chaojie-vjiel/vbwzgu/twp49o)
-
-### vscode 插件
-
-- Element UI snippets 语法快捷输入
