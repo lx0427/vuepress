@@ -55,7 +55,7 @@ webpack-dev-server --open --host 127.0.0.1 --port 8888
 
 - 执行命令
   ```bash
-   yarn dev
+   npm run  dev
   ```
 
 ## 加载器使用

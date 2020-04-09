@@ -164,15 +164,12 @@ module.exports = {
       '/blog/': [
         ['nvm', 'nvm'],
         ['vscode', 'vscode'],
-        ['yarn', 'yarn'],
         ['static-engineering', '工程化项目（静态页面）'],
       ],
       '/tool/': [
+        ['webpack', 'webpack'],
         ['nvm', 'nvm'],
         ['vscode', 'vscode'],
-        ['yarn', 'yarn'],
-        ['code-manager', '代码管理'],
-        ['webpack', 'webpack'],
       ],
       '/wsc/': [
         {
