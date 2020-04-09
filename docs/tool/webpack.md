@@ -129,3 +129,101 @@ module.exports = {
 ```bash
 npm i vue-loader vue-template-compiler -D
 ```
+
+### 在项目中使用 vue
+
+```bash
+npm i vue -S
+```
+
+`index.js`
+
+```js
+import Vue from 'vue'
+import App from './components/App.vue'
+const vm = new Vue({
+  el: '#app',
+  render: (h) => h(App),
+})
+```
+
+### webpack 打包
+
+`package.json`
+
+```json
+"scripts": {
+  "dev": "webpack-dev-server --open --host 127.0.0.1 --port 8888",
+  "build": "webpack -p",
+  "test": "echo \"Error: no test specified\" && exit 1"
+}
+```
+
+## vue 脚手架
+
+```bash
+npm i @vue/cli -g
+```
+
+### 创建项目
+
+- vue-runtime
+- vue-router
+- no history
+- eslint: Standard
+- In dedicated config files 使用独立的配置文件
+
+#### 命令行创建
+
+```bash
+vue create project
+  ? Please pick a preset: Manually select features
+  ? Check the features needed for your project: Babel, Router, Linter
+  ? Use history mode for router? (Requires proper server setup for index fallback in production) No
+  ? Pick a linter / formatter config: Standard
+  ? Pick additional lint features: Lint on save
+  ? Where do you prefer placing config for Babel, ESLint, etc.? In dedicated config files
+  ? Save this as a preset for future projects? (y/N) n
+```
+
+#### 图形化创建
+
+```bash
+vue ui
+```
+
+#### 基于 2.x 的旧模板
+
+```bash
+npm i -g @vue/cli-init
+vue init webpack project_3
+  ? Project name project_3
+  ? Project description A Vue.js project
+  ? Author
+  ? Vue build runtime
+  ? Install vue-router? Yes
+  ? Use ESLint to lint your code? Yes
+  ? Pick an ESLint preset Standard
+  ? Set up unit tests No
+  ? Setup e2e tests with Nightwatch? No
+  ? Should we run `npm install` for you after the project has been created? (recommended) npm
+```
+
+### 配置文件
+
+`vue.config.js`
+
+```js
+module.exports = {
+  devServer: {
+    port: '8888',
+    open: true,
+  },
+}
+```
+
+## element-ui
+
+```bash
+npm i element-ui -S
+```
