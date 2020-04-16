@@ -1,38 +1,47 @@
 # vscode
 
-## 问题处理
+## 问题
 
-### `.js`文件保存格式化
+### 函数名与括号之前的空格
 
-> 配合 prettier 插件
+`.eslintrc.js`
+
+```js
+module.exports = {
+  rules: {
+    'space-before-function-paren': 0,
+  },
+}
+```
+
+### 单引号
 
 `.prettierrc`
 
 ```json
 {
-  "semi": true, // 在代码尾部添加分号
-  "singleQuote": true, // 把双引号换成单引号
-  "trailingComma": "es5" // 在代码尾部添加逗号
+  "singleQuote": true
 }
 ```
 
-### 自动保存修复报错
+### 分号
 
-1. 下载 eslint,vetur
-2. `package.json`下载 eslint 依赖
-3. `.eslintrc.js`设置
-4. `setting.json`, 如下配置：
+`.prettierrc`
 
 ```json
-"editor.formatOnSave"：false,
-"eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    {
-        "language": "vue",
-        "autoFix": true
-    }
-]
+{
+  "semi": true
+}
+```
+
+### 尾逗号
+
+`.prettierrc`
+
+```json
+{
+  "trailingComma": "es5"
+}
 ```
 
 ### 无法加载文件
@@ -61,12 +70,6 @@ tsc : 无法加载文件 c:\dev\nvm\npm\tsc.ps1，因为在此系统上禁止运
 "vetur.format.defaultFormatter.js": "vscode-typescript"
 ```
 
-### 函数前空格问题
-
-```json
-"javascript.format.insertSpaceBeforeFunctionParenthesis": true
-```
-
 ### 完整`setting.json`配置
 
 ```json
@@ -81,21 +84,6 @@ tsc : 无法加载文件 c:\dev\nvm\npm\tsc.ps1，因为在此系统上禁止运
   "liveSassCompile.settings.includeItems": ["static/css/print-box-code.scss"], // 编译指定文件
   "liveSassCompile.settings.autoprefix": null, // 不自动补全属性，默认补全
   "liveSassCompile.settings.generateMap": false, // 不生成.map，默认生成
-  "terminal.integrated.rendererType": "dom",
-  "files.associations": {
-    "*.cjson": "jsonc",
-    "*.wxss": "css",
-    "*.wxs": "javascript",
-    "*.js": "javascriptreact",
-    "*.html": "html"
-  },
-  "files.associations": {
-    "*.cjson": "jsonc",
-    "*.wxss": "css",
-    "*.wxs": "javascript",
-    "*.js": "javascriptreact",
-    "*.html": "html"
-  },
   "emmet.includeLanguages": {
     "wxml": "html",
     "javascript": "javascriptreact"
@@ -122,8 +110,6 @@ tsc : 无法加载文件 c:\dev\nvm\npm\tsc.ps1，因为在此系统上禁止运
   "editor.tabSize": 2, //制表符符号eslint
   "editor.formatOnSave": true, //每次保存自动格式化
   /* eslint + vetur + prettier-code format */
-  "eslint.autoFixOnSave": true, // 每次保存的时候将代码按eslint格式进行修复
-  "prettier.eslintIntegration": true, //让prettier使用eslint的代码格式进行校验
   "prettier.semi": false, //去掉代码结尾的分号
   "prettier.singleQuote": true, //使用单引号替代双引号
   "javascript.format.insertSpaceBeforeFunctionParenthesis": true, //让函数(名)和后面的括号之间加个空格
@@ -131,24 +117,9 @@ tsc : 无法加载文件 c:\dev\nvm\npm\tsc.ps1，因为在此系统上禁止运
   "vetur.format.defaultFormatter.js": "vscode-typescript", //让vue中的js按编辑器自带的ts格式进行格式化
   "vetur.format.defaultFormatterOptions": {
     "js-beautify-html": {
-      "wrap_attributes": "preserve-aligned" //属性强制折行对齐 [aligned-multiple|preserve|preserve-aligned|auto|force|force-aligned|force-expand-multiline]
-      // "wrap_line_length": 100,
-      // "end_with_newline": false
+      "wrap_attributes": "preserve-aligned"
     }
   },
-  "eslint.validate": [
-    //开启对.vue文件中错误的检查
-    "javascript",
-    "javascriptreact",
-    {
-      "language": "html",
-      "autoFix": true
-    },
-    {
-      "language": "vue",
-      "autoFix": true
-    }
-  ],
   "[javascriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -160,7 +131,31 @@ tsc : 无法加载文件 c:\dev\nvm\npm\tsc.ps1，因为在此系统上禁止运
   },
   "code-runner.defaultLanguage": "javascript",
   "code-runner.clearPreviousOutput": true, // 设置是否在每次运行之前清除先前的输出（默认为false）
-  "code-runner.saveFileBeforeRun": false // 设置是否在运行前保存当前文件（默认为false）
+  "code-runner.saveFileBeforeRun": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "octref.vetur"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[js]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": false
+    }
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "beautify.config": ""
 }
 ```
 
@@ -169,3 +164,7 @@ tsc : 无法加载文件 c:\dev\nvm\npm\tsc.ps1，因为在此系统上禁止运
 ### element-ui 语法提示
 
 `Element UI snippets`
+
+### node 语法提示
+
+`node snippets`
