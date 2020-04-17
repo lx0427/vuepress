@@ -161,6 +161,12 @@ tsc : 无法加载文件 c:\dev\nvm\npm\tsc.ps1，因为在此系统上禁止运
 
 ## 插件
 
+### 格式化文件
+
+`Format File`
+
+选择目录，右键 start format files: workspace
+
 ### element-ui 语法提示
 
 `Element UI snippets`
