@@ -1,34 +1,6 @@
-# 项目搭建
+# 项目
 
-## 根目录
-
-```bash
-vue create admin # no history
-mkdir server
-vue create web # no history
-```
-
-## admin
-
-### 安装命令
-
-```bash
-vue add router
-vue add element
-yarn add axios
-```
-
-### 插件用途
-
-| 插件名           | 用途          |
-| :--------------- | :------------ |
-| axios            | 接口请求      |
-| sass sass-loader | sass(`.scss`) |
-| dayjs            | 日期格式化    |
-
-## server
-
-### 安装命令
+## 安装依赖
 
 ```bash
 npm init -y
@@ -36,7 +8,7 @@ yarn add express@next mongoose cors
 yarn add nodemon # 用于启动项目
 ```
 
-### 插件用途
+## 插件用途
 
 | 插件名              | 用途                         |
 | :------------------ | :--------------------------- |
@@ -58,7 +30,7 @@ yarn add nodemon # 用于启动项目
 [7]: https://www.npmjs.com/package/jsonwebtoken
 [8]: https://www.npmjs.com/package/inflection
 
-### 项目目录
+## 项目目录
 
 ```js
 |-- index.js // 入口文件
@@ -70,12 +42,6 @@ yarn add nodemon # 用于启动项目
 |-- router // 接口路由
     |-- admin
         |-- index.js
-```
-
-## web
-
-```bash
-
 ```
 
 ## others

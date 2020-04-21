@@ -11,7 +11,7 @@ BSON = json + 二级制
 
 _4.0 版本开始自动设置为 window 服务_
 
-1. https://www.mongodb.org/dl/win32
+1. [https://www.mongodb.org/dl/win32](https://www.mongodb.org/dl/win32)
 2. 环境变量
 3. 新建 `C:\\data\db`
 4. mongod 启动数据库服务器

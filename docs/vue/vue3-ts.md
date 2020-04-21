@@ -1,53 +1,4 @@
-# vue+ts 项目搭建
-
-## 项目安装
-
-> 除标明选项，一律使用默认
-
-### CLI
-
-1. 使用 nvm 安装`node v10.17.0`
-
-```bash
-nvm install v10.17.0
-```
-
-2. 全局安装`@vue/cli`
-
-```bash
-npm i -g @vue/cli
-```
-
-### 新建项目
-
-```bash
-cd fullstack
-vue create admin
-# default
-cd admin
-```
-
-### 添加 element-ui
-
-```bash
-vue add element
-# Still proceed? y
-```
-
-### 添加 router
-
-```bash
-vue add router
-# Still proceed? y
-# History? No
-```
-
-### 添加 typescript
-
-```bash
-vue add typescript
-# Still proceed? y
-```
+# vue + typescript
 
 ## 路由
 
@@ -66,12 +17,12 @@ const routes = [
     path: '/',
     name: 'main',
     component: Main,
-    children: [{ path: '/user', name: 'user', component: User }]
-  }
+    children: [{ path: '/user', name: 'user', component: User }],
+  },
 ]
 
 const router = new VueRouter({
-  routes
+  routes,
 })
 
 export default router
@@ -92,36 +43,39 @@ const routes: RouteConfig[]
 
 ```ts
 const routes = [
-  { path: '/:resource/list', name: 'user', component: Crud, props: true }
+  { path: '/:resource/list', name: 'user', component: Crud, props: true },
 ]
 ```
 
-## axios
+### vue 文件
 
-### 全局引用
+使用 ts, class-style 风格
 
-```ts
-import axios from 'axios'
-Vue.prototype.$http = axios.create({
-  baseURL: 'http://localhost:3000'
+```vue
+<template>
+  <div id="app">
+    <router-view></router-view>
+  </div>
+</template>
+
+<script lang="ts">
+// 标注为ts
+import { Component, Vue } from 'vue-property-decorator'
+import HelloWorld from './components/HelloWorld.vue'
+
+@Component({
+  components: {
+    HelloWorld, // 引入组件
+  },
 })
-```
-
-### 模块补充
-
-> `this.$http` 报错
-
-`custom-vue.d.ts`
-
-```ts
-import Vue from 'vue'
-import { AxiosInstance } from 'axios'
-
-declare module 'vue/types/vue' {
-  interface Vue {
-    $http: AxiosInstance
-  }
+export default class App extends Vue {
+  data = {} // 定义数据
+  fetch() {} // 定义方法
+  created() {} // 同原created
 }
+</script>
+
+<style lang="scss"></style>
 ```
 
 ## [vue-property-decorator](https://github.com/kaorun343/vue-property-decorator)

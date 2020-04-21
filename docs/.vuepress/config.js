@@ -21,12 +21,12 @@ module.exports = {
         link: '/note/react/',
       },
       {
-        text: 'Express',
-        link: '/express/',
+        text: 'Server',
+        link: '/server/express',
       },
       {
-        text: 'NestJs',
-        link: '/nestjs/interface',
+        text: 'Vue',
+        link: '/vue/create',
       },
       {
         text: '算法学习',
@@ -58,7 +58,6 @@ module.exports = {
             ['js/', 'JS'],
             ['js/es6', 'ES6'],
             ['js/pattern', 'pattern'],
-            ['js/array', 'array'],
             ['js/question', 'question'],
             ['js/answer', 'answer'],
           ],
@@ -73,30 +72,12 @@ module.exports = {
           ],
         },
         {
-          title: 'VUE',
-          collapsable: false,
-          children: [
-            ['vue/v-model', 'v-model'],
-            ['vue/vue-cli', 'Vue Cli'],
-          ],
-        },
-        {
           title: 'CSS',
           collapsable: false,
           children: [
             ['css/', 'CSS'],
             ['css/selector', 'last-child & last-of-type'],
             ['css/scroll-penetrate', '滚动穿透'],
-          ],
-        },
-        {
-          title: 'TOOLS',
-          collapsable: false, // 是否可以折叠
-          children: [
-            ['tools/fork', 'fork'],
-            ['tools/git', 'git'],
-            ['tools/', 'vuepress'], // 第一项为link, 第二项为标题
-            ['tools/hexo', 'hexo'],
           ],
         },
         {
@@ -108,11 +89,22 @@ module.exports = {
           ],
         },
       ],
-      '/express/': [
+      '/server/': [
         {
-          title: 'ExpressJs',
+          title: 'Express',
           collapsable: false,
-          children: [['', 'express']],
+          children: [
+            ['express', 'express'],
+            ['express-project', 'express-project'],
+          ],
+        },
+        {
+          title: 'NestJs',
+          collapsable: false,
+          children: [
+            ['nestjs', 'nestjs'],
+            ['nestjs-interface', 'nestjs-interface'],
+          ],
         },
         {
           title: 'mongoDB',
@@ -122,16 +114,36 @@ module.exports = {
             ['mongoose', 'mongoose'],
           ],
         },
+      ],
+      '/vue/': [
         {
-          title: 'Vue',
+          title: 'create',
           collapsable: false,
           children: [
-            ['axios', 'axios'],
-            ['router', 'router'],
-            ['mixins', 'mixins'],
-            ['create', 'create project'],
+            ['create', 'create'],
+            ['vue-cli', 'vue-cli'],
           ],
         },
+        {
+          title: 'VUE',
+          collapsable: false,
+          children: [
+            ['router', 'router'],
+            ['axios', 'axios'],
+            ['mixins', 'mixins'],
+            ['v-model', 'v-model'],
+          ],
+        },
+        {
+          title: 'typescript',
+          collapsable: false,
+          children: [
+            ['typescript-grammar', 'typescript-grammar'],
+            ['vue3-ts', 'vue3-ts'],
+          ],
+        },
+        ['element-ui', 'element-ui'],
+        ['nuxt-vuetify', 'nuxt-vuetify'],
       ],
       '/alg/': [
         {
@@ -140,44 +152,23 @@ module.exports = {
           children: [['', '算法学习']],
         },
       ],
-      '/nestjs/': [
-        {
-          title: 'NestJs',
-          collapsable: false,
-          children: [
-            ['nestjs-server', 'NestJS服务端'],
-            ['interface', '接口'],
-          ],
-        },
-        {
-          title: 'Vue',
-          collapsable: false,
-          children: [
-            ['vue-ts', '后台管理系统'],
-            ['nuxt-vuetify', 'nuxt+vuetify'],
-            ['typescript-grammar', 'TypeScript'],
-            ['typescript-vue', 'vue3.0使用'],
-            ['define-template', '自定义Vue-TS模板'],
-          ],
-        },
-      ],
-      '/blog/': [
-        ['nvm', 'nvm'],
-        ['vscode', 'vscode'],
-        ['static-engineering', '工程化项目（静态页面）'],
-      ],
       '/tool/': [
-        ['webpack', 'webpack'],
+        ['fork', 'fork'],
+        ['git', 'git'],
+        ['hexo', 'hexo'],
+        ['node', 'node'],
         ['nvm', 'nvm'],
+        ['software', 'software'],
+        ['vscode-template', 'vscode-template'],
         ['vscode', 'vscode'],
+        ['vuepress', 'vuepress'],
+        ['webpack', 'webpack'],
       ],
       '/wsc/': [
         {
           title: '闭环',
           collapsable: false,
-          children: [
-            ['closed-loop', '老闭环'],
-          ],
+          children: [['closed-loop', '老闭环']],
         },
         {
           title: '商城开发',
