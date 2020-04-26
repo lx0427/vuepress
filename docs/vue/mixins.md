@@ -9,13 +9,13 @@ export default {
   computed: {
     uploadUrl() {
       return this.$http.defaults.baseURL + '/uploads'
-    },
+    }
   },
   methods: {
     getHeaders() {
       return { Authorization: 'bearer ' + localStorage.token }
-    },
-  },
+    }
+  }
 }
 ```
 
@@ -27,7 +27,7 @@ export default {
       :action="uploadUrl"
       :headers="getHeaders()"
       :show-file-list="false"
-      :on-success="res => (imgUrl = res.url)"
+      :on-success="(res) => (imgUrl = res.url)"
     >
       <img v-if="imgUrl" :src="imgUrl" class="avatar" />
       <i v-else class="el-icon-plus avatar-uploader-icon"></i>
@@ -41,9 +41,9 @@ export default {
   mixins: [uploadMixin],
   data() {
     return {
-      imgUrl: '',
+      imgUrl: ''
     }
-  },
+  }
 }
 </script>
 ```
@@ -68,17 +68,17 @@ Vue.mixin({
   computed: {
     uploadUrl() {
       return this.$http.defaults.baseURL + '/uploads'
-    },
+    }
   },
   methods: {
     getHeaders() {
       return { Authorization: 'bearer ' + localStorage.token }
-    },
-  },
+    }
+  }
 })
 
 new Vue({
   router,
-  render: h => h(App),
+  render: (h) => h(App)
 }).$mount('#app')
 ```

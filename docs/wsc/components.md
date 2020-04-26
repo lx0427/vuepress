@@ -45,7 +45,7 @@ function queryData() {
     url,
     {
       pm: $('#pm').attr('value') || 'FDY',
-      pageSize: 10, // 设置每页数据条数，默认10条(可不传)
+      pageSize: 10 // 设置每页数据条数，默认10条(可不传)
     },
     function(res) {
       $('#list').append(template('listTmp', { data: res.data.result }))
@@ -89,8 +89,8 @@ selectInit(
     items: [
       { title: '不限', value: '' },
       { title: 'DTY', value: 'DTY' },
-      { title: 'POY', value: 'POY' },
-    ],
+      { title: 'POY', value: 'POY' }
+    ]
   },
   queryData // 选择完成执行回调
 )
@@ -213,12 +213,7 @@ var tempInput = ['emergency']
 - `title`: 同提示
 
 ```html
-<div
-  required
-  id="downstreamMarket"
-  title="下游市场"
-  class="visited__row-content checkbox"
-></div>
+<div required id="downstreamMarket" title="下游市场" class="visited__row-content checkbox"></div>
 ```
 
 ::: warning messageVistAddressAddNew.js

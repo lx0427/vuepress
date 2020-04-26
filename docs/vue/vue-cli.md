@@ -83,10 +83,10 @@ vue inspect > output.js // 将配置文件导出
 module.exports = {
   root: true,
   parserOptions: {
-    parser: 'babel-eslint',
+    parser: 'babel-eslint'
   },
   env: {
-    browser: true,
+    browser: true
   },
   extends: ['plugin:vue/essential', 'standard'],
   plugins: ['vue'],
@@ -94,7 +94,7 @@ module.exports = {
     'generator-star-spacing': 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'vue/no-parsing-error': 'off',
-    'prefer-promise-reject-errors': 'off',
-  },
+    'prefer-promise-reject-errors': 'off'
+  }
 }
 ```

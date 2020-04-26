@@ -7,12 +7,12 @@ import router from './router'
 
 const http = axios.create({
   // 请求根路径，外部使用 http.default.baseURL
-  baseURL: 'http://localhost:3000/admin/api',
+  baseURL: 'http://localhost:3000/admin/api'
 })
 
 // 请求拦截
 http.interceptors.request.use(
-  config => {
+  (config) => {
     if (localStorage.token) {
       // 请求头中添加参数
       // Authorization 对应接口中 req.headers.authorization
@@ -20,17 +20,17 @@ http.interceptors.request.use(
     }
     return config
   },
-  error => {
+  (error) => {
     return Promise.reject(error)
   }
 )
 
 // 响应拦截
 http.interceptors.response.use(
-  response => {
+  (response) => {
     return response
   },
-  error => {
+  (error) => {
     // 错误数据存于error.response
     // console.log(error.response)
 

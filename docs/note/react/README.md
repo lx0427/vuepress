@@ -1,11 +1,15 @@
 # react
 
 ## 路由
+
 ### 路由传参
+
 #### `pathname:'/user/:id'`
+
 ```html
-<Route path="/report/verydaycarsdetail/:date/:type" component={veryDayCarsDetail} />
+<Route path="/report/verydaycarsdetail/:date/:type" component="{veryDayCarsDetail}" />
 ```
+
 ```js
 // js跳转
 this.props.history.push({ pathname: '/report/verydaycarsdetail/' + name + '/' + seriesName })
@@ -13,37 +17,49 @@ this.props.history.push({ pathname: '/report/verydaycarsdetail/' + name + '/' + 
 this.props.match.params.date
 this.props.match.params.type
 ```
+
 #### `query`
+
 ```html
-<Route path="{ pathname: '/report/verydaycarsdetail', query: { date: 'Friday' }}" component={veryDayCarsDetail} />
+<Route path="{ pathname: '/report/verydaycarsdetail', query: { date: 'Friday' }}" component="{veryDayCarsDetail}" />
 ```
+
 ```js
 // js跳转
- this.props.history.push({ pathname: '/user' ,query: { date: 'Friday'} })
+this.props.history.push({ pathname: '/user', query: { date: 'Friday' } })
 // 接受参数
 this.props.location.query.date
 ```
+
 #### `state`
-* 加密
+
+- 加密
 
 ```html
-<Route path="{ pathname: '/report/verydaycarsdetail', state: { date: 'Friday' }}" component={veryDayCarsDetail} />
+<Route path="{ pathname: '/report/verydaycarsdetail', state: { date: 'Friday' }}" component="{veryDayCarsDetail}" />
 ```
+
 ```js
 // js跳转
- this.props.history.push({ pathname: '/user' ,state: { date: 'Friday'} })
+this.props.history.push({ pathname: '/user', state: { date: 'Friday' } })
 // 接受参数
 this.props.location.state.date
 ```
 
 ## 生命周期
+
 ### componentDidMount()
-> 组件已经渲染到DOM中后触发
+
+> 组件已经渲染到 DOM 中后触发
+
 ### componentWillUnmount()
+
 > 挂载取消前
 
 ## state
+
 ### 简单修改值
+
 ```js
 class App extends Component{
     state = {}
@@ -55,7 +71,9 @@ class App extends Component{
     console.log(this.state.name)
 }
 ```
-### 根据state&props来更新
+
+### 根据 state&props 来更新
+
 ```js
 class App extends Component{
     state = {}
@@ -69,33 +87,40 @@ class App extends Component{
 ```
 
 ## 组件
+
 ### 类组件
+
 ```js
-class Form extends React.Component{
-    render() {
-        return ( // 使用JSX(JavaScript XML)
-            <h1>hello world</h1> // 只能返回一个`根元素`
-        )
-    }
+class Form extends React.Component {
+  render() {
+    return (
+      // 使用JSX(JavaScript XML)
+      <h1>hello world</h1> // 只能返回一个`根元素`
+    )
+  }
 }
 ```
+
 ### 事件
-* 使用箭头函数，确保事件中this绑定
+
+- 使用箭头函数，确保事件中 this 绑定
+
 ```jsx
-<button onClick={(e) => this.handleClick(e)}>
-    Click me
-</button>
+<button onClick={(e) => this.handleClick(e)}>Click me</button>
 ```
-* event
+
+- event
+
 ```js
-handleChange = event => {
-    const {name, value} = event.target // dom
-    this.setState({
-        [name]: value
-    })
+handleChange = (event) => {
+  const { name, value } = event.target // dom
+  this.setState({
+    [name]: value
+  })
 }
 ```
 
 ## JSX
-* 模板语法：`{}`
-* 添加类名：`className`
+
+- 模板语法：`{}`
+- 添加类名：`className`

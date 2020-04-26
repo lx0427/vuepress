@@ -71,7 +71,7 @@ document.body.addEventListener('focusout', () => {
 document.addEventListener('UniAppJSBridgeReady', function() {
   $('.uniAppJSBridgeReady').bind('toApp', function(evt) {
     uni[$(this).attr('data-action')]({
-      url: $(this).val(),
+      url: $(this).val()
     })
   })
 })

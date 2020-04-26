@@ -1,6 +1,7 @@
 # v-model
 
 ## 使用
+
 ```html
 <form-input v-model="userName" label="姓名"></form-input>
 ```
@@ -10,12 +11,7 @@
 ```html
 <div class="form-item">
   <label class="form-label">{{label}}</label>
-  <input
-    class="form-input"
-    :placeholder="'请输入'+label"
-    type="text"
-    v-model="currentValue"
-  >
+  <input class="form-input" :placeholder="'请输入'+label" type="text" v-model="currentValue" />
 </div>
 ```
 
@@ -24,10 +20,10 @@ export default {
   props: ['value', 'label'],
   computed: {
     currentValue: {
-      get: function () {
+      get: function() {
         return this.value
       },
-      set: function (newValue) {
+      set: function(newValue) {
         this.$emit('input', newValue)
       }
     }

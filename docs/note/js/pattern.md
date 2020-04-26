@@ -106,13 +106,7 @@ console.log('oooo'.match(/o+/g)) // [ 'oooo' ]
 var n = 1234567890
 // 第一种
 // 猜想：类似?=()预查的不算入$0-99中
-n.toString().replace(/(\d)(?=(\d{3})+$)/g, function(
-  match,
-  p1,
-  p2,
-  offset,
-  string
-) {
+n.toString().replace(/(\d)(?=(\d{3})+$)/g, function(match, p1, p2, offset, string) {
   return match + ','
 })
 ```

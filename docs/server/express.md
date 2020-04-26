@@ -41,12 +41,12 @@ app.listen('3000', () => {
 `db.js`
 
 ```js
-module.exports = app => {
+module.exports = (app) => {
   const mongoose = require('mongoose')
 
   mongoose.connect('mongodb://127.0.0.1:27017/full1', {
     useNewUrlParser: true,
-    useUnifiedTopology: true,
+    useUnifiedTopology: true
   })
 }
 ```
@@ -56,7 +56,7 @@ module.exports = app => {
 `admin/index.js`
 
 ```js
-module.exports = app => {
+module.exports = (app) => {
   const express = require('express')
   const assert = require('http-assert')
   const authMiddleware = require('../../middleware/auth')
@@ -64,7 +64,7 @@ module.exports = app => {
 
   const router = express.Router({
     // 合并参数到req.params
-    mergeParams: true,
+    mergeParams: true
   })
 
   // 创建资源
@@ -81,7 +81,7 @@ module.exports = app => {
   router.delete('/:id', async (req, res) => {
     await req.Model.findByIdAndDelete(req.params.id, req.body)
     res.send({
-      success: true,
+      success: true
     })
   })
   // 列表列表
@@ -145,7 +145,7 @@ module.exports = app => {
     const token = jwt.sign({ id: user._id }, app.get('secretKey'))
     res.send({
       token,
-      menu: user.menu,
+      menu: user.menu
     })
   })
 
@@ -172,7 +172,7 @@ const schema = new mongoose.Schema({
     set(val) {
       // 散列
       return require('bcrypt').hashSync(val, 10)
-    },
+    }
   },
   // 多个关联字段
   categories: [{ type: mongoose.SchemaTypes.ObjectId, ref: 'Category' }],
@@ -180,21 +180,21 @@ const schema = new mongoose.Schema({
     difficult: { type: Number },
     skill: { type: Number },
     attack: { type: Number },
-    survive: { type: Number },
+    survive: { type: Number }
   },
   skills: [
     {
       name: { type: String },
       icon: { type: String },
-      description: { type: String },
-    },
+      description: { type: String }
+    }
   ],
   partner: [
     {
       hero: { type: mongoose.SchemaTypes.ObjectId },
-      description: { type: String },
-    },
-  ],
+      description: { type: String }
+    }
+  ]
 })
 
 module.exports = mongoose.model('Hero', schema)
@@ -207,7 +207,7 @@ module.exports = mongoose.model('Hero', schema)
 `auth.js`
 
 ```js
-module.exports = options => {
+module.exports = (options) => {
   return async (req, res, next) => {
     // token生成及解析
     const jwt = require('jsonwebtoken')
@@ -239,7 +239,7 @@ module.exports = options => {
 `resource.js`
 
 ```js
-module.exports = options => {
+module.exports = (options) => {
   return async (req, res, next) => {
     // 将小写复数转成大驼峰类名
     const modelName = require('inflection').classify(req.params.resource)

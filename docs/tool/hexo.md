@@ -1,15 +1,16 @@
 # hexo
 
 ## 安装使用
+
 ```
 npm install -g hexo-cli
 hexo new first
 
-hexo init 
+hexo init
 npm install
 npm install hexo --save
-	
-git clone https://github.com/iissnan/hexo-theme-next themes/next 
+
+git clone https://github.com/iissnan/hexo-theme-next themes/next
 
 * theme: next
 

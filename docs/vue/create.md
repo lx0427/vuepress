@@ -45,7 +45,7 @@ yarn add @smallwei/avue
 ```ts
 import axios from 'axios'
 Vue.prototype.$http = axios.create({
-  baseURL: 'http://localhost:3000',
+  baseURL: 'http://localhost:3000'
 })
 ```
 
@@ -80,5 +80,3 @@ Vue.use(Avue)
 ```js
 import './plugins/avue'
 ```
-
-

@@ -6,7 +6,7 @@
 const mongoose = require('mongoose')
 const schema = new mongoose.Schema({
   categories: [{ type: mongoose.SchemaTypes.ObjectId, ref: 'Category' }],
-  parent: { type: mongoose.SchemaTypes.ObjectId, ref: 'Category' },
+  parent: { type: mongoose.SchemaTypes.ObjectId, ref: 'Category' }
 })
 const Menu = mongoose.model('Menu', schema, 'menus')
 // 多个关联查询

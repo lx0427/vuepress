@@ -93,7 +93,7 @@ npm i postcss-loader autoprefixer -D
 const autoprefixer = require('autoprefixer')
 
 module.exports = {
-  plugins: [autoprefixer],
+  plugins: [autoprefixer]
 }
 ```
 
@@ -117,10 +117,7 @@ npm i @babel/preset-env @babel/plugin-transform-runtime @babel/plugin-proposal-c
 ```js
 module.exports = {
   presets: ['@babel/preset-env'],
-  plugins: [
-    '@babel/plugin-transform-runtime',
-    '@babel/plugin-proposal-class-properties',
-  ],
+  plugins: ['@babel/plugin-transform-runtime', '@babel/plugin-proposal-class-properties']
 }
 ```
 
@@ -143,7 +140,7 @@ import Vue from 'vue'
 import App from './components/App.vue'
 const vm = new Vue({
   el: '#app',
-  render: (h) => h(App),
+  render: (h) => h(App)
 })
 ```
 
@@ -217,8 +214,8 @@ vue init webpack project_3
 module.exports = {
   devServer: {
     port: '8888',
-    open: true,
-  },
+    open: true
+  }
 }
 ```
 
@@ -240,7 +237,7 @@ module.exports = {
 ```js
 module.exports = {
   rules: {
-    'space-before-function-paren': 0, // 函数名与小括号中间空格数
-  },
+    'space-before-function-paren': 0 // 函数名与小括号中间空格数
+  }
 }
 ```

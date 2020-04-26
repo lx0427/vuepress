@@ -19,7 +19,7 @@ const routes = [
     name: 'login',
     component: Login,
     // 公共访问界面，无需验证
-    meta: { isPublic: true },
+    meta: { isPublic: true }
   },
   {
     path: '/',
@@ -28,13 +28,13 @@ const routes = [
     children: [
       { path: '/items/create', component: ItemEdit },
       { path: '/items/edit/:id', component: ItemEdit, props: true },
-      { path: '/items/list', component: ItemList },
-    ],
-  },
+      { path: '/items/list', component: ItemList }
+    ]
+  }
 ]
 
 const router = new VueRouter({
-  routes,
+  routes
 })
 
 // 全局前置守卫
@@ -61,8 +61,8 @@ export default [
     path: '/welfareDetail',
     name: 'welfareDetail',
     component: welfareDetail,
-    children: [],
-  },
+    children: []
+  }
 ]
 ```
 
@@ -74,7 +74,7 @@ export default [
     path: '/welfareDetail',
     name: 'welfareDetail',
     component: () => import('./welfare-detail.vue'),
-    children: [],
-  },
+    children: []
+  }
 ]
 ```

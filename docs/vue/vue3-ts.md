@@ -17,12 +17,12 @@ const routes = [
     path: '/',
     name: 'main',
     component: Main,
-    children: [{ path: '/user', name: 'user', component: User }],
-  },
+    children: [{ path: '/user', name: 'user', component: User }]
+  }
 ]
 
 const router = new VueRouter({
-  routes,
+  routes
 })
 
 export default router
@@ -42,9 +42,7 @@ const routes: RouteConfig[]
 2. `props:true`: 开启路由传参模式
 
 ```ts
-const routes = [
-  { path: '/:resource/list', name: 'user', component: Crud, props: true },
-]
+const routes = [{ path: '/:resource/list', name: 'user', component: Crud, props: true }]
 ```
 
 ### vue 文件
@@ -65,8 +63,8 @@ import HelloWorld from './components/HelloWorld.vue'
 
 @Component({
   components: {
-    HelloWorld, // 引入组件
-  },
+    HelloWorld // 引入组件
+  }
 })
 export default class App extends Vue {
   data = {} // 定义数据
@@ -135,11 +133,7 @@ VUE_APP_API_URL=http://localhost:3002
 
 ```html
 <template>
-  <upload-file
-    v-if="item.upload"
-    :key="i"
-    :url.sync="form[item.prop]"
-  ></upload-file>
+  <upload-file v-if="item.upload" :key="i" :url.sync="form[item.prop]"></upload-file>
 </template>
 <script lang="ts">
   import { Vue, Component, Prop } from "vue-property-decorator";

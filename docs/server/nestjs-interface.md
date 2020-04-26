@@ -17,13 +17,7 @@
 `app.controller.ts`
 
 ```ts
-import {
-  Controller,
-  Get,
-  Post,
-  UseInterceptors,
-  UploadedFile
-} from '@nestjs/common'
+import { Controller, Get, Post, UseInterceptors, UploadedFile } from '@nestjs/common'
 import { AppService } from './app.service'
 import { FileInterceptor } from '@nestjs/platform-express' // 拦截器
 
