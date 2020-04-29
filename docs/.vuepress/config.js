@@ -126,7 +126,8 @@ module.exports = {
           children: [
             ['nodejs/fs', 'fs'],
             ['nodejs/http', 'http'],
-            ['nodejs/url', 'url']
+            ['nodejs/url', 'url'],
+            ['nodejs/router', 'router']
           ]
         }
       ],
