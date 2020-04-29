@@ -1,10 +1,21 @@
 # mongoDB
 
+## 概念
+
+- 数据库 database
+- 集合 collection
+- 文档 document
+
 ```js
-database
-关系型数据库(表)
-非关系型数据库(No SQL) 文档数据库
-BSON = json + 二级制
+// database
+// 关系型数据库(表)
+// 非关系型数据库(No SQL) 文档数据库
+// BSON = json + 二级制
+show dbs
+use full
+show collections
+use test
+db // test
 ```
 
 ## 开始
@@ -208,51 +219,3 @@ _4.0 版本开始自动设置为 window 服务_
 ### 可视化工具
 
 [studio 3t](https://robomongo.org/)
-
-## 概念
-
-- 数据库 database
-- 集合 collection
-- 文档 document
-
-```js
-show dbs
-use full
-show collections
-use test
-db // test
-```
-
-## CRUD
-
-> 第一次创建数据时创建数据库
-
-### insert
-
-`db.<collection>.insert()`
-
-- insertOne({})
-- insertMany([])
-
-```js
-db.stus.insert({ name: 'zbj', age: 28, gender: 'male' })
-db.stus.insert([
-  { name: '沙和尚', age: 38, gender: '男' },
-  { name: '蜘蛛精', age: 17, gender: '女' },
-  { name: '猪八戒', age: 28, gender: '男' }
-])
-```
-
-### find
-
-`options`
-
-- find `Array`
-- findOne `Object`
-
-```js
-// 完全匹配
-db.stus.find({ name: '猪八戒' })
-db.stus.findOne({ name: '猪八戒' })
-db.stus.find().count()
-```
