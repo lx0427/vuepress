@@ -17,3 +17,16 @@
 - 密码: `qw!@er34`
 - 路径: `/webapps/hengyi_scmls_1213`
   :::
+
+###
+
+```bash
+# 查找node进程 22285
+ps -aux | grep node
+# 关闭进程
+kill -9 18056
+# 切换到指定目录
+cd /webapps/hengyi_scmls_1213/
+# 启动命令
+nohup npm run dev &
+```

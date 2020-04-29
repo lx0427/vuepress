@@ -64,6 +64,30 @@ tsc : 无法加载文件 c:\dev\nvm\npm\tsc.ps1，因为在此系统上禁止运
 
 ## 设置
 
+### 自定义用户代码片段
+
+- **`settings.json`**
+
+```json
+"[markdown]": {
+  "editor.quickSuggestions": true // 开启自定义代码片段
+},
+```
+
+- 用户代码片段
+
+````json
+"code": {
+  "prefix": "code",
+  "body": [
+    "```$1",
+    "$2",
+    "```",
+  ],
+  "description": "Log output to code snippet"
+}
+````
+
 ### 设置中(自动保存添加分号)
 
 ```json

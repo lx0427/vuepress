@@ -169,6 +169,7 @@ module.exports = {
         }
       ],
       '/tool/': [
+        ['mddir', 'mddir'],
         ['fork', 'fork'],
         ['git', 'git'],
         ['hexo', 'hexo'],
