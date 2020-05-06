@@ -18,7 +18,7 @@
 - 路径: `/webapps/hengyi_scmls_1213`
   :::
 
-###
+### 前端重启
 
 ```bash
 # 查找node进程 22285
@@ -28,5 +28,8 @@ kill -9 18056
 # 切换到指定目录
 cd /webapps/hengyi_scmls_1213/
 # 启动命令
+# nohup 永久运行
+# & 后台运行
+# exit 退出窗口
 nohup npm run dev & exit
 ```
