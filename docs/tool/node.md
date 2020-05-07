@@ -52,6 +52,9 @@ ls
 ls -a
 # 查看剩余内存
 free -h
+# 拷贝文件夹
+cp -r hengyi_scmls bak # 含当前文件目录
+cp -r hengyi_scmls/. bak/0507/ # 文件夹中所有内容
 ```
 
 ### 安装
@@ -104,5 +107,7 @@ npm config set registry https://registry.npmjs.org/
 
 ```js
 const glob = require('glob')
-glob.sync('./src/pages/*/app.vue').map((v) => v.replace(/.\/src\/pages\/(\w+)\/app.vue/, '$1')) // => 匹配页面名称
+glob
+  .sync('./src/pages/*/app.vue')
+  .map((v) => v.replace(/.\/src\/pages\/(\w+)\/app.vue/, '$1')) // => 匹配页面名称
 ```
