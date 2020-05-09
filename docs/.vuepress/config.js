@@ -144,10 +144,10 @@ module.exports = {
           title: 'VUE',
           collapsable: false,
           children: [
+            ['component', 'component'],
             ['router', 'router'],
             ['axios', 'axios'],
-            ['mixins', 'mixins'],
-            ['v-model', 'v-model']
+            ['mixins', 'mixins']
           ]
         },
         {
