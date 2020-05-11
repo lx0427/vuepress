@@ -18,7 +18,22 @@ use test
 db // test
 ```
 
-## 开始
+## 安装
+
+_4.0 版本开始自动设置为 window 服务_
+
+1. [https://www.mongodb.org/dl/win32](https://www.mongodb.org/dl/win32)
+2. 配置环境变量，指向安装的`bin`目录
+3. `cmd`, 执行`mongo`
+
+mongo 命令执行报错：
+
+1. `services.msc` 查看 `MongoDB Server` 未启动
+2. 手动启动报错
+3. 查看 `D:\MongoDB\bin\mongod.cfg` 中，将最后一行 `mp:` 注释掉
+4. 重启服务即可
+
+## 语法
 
 ### 数据库与集合
 
@@ -197,24 +212,17 @@ db.order.aggregate([
 
    ```cfg
    security:
-     authorization:enabled
+     authorization: enabled
    ```
 
 3. 重启 mongoDB 服务
    `win + R` => services.msc => 重启 mongo 服务
 
-   重启报错
-
-   ```bash
-   sc delete MongoDB
-   # 新建目录 D:\data\db  D:\data\log
-   mongod --dbpath=D:\data\db --logpath=D:\data\log\MongoDB.log --install --serviceName "MongoDB"
-   ```
-
 4. 使用超级管理员链接数据库
 
    ```bash
    mongo admin -u root -p 123456
+   # 远程连接
    mongo 192.168.0.107:27017/test -u root -p 123456
    ```
 
@@ -223,25 +231,12 @@ db.order.aggregate([
    ```bash
    use test
    db.createUser({
-    user: 'admin',
+    user: 'zs',
     pwd: '123456',
     roles: [{ role: 'dbOwner', db: 'test' }]
    })
    ```
 
-## **安装**
-
-_4.0 版本开始自动设置为 window 服务_
-
-1. [https://www.mongodb.org/dl/win32](https://www.mongodb.org/dl/win32)
-2. 环境变量
-3. 新建 `C:\\data\db`
-4. mongod 启动数据库服务器
-   - mongod --dbpath 路径 --port 端口号
-   - 将 mongod 设置系统服务
-5. mongo 启动客户端
-6. 新建 `C:\\data\log`
-
-### 可视化工具
+## 可视化工具
 
 [studio 3t](https://robomongo.org/)

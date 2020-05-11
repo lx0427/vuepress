@@ -91,6 +91,11 @@ module.exports = {
       ],
       '/server/': [
         {
+          title: 'ejs',
+          collapsable: false,
+          children: [['snippet', 'snippet']]
+        },
+        {
           title: 'Koa',
           collapsable: false,
           children: [['koa', 'koa']]
