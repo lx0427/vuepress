@@ -182,28 +182,54 @@ db.order.aggregate([
 
 ### 权限管理
 
-- 配置超级管理员
+1. 配置超级管理员
 
-  ```js
-  db.createUser({
+   ```js
+   db.createUser({
+     user: 'admin',
+     pwd: '123456',
+     roles: [{ role: 'root', db: 'admin' }]
+   })
+   ```
+
+2. 开启权限认证
+   `mongod.cfg`
+
+   ```cfg
+   security:
+     authorization:enabled
+   ```
+
+3. 重启 mongoDB 服务
+   `win + R` => services.msc => 重启 mongo 服务
+
+   重启报错
+
+   ```bash
+   sc delete MongoDB
+   # 新建目录 D:\data\db  D:\data\log
+   mongod --dbpath=D:\data\db --logpath=D:\data\log\MongoDB.log --install --serviceName "MongoDB"
+   ```
+
+4. 使用超级管理员链接数据库
+
+   ```bash
+   mongo admin -u root -p 123456
+   mongo 192.168.0.107:27017/test -u root -p 123456
+   ```
+
+5. 给数据库指定用户
+
+   ```bash
+   use test
+   db.createUser({
     user: 'admin',
     pwd: '123456',
-    roles: [{ role: 'root', db: 'admin' }]
-  })
-  ```
+    roles: [{ role: 'dbOwner', db: 'test' }]
+   })
+   ```
 
-- 开启权限认证
-  `mongod.cfg`
-
-  ```cfg
-  security:
-    authorization:enabled
-  ```
-
-- 重启 mongoDB 服务
-  `win + R` => services.msc =>
-
-## 安装
+## **安装**
 
 _4.0 版本开始自动设置为 window 服务_
 
