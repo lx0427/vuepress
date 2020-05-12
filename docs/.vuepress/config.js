@@ -65,11 +65,7 @@ module.exports = {
         {
           title: 'REACT',
           collapsable: false,
-          children: [
-            ['react/', '开始学习'],
-            ['react/antd', 'Ant Design'],
-            ['react/record', '记录']
-          ]
+          children: [['react/', '开始学习'], ['react/antd', 'Ant Design'], ['react/record', '记录']]
         },
         {
           title: 'CSS',
@@ -83,17 +79,14 @@ module.exports = {
         {
           title: 'MARKDOWN',
           collapsable: false,
-          children: [
-            ['markdown/', '学习使用'],
-            ['markdown/difficulty', '难点']
-          ]
+          children: [['markdown/', '学习使用'], ['markdown/difficulty', '难点']]
         }
       ],
       '/server/': [
         {
           title: 'ejs',
           collapsable: false,
-          children: [['snippet', 'snippet']]
+          children: [['ejs/snippet', 'snippet']]
         },
         {
           title: 'Koa',
@@ -103,65 +96,39 @@ module.exports = {
         {
           title: 'Express',
           collapsable: false,
-          children: [
-            ['express', 'express'],
-            ['express-project', 'express-project']
-          ]
+          children: [['express', 'express'], ['express-project', 'express-project']]
         },
         {
           title: 'NestJs',
           collapsable: false,
-          children: [
-            ['nestjs', 'nestjs'],
-            ['nestjs-interface', 'nestjs-interface']
-          ]
+          children: [['nestjs', 'nestjs'], ['nestjs-interface', 'nestjs-interface']]
         },
         {
           title: 'mongoDB',
           collapsable: false,
-          children: [
-            ['mongodb/mongodb', 'mongodb'],
-            ['mongodb/crud', 'mongodb/CRUD'],
-            ['mongodb/mongoose', 'mongoose']
-          ]
+          children: [['mongodb/mongodb', 'mongodb'], ['mongodb/crud', 'mongodb/CRUD'], ['mongodb/mongoose', 'mongoose']]
         },
         {
           title: 'nodeJs',
           collapsable: false,
-          children: [
-            ['nodejs/fs', 'fs'],
-            ['nodejs/http', 'http'],
-            ['nodejs/url', 'url'],
-            ['nodejs/router', 'router']
-          ]
+          children: [['nodejs/fs', 'fs'], ['nodejs/http', 'http'], ['nodejs/url', 'url'], ['nodejs/router', 'router']]
         }
       ],
       '/vue/': [
         {
           title: 'create',
           collapsable: false,
-          children: [
-            ['create', 'create'],
-            ['vue-cli', 'vue-cli']
-          ]
+          children: [['create', 'create'], ['vue-cli', 'vue-cli']]
         },
         {
           title: 'VUE',
           collapsable: false,
-          children: [
-            ['component', 'component'],
-            ['router', 'router'],
-            ['axios', 'axios'],
-            ['mixins', 'mixins']
-          ]
+          children: [['component', 'component'], ['router', 'router'], ['axios', 'axios'], ['mixins', 'mixins']]
         },
         {
           title: 'typescript',
           collapsable: false,
-          children: [
-            ['typescript-grammar', 'typescript-grammar'],
-            ['vue3-ts', 'vue3-ts']
-          ]
+          children: [['typescript-grammar', 'typescript-grammar'], ['vue3-ts', 'vue3-ts']]
         },
         ['element-ui', 'element-ui'],
         ['nuxt-vuetify', 'nuxt-vuetify']
@@ -195,38 +162,21 @@ module.exports = {
         {
           title: '商城开发',
           collapsable: false,
-          children: [
-            ['develop', '开发常用'],
-            ['', '预设规则']
-          ]
+          children: [['develop', '开发常用'], ['', '预设规则']]
         },
         {
           title: '商城组件',
           collapsable: false,
-          children: [
-            ['art-template', 'art-template'],
-            ['components', '自定义组件']
-          ]
+          children: [['art-template', 'art-template'], ['components', '自定义组件']]
         },
         {
           title: '商城问题',
           collapsable: false,
-          children: [
-            ['issue', '常见问题'],
-            ['record', '记录']
-          ]
+          children: [['issue', '常见问题'], ['record', '记录']]
         }
       ],
-      '/record/': [
-        ['cangcu', '仓储管理'],
-        ['yuanquwuliu', '园区物流'],
-        ['fdc-record', '亿房']
-      ],
-      '/other/': [
-        ['browser', '浏览器'],
-        ['ppt-font', 'ppt字体'],
-        ['static-engineering', '工程化项目（静态页面）']
-      ]
+      '/record/': [['cangcu', '仓储管理'], ['yuanquwuliu', '园区物流'], ['fdc-record', '亿房']],
+      '/other/': [['browser', '浏览器'], ['ppt-font', 'ppt字体'], ['static-engineering', '工程化项目（静态页面）']]
     }
   },
   plugins: [
