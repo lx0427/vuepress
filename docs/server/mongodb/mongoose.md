@@ -220,11 +220,12 @@ const schema = new mongoose.Schema({
 module.exports = mongoose.model('Hero', schema)
 ```
 
-## populate
+### populate
 
 ```js
 const mongoose = require('mongoose')
 const schema = new mongoose.Schema({
+  // 设置外键对应的数据库表名
   categories: [{ type: mongoose.SchemaTypes.ObjectId, ref: 'Category' }],
   parent: { type: mongoose.SchemaTypes.ObjectId, ref: 'Category' }
 })
@@ -234,3 +235,7 @@ const items = await Menu.find()
   .populate('categories')
   .populate('parent')
 ```
+
+## egg-mongoose
+
+[egg-mongoose 文档](https://www.npmjs.com/package/egg-mongoose)
