@@ -43,3 +43,42 @@
       // 设置全局变量
       ctx.state.userinfo = ctx.session.userinfo
       ```
+
+6. rbac 权限管理
+   1. 用户管理
+   2. 角色管理
+   3. 权限（菜单）管理
+   4. 角色授权
+      1. 更新
+         1. 清除历史授权
+         2. 新增当前授权
+   5. 判断当前用户是否有权限访问
+   6. 根据用户角色返回动态权限
+7. 文件上传
+
+   1. 让表单数据以二进制文件方式上传 `enctype="mutipart/form-data"`
+   2. egg-mutipart(内置插件)
+
+      ```js
+      async function upload(params) {
+        const { ctx } = this
+        const stream = await ctx.getFileStream()
+        const target = 'app/public/admin/upload' + path.basename(stream.filename)
+        const writeStream = fs.createWriteStream(target)
+        // const pump = require('mz-module/pump')
+        // await pump(stream, writeStream)
+        let result
+        try {
+          result = await stream.pipe(writeStream)
+        } catch (err) {
+          // 必须将上传的文件流消费掉，要不然浏览器响应会卡死
+          await sendToWormhole(stream)
+          throw err
+        }
+
+        ctx.body = {
+          usl: target,
+          field: stream.files
+        }
+      }
+      ```
