@@ -120,5 +120,6 @@ hengyi/hengyi2019
 
 ### 文件地址
 
+- 文件目录：`F:\CODE\hy_wsc_frontend\dist`
 - 测试：`/home/jboss-4.2.3.GA/server/default/deploy/hengyi-mobile.war`
 - 正式：`/app/server/jboss-4.2.2.GA/server/default/deploy/hengyi-mobile.war`
