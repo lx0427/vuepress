@@ -131,6 +131,11 @@ module.exports = {
           ]
         },
         {
+          title: 'Mysql',
+          collapsable: false,
+          children: [['mysql', 'mysql']]
+        },
+        {
           title: 'nodeJs',
           collapsable: false,
           children: [
