@@ -118,6 +118,12 @@ hengyi/hengyi2019
 
 ## 发布
 
+### 备份前端文件
+
+```bash
+cp -r /app/server/jboss-4.2.2.GA/server/default/deploy/hengyi-mobile.war/ /app/server/jboss-4.2.2.GA/server/default/old/202006
+```
+
 ### 文件地址
 
 - 文件目录：`F:\CODE\hy_wsc_frontend\dist`
