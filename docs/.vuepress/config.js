@@ -98,7 +98,10 @@ module.exports = {
         {
           title: 'egg',
           collapsable: false,
-          children: [['egg', 'egg']]
+          children: [
+            ['egg/egg', 'egg'],
+            ['egg/admin-docs', '后台管理系统文档']
+          ]
         },
         {
           title: 'Koa',
