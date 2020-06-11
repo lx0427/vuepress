@@ -1,5 +1,19 @@
 # 后台管理系统文档
 
+## LUpload
+
+### 示例
+
+```vue
+<l-upload :item="item" v-model="comValue"></l-upload>
+```
+
+### 参数
+
+- value: v-model
+- item
+  - dir: 图片储存目录
+
 ## LDict
 
 > 默认请求所有字典数据缓存至 vuex
@@ -34,28 +48,6 @@
 - clearable: 可清除
 - valueKey: value 对应字段 key, 默认`value`
 - labelKey: label 对应字段 key, 默认`label`
-
-## LFormItem
-
-### 示例
-
-```vue
-<el-form-item v-for="(item, i) in columns" :key="i" :label="item.label" :prop="item.prop">
-  <l-form-item v-model="modelForm[item.prop]" :item="item"></l-form-item>
-</el-form-item>
-```
-
-### 参数
-
-- value
-- item
-  - tagType: 区分使用组件类型
-
-> 依赖组件
-
-- LDict
-- LSelect
-- el-input (支持组件 type)
 
 ## LSearchForm
 
@@ -133,7 +125,7 @@
     - scopedSlots: 自定义扩展 slot 名称
     - label: 列名
     - prop: 属性 key
-    - type: 原生表格 type
+    - type: 原生表格 type(selection/index/expand) + 自定义 type(image)
     - width: 表格列宽
     - formatter
     - queryItem: 不渲染仅 searchFormItem
@@ -144,3 +136,38 @@
   - pageSizes
   - pageSize
   - total
+
+## LFormItem
+
+### 示例
+
+```vue
+<el-form-item v-for="(item, i) in columns" :key="i" :label="item.label" :prop="item.prop">
+  <l-form-item v-model="modelForm[item.prop]" :item="item"></l-form-item>
+</el-form-item>
+```
+
+### 参数
+
+- item(columns)
+  - label
+  - prop
+  - upload: `LUpload`
+  - dir: `LUpload`
+  - dictCode: `LDict`
+  - multiple: `LDict select`
+  - clearable: `LDict select`
+  - tagType:
+    - `LDict`: select, radio, checkbox
+    - `el-input`: 参考 element 文档
+  - url: `LSelect`
+  - valueKey: `LSelect`
+  - labelKey: `LSelect`
+- value
+
+> 依赖组件
+
+- LUpload
+- LDict
+- LSelect
+- el-input (支持组件 type)
