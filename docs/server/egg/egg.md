@@ -82,3 +82,11 @@
         }
       }
       ```
+
+## 故障记录
+
+### 上传图片，formData 字段丢失
+
+> 上传文件必须在所有其他的 fields 后面，否则在拿到文件流时可能还获取不到 fields
+
+[参考文档](https://eggjs.org/zh-cn/basics/controller.html#%E8%8E%B7%E5%8F%96%E4%B8%8A%E4%BC%A0%E7%9A%84%E6%96%87%E4%BB%B6)
