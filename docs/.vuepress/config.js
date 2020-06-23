@@ -137,8 +137,10 @@ module.exports = {
           title: 'Mysql',
           collapsable: false,
           children: [
-            ['mysql', 'mysql'],
-            ['powerdesigner', 'powerdesigner']
+            ['mysql/mysql', 'mysql'],
+            ['mysql/search', 'search'],
+            ['mysql/practice', 'practice'],
+            ['mysql/powerdesigner', 'powerdesigner']
           ]
         },
         {
