@@ -129,7 +129,6 @@ module.exports = {
           collapsable: false,
           children: [
             ['mongodb/mongodb', 'mongodb'],
-            ['mongodb/crud', 'mongodb/CRUD'],
             ['mongodb/mongoose', 'mongoose']
           ]
         },
@@ -147,9 +146,7 @@ module.exports = {
           title: 'nodeJs',
           collapsable: false,
           children: [
-            ['nodejs/fs', 'fs'],
-            ['nodejs/http', 'http'],
-            ['nodejs/url', 'url'],
+            ['nodejs/docs', 'docs'],
             ['nodejs/router', 'router']
           ]
         }
