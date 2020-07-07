@@ -121,7 +121,7 @@ hengyi/hengyi2019
 ### 备份前端文件
 
 ```bash
-cp -r /app/server/jboss-4.2.2.GA/server/default/deploy/hengyi-mobile.war/ /app/server/jboss-4.2.2.GA/server/default/old/202006
+cp -r /app/server/jboss-4.2.2.GA/server/default/deploy/ /app/server/jboss-4.2.2.GA/server/default/old/20200
 ```
 
 ### 文件地址
