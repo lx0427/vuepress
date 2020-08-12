@@ -1,6 +1,6 @@
-# fs
+# node
 
-## 常用方法
+## fs
 
 ### stat 检测试文件还是目录
 
@@ -160,9 +160,9 @@ let writeStream = fs.createWriteStream('data/02.png')
 readStream.pipe(writeStream)
 ```
 
-## 案例
+### 案例
 
-### 获取指定路径下的目录数组
+> 获取指定路径下的目录数组
 
 - 递归实现
 
@@ -257,4 +257,70 @@ fs.readdir(path, async (err, data) => {
     console.log(e)
   }
 })
+```
+
+## http
+
+### 创建服务
+
+```js
+var http = require('http')
+http
+  .createServer(function(request, response) {
+    response.writeHead(200, { 'Content-Type': 'text/plain' })
+    response.end('Hello World 1234')
+  })
+  .listen(8081)
+
+console.log('Server running at http://127.0.0.1:8081/')
+```
+
+## url
+
+### parse
+
+```js
+const url = require('url')
+url.parse('https://localhost:3000/admin?token=123')
+
+// {
+//   protocol: 'https:',
+//   slashes: true,
+//   auth: null,
+//   host: 'localhost:3000',
+//   port: '3000',
+//   hostname: 'localhost',
+//   hash: null,
+//   search: '?token=123',
+//   query: 'token=123',
+//   pathname: '/admin',
+//   path: '/admin?token=123',
+//   href: 'https://localhost:3000/admin?token=123'
+// }
+
+url.parse('https://localhost:3000/admin?token=123', true)
+// {
+//   query: { token: '123' },
+//   ...
+// }
+```
+
+### get 参数获取
+
+```js
+const url = require('url')
+url.parse(req.url, true).query
+```
+
+## post 参数获取
+
+```js
+;(req, res) => {
+  req.on('data', (data) => {
+    params += data
+  })
+  req.on('end', () => {
+    res.end(params)
+  })
+}
 ```

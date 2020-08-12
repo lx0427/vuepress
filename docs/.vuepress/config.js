@@ -129,7 +129,6 @@ module.exports = {
           collapsable: false,
           children: [
             ['mongodb/mongodb', 'mongodb'],
-            ['mongodb/crud', 'mongodb/CRUD'],
             ['mongodb/mongoose', 'mongoose'],
             ['mongodb/replica', 'replica']
           ]
@@ -138,17 +137,17 @@ module.exports = {
           title: 'Mysql',
           collapsable: false,
           children: [
-            ['mysql', 'mysql'],
-            ['powerdesigner', 'powerdesigner']
+            ['mysql/mysql', 'mysql'],
+            ['mysql/search', 'search'],
+            ['mysql/practice', 'practice'],
+            ['mysql/powerdesigner', 'powerdesigner']
           ]
         },
         {
           title: 'nodeJs',
           collapsable: false,
           children: [
-            ['nodejs/fs', 'fs'],
-            ['nodejs/http', 'http'],
-            ['nodejs/url', 'url'],
+            ['nodejs/docs', 'docs'],
             ['nodejs/router', 'router']
           ]
         }
