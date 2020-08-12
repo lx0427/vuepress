@@ -130,7 +130,8 @@ module.exports = {
           children: [
             ['mongodb/mongodb', 'mongodb'],
             ['mongodb/crud', 'mongodb/CRUD'],
-            ['mongodb/mongoose', 'mongoose']
+            ['mongodb/mongoose', 'mongoose'],
+            ['mongodb/replica', 'replica']
           ]
         },
         {
