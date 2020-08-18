@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vuepress dev docs",
     "build": "vuepress build docs",
-    "p": "cd docs/.vuepress/dist && git init && git add -A && git commit -m 'deploy' && git push -f https://github.com/lx0427/vuepress master:gh-pages"
+    "p": "vuepress build docs && cd docs/.vuepress/dist && git init && git add -A && git commit -m 'deploy' && git push -f https://github.com/lx0427/vuepress master:gh-pages"
   },
   "devDependencies": {
     "@vuepress/plugin-active-header-links": "^1.2.0",
