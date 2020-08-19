@@ -207,7 +207,10 @@ module.exports = {
         {
           title: '闭环',
           collapsable: false,
-          children: [['closed-loop', '老闭环']],
+          children: [
+            ['loop', '新闭环'],
+            ['closed-loop', '老闭环'],
+          ],
         },
         {
           title: '商城开发',
