@@ -18,6 +18,7 @@
 
    .\httpd.exe  -k  install
 
+   # 启动apache服务
    .\httpd.exe -k start
 
    # 当前bin目录执行qps测试
