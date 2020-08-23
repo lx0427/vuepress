@@ -185,6 +185,25 @@ tsc : 无法加载文件 c:\dev\nvm\npm\tsc.ps1，因为在此系统上禁止运
 
 ## 插件
 
+1. 禁用插件，在指定工作区启用插件
+2. 启用插件，在指定工作区禁用插件
+
+### less 转 wxss
+
+> Easy LESS
+
+```json
+{
+  "less.compile": {
+    "compress": false, // 压缩
+    "sourceMap": false, // .css.map files
+    "out": true, // false => DON'T output .css files (overridable per-file, see below)
+    "outExt": ".wxss",
+    "autoprefixer": "> 5%, last 2 Chrome versions, not ie 6-9"
+  }
+}
+```
+
 ### 格式化文件
 
 `Format File`
