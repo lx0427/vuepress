@@ -37,12 +37,8 @@ module.exports = {
         link: '/tool/environment/git',
       },
       {
-        text: '微商城',
-        link: '/wsc/develop',
-      },
-      {
-        text: '备忘',
-        link: '/record/wb/game-mall',
+        text: '常用记录',
+        link: '/record/wsc/develop',
       },
     ],
     sidebar: {
@@ -222,45 +218,25 @@ module.exports = {
           ],
         },
       ],
-      '/wsc/': [
-        {
-          title: '闭环',
-          collapsable: false,
-          children: [
-            ['loop', '新闭环'],
-            ['closed-loop', '老闭环'],
-          ],
-        },
-        {
-          title: '商城开发',
-          collapsable: false,
-          children: [
-            ['develop', '开发常用'],
-            ['', '预设规则'],
-          ],
-        },
-        {
-          title: '商城组件',
-          collapsable: false,
-          children: [
-            ['art-template', 'art-template'],
-            ['components', '自定义组件'],
-          ],
-        },
-        {
-          title: '商城问题',
-          collapsable: false,
-          children: [
-            ['issue', '常见问题'],
-            ['record', '记录'],
-          ],
-        },
-      ],
       '/record/': [
+        {
+          title: '微商城',
+          collapsable: false,
+          children: [
+            ['wsc/develop', '开发常用'],
+            ['wsc/art-template', 'art-template'],
+            ['wsc/components', '自定义组件'],
+            ['wsc/issue', '常见问题'],
+            ['wsc/rules', '规则'],
+            ['wsc/other', '其他'],
+          ],
+        },
         {
           title: '恒逸',
           collapsable: false,
           children: [
+            ['hy/loop', '新闭环'],
+            ['hy/closed-loop', '老闭环'],
             ['hy/cangcu', '仓储管理'],
             ['hy/yuanquwuliu', '园区物流'],
           ],
