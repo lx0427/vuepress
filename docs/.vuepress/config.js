@@ -34,7 +34,7 @@ module.exports = {
       },
       {
         text: 'tool',
-        link: '/tool/nvm',
+        link: '/tool/environment/git',
       },
       {
         text: '微商城',
@@ -155,9 +155,7 @@ module.exports = {
         {
           title: 'test',
           collapsable: false,
-          children: [
-            ['test/ab', 'Apache24'],
-          ],
+          children: [['test/ab', 'Apache24']],
         },
       ],
       '/vue/': [
@@ -198,17 +196,35 @@ module.exports = {
         },
       ],
       '/tool/': [
-        ['mddir', 'mddir'],
-        ['fork', 'fork'],
-        ['git', 'git'],
-        ['hexo', 'hexo'],
-        ['node', 'node'],
-        ['nvm', 'nvm'],
-        ['software', 'software'],
-        ['vscode-template', 'vscode-template'],
-        ['vscode', 'vscode'],
-        ['vuepress', 'vuepress'],
-        ['webpack', 'webpack'],
+        {
+          title: 'environment',
+          collapsable: false,
+          children: [
+            ['environment/git', 'git'],
+            ['environment/node', 'node'],
+            ['environment/nvm', 'nvm'],
+            ['environment/mddir', 'mddir'],
+            ['environment/software', 'software'],
+          ],
+        },
+        {
+          title: 'front',
+          collapsable: false,
+          children: [
+            ['front/fork', 'fork'],
+            ['front/hexo', 'hexo'],
+            ['front/vuepress', 'vuepress'],
+            ['front/webpack', 'webpack'],
+          ],
+        },
+        {
+          title: 'vscode',
+          collapsable: false,
+          children: [
+            ['vscode/vscode-template', 'vscode-template'],
+            ['vscode/vscode', 'vscode'],
+          ],
+        },
       ],
       '/wsc/': [
         {
