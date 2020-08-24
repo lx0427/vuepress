@@ -42,11 +42,7 @@ module.exports = {
       },
       {
         text: '备忘',
-        link: '/record/cangcu',
-      },
-      {
-        text: 'other',
-        link: '/other/browser',
+        link: '/record/wb/game-mall',
       },
     ],
     sidebar: {
@@ -261,15 +257,35 @@ module.exports = {
         },
       ],
       '/record/': [
-        ['game-mall', '游戏商城'],
-        ['cangcu', '仓储管理'],
-        ['yuanquwuliu', '园区物流'],
-        ['fdc-record', '亿房'],
-      ],
-      '/other/': [
-        ['browser', '浏览器'],
-        ['ppt-font', 'ppt字体'],
-        ['static-engineering', '工程化项目（静态页面）'],
+        {
+          title: '恒逸',
+          collapsable: false,
+          children: [
+            ['hy/cangcu', '仓储管理'],
+            ['hy/yuanquwuliu', '园区物流'],
+          ],
+        },
+        {
+          title: 'wb',
+          collapsable: false,
+          children: [['wb/game-mall', '游戏商城']],
+        },
+        {
+          title: 'fdc',
+          collapsable: false,
+          children: [
+            ['fdc/fdc-record', '亿房'],
+            ['fdc/static-engineering', '工程化项目（静态页面）'],
+          ],
+        },
+        {
+          title: 'other',
+          collapsable: false,
+          children: [
+            ['other/browser', '浏览器'],
+            ['other/ppt-font', 'ppt字体'],
+          ],
+        },
       ],
     },
   },
