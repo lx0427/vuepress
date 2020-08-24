@@ -21,12 +21,12 @@ module.exports = {
         link: '/note/react/',
       },
       {
-        text: 'Server',
-        link: '/server/express',
+        text: 'Javascript',
+        link: '/javascript/pattern/method',
       },
       {
-        text: 'Vue',
-        link: '/vue/create',
+        text: 'Server',
+        link: '/server/express',
       },
       {
         text: '算法学习',
@@ -43,17 +43,6 @@ module.exports = {
     ],
     sidebar: {
       '/note/': [
-        {
-          title: 'JS',
-          collapsable: false,
-          children: [
-            ['js/', 'JS'],
-            ['js/es6', 'ES6'],
-            ['js/pattern', 'pattern'],
-            ['js/question', 'question'],
-            ['js/answer', 'answer'],
-          ],
-        },
         {
           title: 'REACT',
           collapsable: false,
@@ -150,35 +139,51 @@ module.exports = {
           children: [['test/ab', 'Apache24']],
         },
       ],
-      '/vue/': [
+      '/javascript/': [
         {
-          title: 'create',
+          title: 'ES6',
+          collapsable: false,
+          children: [['ES6/grammar', '语法']],
+        },
+        {
+          title: 'pattern',
           collapsable: false,
           children: [
-            ['create', 'create'],
-            ['vue-cli', 'vue-cli'],
+            ['pattern/grammar', '语法'],
+            ['pattern/method', '方法'],
           ],
         },
         {
-          title: 'VUE',
+          title: 'vue',
           collapsable: false,
           children: [
-            ['component', 'component'],
-            ['router', 'router'],
-            ['axios', 'axios'],
-            ['mixins', 'mixins'],
+            ['vue/create', 'create'],
+            ['vue/vue-cli', 'vue-cli'],
+            ['vue/component', 'component'],
+            ['vue/router', 'router'],
+            ['vue/axios', 'axios'],
+            ['vue/mixins', 'mixins'],
+            ['vue/typescript-grammar', 'typescript-grammar'],
+            ['vue/vue3-ts', 'vue3-ts'],
+            ['vue/element-ui', 'element-ui'],
+            ['vue/nuxt-vuetify', 'nuxt-vuetify'],
           ],
         },
         {
-          title: 'typescript',
+          title: '功能',
           collapsable: false,
+          children: [['func/upload', '上传']],
+        },
+        {
+          title: 'Q&A',
+          collapsable: true,
           children: [
-            ['typescript-grammar', 'typescript-grammar'],
-            ['vue3-ts', 'vue3-ts'],
+            ['QA/question', '问题'],
+            ['QA/answer', '解答'],
+            ['QA/compatible', '兼容问题'],
+            ['QA/brower', '浏览器'],
           ],
         },
-        ['element-ui', 'element-ui'],
-        ['nuxt-vuetify', 'nuxt-vuetify'],
       ],
       '/alg/': [
         {
