@@ -65,7 +65,7 @@ hengyi/hengyi2019
 
 1. 拉取 develop 分支代码
 2. `config.js` 中修改接口请求路径
-   ![solar](../../../vuepress/docs/.vuepress/images/wsc-config.png)
+   ![solar](../../.vuepress/images/wsc-config.png)
 3. 启动`微信端`命令
    ```bash
    npm run dev_app
@@ -76,7 +76,7 @@ hengyi/hengyi2019
 
 1. 拉取 develop 分支代码
 2. `config.js` 中修改接口请求路径
-   ![solar](../../../vuepress/docs/.vuepress/images/wsc-config.png)
+   ![solar](../../.vuepress/images/wsc-config.png)
 3. 启动`微信端`命令
    ```bash
    npm run dev_app
