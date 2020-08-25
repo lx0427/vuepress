@@ -1,11 +1,26 @@
 # 方法
 
+## 示例
+
+### 匹配指定字符串
+
 ```js
 // 搜索未加目录名的js
 /\<script src=\"(?!\.|\/|http)/
 
 // 搜索未加版本号的js
 /\.js(?!\?|\/)/
+```
+
+### 分组获取
+
+```js
+const RE_DATE = /(\d{4})-(\d{2})-(\d{2})/
+const matchObj = RE_DATE.exec('1999-12-31')
+const year = matchObj[1] // 1999
+const month = matchObj[2] // 12
+const day = matchObj[3] // 31
+console.log(year, month, day)
 ```
 
 ## 正则方法
