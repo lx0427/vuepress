@@ -40,7 +40,8 @@ rsconf = {
     },
     {
       _id: 2,
-      host: '127.0.0.1:27119'
+      host: '127.0.0.1:27119',
+      arbiterOnly:true
     }
   ]
 }
@@ -104,6 +105,12 @@ mongod --replSet myrs --port 27120 --dbpath D:\MongoDB\myrs\27120 --smallfiles -
 
 mongo --port 27117
 rs.add("127.0.0.1:27120")
+```
+
+### 新增仲裁者
+
+```js
+rs.addArb('127.0.0.1:27118')
 ```
 
 ## 授权登录
