@@ -201,6 +201,7 @@ module.exports = {
             ['environment/node', 'node'],
             ['environment/nvm', 'nvm'],
             ['environment/mddir', 'mddir'],
+            ['environment/bat', 'bat'],
             ['environment/software', 'software'],
           ],
         },
@@ -229,6 +230,7 @@ module.exports = {
           collapsable: false,
           children: [
             ['wsc/develop', '开发常用'],
+            ['wsc/wsc-admin', '后台管理系统'],
             ['wsc/art-template', 'art-template'],
             ['wsc/components', '自定义组件'],
             ['wsc/issue', '常见问题'],

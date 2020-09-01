@@ -56,24 +56,24 @@ module.exports = {
       {
         // 顶部右侧导航栏
         text: '笔记',
-        link: '/note/tools/'
-      }
+        link: '/note/tools/',
+      },
     ],
     tools: [
       // 侧边栏
       {
         title: 'tools',
-        collapsable: false // 是否可以折叠
+        collapsable: false, // 是否可以折叠
       },
       ['/note/tools/', 'vuepress'],
       ['/note/tools/one', 'one'],
       ['/note/tools/two', 'two'], // 第一项为link, 第二项为标题
       {
         title: '分类2',
-        collapsable: false
+        collapsable: false,
       },
-      ['/note/type2/three', 'three']
-    ]
+      ['/note/type2/three', 'three'],
+    ],
   },
   plugins: [
     '@vuepress/back-to-top',
@@ -82,10 +82,10 @@ module.exports = {
       '@vuepress/search',
       {
         // 搜索插件，不能搜索代码块内容
-        searchMaxSuggestions: 10
-      }
-    ]
-  ]
+        searchMaxSuggestions: 10,
+      },
+    ],
+  ],
 }
 ```
 
