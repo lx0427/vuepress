@@ -119,7 +119,7 @@ rs.addArb('127.0.0.1:27118')
 
 ```js
 db.createUser({
-  user: 'root',
+  user: 'admin',
   pwd: '123456',
   roles: [{ role: 'root', db: 'admin' }],
 })
@@ -183,19 +183,69 @@ async function getSession(
 }
 ```
 
+> 文档
+
+1. [Transactions in Mongoose](https://mongoosejs.com/docs/transactions.html)
+2. [transactions-write-concern](https://docs.mongodb.com/manual/core/transactions/#transactions-write-concern)
+
 ```js
-const { ctx } = this
-const session = await ctx.getSession()
-try {
-  await doc.save({ session })
-  // 提交事务
-  await session.commitTransaction()
-  this.success('提现成功，等待平台转账！')
-} catch (err) {
-  // 回滚事务
-  await session.abortTransaction()
-  ctx.logger.error(new Error(err))
-} finally {
-  await session.endSession()
-}
+ async add() {
+    const { ctx } = this
+    const { goods_id, num, buyers_id } = ctx.request.body
+
+    const session = await ctx.getSession()
+
+    try {
+      // 1. 判断用户是否是客服, 客服不能购买商品
+      const isService = await ctx.model.User.findOne({
+        _id: buyers_id,
+        is_service: 1,
+      })
+      if (isService) {
+        return this.error('客服不能购买商品')
+      }
+
+      const goodsInfo = await ctx.model.Goods.findOne({ _id: goods_id })
+
+      if (goodsInfo.stock <= 0) {
+        // 提交事务
+        await session.commitTransaction()
+        return this.error('商品已售罄')
+      }
+      /* updateOne - session */
+      await ctx.model.Goods.updateOne(
+        { _id: goods_id },
+        { $inc: { stock: -num } }
+      ).session(session)
+
+      const doc = new ctx.model.Order({
+        ...ctx.request.body,
+        _id: await ctx.helper.orderNo(),
+      })
+      /* save - session */
+      const res = await doc.save({ session })
+
+      // ctx.throw(422, 123)
+
+      // 新增订单记录
+      await ctx.service.order.statusRecord(
+        {
+          order_id: res._id,
+          status: res.status,
+        },
+        session
+      )
+
+      // 提交事务
+      await session.commitTransaction()
+      this.success(res)
+    } catch (err) {
+      console.log(err, 'error')
+      // 回滚事务
+      await session.abortTransaction()
+      ctx.logger.error(new Error(err))
+    } finally {
+      await session.endSession()
+    }
+  }
 ```
