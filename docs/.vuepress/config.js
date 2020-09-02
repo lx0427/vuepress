@@ -112,6 +112,8 @@ module.exports = {
             ['mongodb/mongodb', 'mongodb'],
             ['mongodb/mongoose', 'mongoose'],
             ['mongodb/replica', 'replica'],
+            ['mongodb/RabbitMQ', 'RabbitMQ'],
+            ['mongodb/error', 'error'],
             ['mongodb/redis', 'redis'],
           ],
         },

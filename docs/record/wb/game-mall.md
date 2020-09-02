@@ -29,8 +29,18 @@
 ## 导入数据库
 
 1. 菜单，角色，数据字典
+2. 多文档事务，需要提前建好集合
+   ```js
+   // 自定义 id
+   db.order.insertOne({ \_id: '1', price: 1 })
+   db.log_order_status.insertOne({ ip: '1' })
+   ```
 
 ## 事务使用
 
 1. 配置复制集
 2. 使用事务方法封装 api
+
+```
+
+```
