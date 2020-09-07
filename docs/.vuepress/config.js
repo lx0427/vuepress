@@ -72,37 +72,13 @@ module.exports = {
       ],
       '/server/': [
         {
-          title: 'ejs',
-          collapsable: false,
-          children: [['ejs/snippet', 'snippet']],
-        },
-        {
           title: 'egg',
           collapsable: false,
           children: [
             ['egg/egg', 'egg'],
             ['egg/admin-docs', '后台管理系统文档'],
-          ],
-        },
-        {
-          title: 'Koa',
-          collapsable: false,
-          children: [['koa', 'koa']],
-        },
-        {
-          title: 'Express',
-          collapsable: false,
-          children: [
-            ['express', 'express'],
-            ['express-project', 'express-project'],
-          ],
-        },
-        {
-          title: 'NestJs',
-          collapsable: false,
-          children: [
-            ['nestjs', 'nestjs'],
-            ['nestjs-interface', 'nestjs-interface'],
+            ['egg/koa', 'koa'],
+            ['egg/paypal', 'paypal'],
           ],
         },
         {
@@ -128,17 +104,29 @@ module.exports = {
           ],
         },
         {
+          title: 'ejs',
+          collapsable: false,
+          children: [['ejs/snippet', 'snippet']],
+        },
+        {
           title: 'nodeJs',
           collapsable: false,
           children: [
+            ['nodejs/express', 'express'],
+            ['nodejs/express-project', 'express-project'],
+            ['nodejs/nestjs', 'nestjs'],
+            ['nodejs/nestjs-interface', 'nestjs-interface'],
             ['nodejs/docs', 'docs'],
             ['nodejs/router', 'router'],
           ],
         },
         {
-          title: 'test',
+          title: 'other',
           collapsable: false,
-          children: [['test/ab', 'Apache24']],
+          children: [
+            ['other/ab', 'Apache24'],
+            ['other/kafka', 'kafka'],
+          ],
         },
       ],
       '/javascript/': [

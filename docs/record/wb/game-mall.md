@@ -32,7 +32,7 @@
 2. 多文档事务，需要提前建好集合
    ```js
    // 自定义 id
-   db.order.insertOne({ \_id: '1', price: 1 })
+   db.order.insertOne({ _id: '1', price: 1 })
    db.log_order_status.insertOne({ ip: '1' })
    ```
 

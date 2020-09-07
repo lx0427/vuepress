@@ -29,6 +29,7 @@
 
 ```bash
 # -k 使得connection keep alive
+.\ab -c 1 -n 1  -p 'C:\Users\XF\Desktop\123\test.txt' -T 'application/json' -k http://localhost:7001/api/order/add
 .\ab -c 100 -n 10000  -p 'C:\Users\XF\Desktop\123\test.txt' -T 'application/json' -k http://localhost:7001/api/order/add
 ```
 
