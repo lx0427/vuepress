@@ -8,6 +8,14 @@
 // 新建节点目录
 mkdir D:\MongoDB\myrs\27117
 // 启动节点服务
+nohup mongod --replSet myrs --port 27117 --dbpath /var/lib/mongo/rs1 --smallfiles --oplogSize 128 &
+nohup mongod --replSet myrs --port 27118 --dbpath /var/lib/mongo/rs2 --smallfiles --oplogSize 128 &
+nohup mongod --replSet myrs --port 27119 --dbpath /var/lib/mongo/rs3 --smallfiles --oplogSize 128 &
+
+
+mongod --replSet myrs --port 27117 --dbpath /opt/mongodb/myrs/27117 --oplogSize 128
+
+
 mongod --replSet myrs --port 27117 --dbpath D:\MongoDB\myrs\27117 --oplogSize 128
 mongod --replSet myrs --port 27117 --dbpath D:\MongoDB\myrs\27117 --smallfiles --oplogSize 128
 mongo admin -u admin -p 123456 --port 27117
@@ -46,6 +54,25 @@ rsconf = {
   ]
 }
 rs.initiate(rsconf)
+rsconf = {
+  _id: 'myrs',
+  members: [
+    {
+      _id: 0,
+      host: '13.231.19.131:27117'
+    },
+    {
+      _id: 1,
+      host: '13.231.19.131:27118'
+    },
+    {
+      _id: 2,
+      host: '13.231.19.131:27119',
+      arbiterOnly:true
+    }
+  ]
+}
+rs.reconfig(rsconf,{force:true})
 ```
 
 ### 副本集状态
@@ -120,6 +147,11 @@ rs.addArb('127.0.0.1:27118')
 ```js
 db.createUser({
   user: 'admin',
+  pwd: '123456',
+  roles: [{ role: 'root', db: 'admin' }],
+})
+db.createUser({
+  user: 'root',
   pwd: '123456',
   roles: [{ role: 'root', db: 'admin' }],
 })

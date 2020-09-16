@@ -1,0 +1,197 @@
+Node.js踩坑笔记
+
+服务器 root  Xu...725
+
+七牛&阿里云 dfbmedia@163.com  Xu...725
+
+小程序账号 jipujie2018@163.com  Xu...725
+
+公众号备用  wanwujiaoliu@aliyun.com Xu...725
+
+
+1.https默认端口号443 http默认端口号80 
+
+2.数据库mongod指令如果没有配置PATH变量，就得写成 ./mongod --dbpath=...
+
+3.装完pm2后需要创建软链接，使得pm2命令全局有效  ln -s /root/node-v6.9.5-linux-x64/lib/node_modules/pm2/bin/pm2 /usr/local/bin
+
+4.让数据库在服务器后台一直运行  ./mongod --dbpath=/root/gebizuoyou/db --port=27019 --fork --syslog
+
+5.将项目上传至服务器时需要将ip变为0.0.0.0   
+
+6.多级联动数据库设计时需要将字段统一，方便封装
+
+7.安全停止MongoDB进程
+        向MongoDB进程发送信号用于停止MongoDB，假设要安全停止能够有两种信号：sigint 信号，或者 sigterm信号
+        怎样停止：
+	$ kill -2 8888
+	当中 8888 为mongod进程号 ，该进程号能够通过 ps -axu |grep mongo 获取。
+	-2 表示向mongod进程发送sigint信号
+	$ kill -4 8888
+	当中 8888 为mongod进程号 ，该进程号能够通过 ps -axu |grep mongo 获取；
+	-4 表示向mongod进程发送sigterm信号
+
+
+8.备份与恢复mongodb数据
+	备份：./mongodump -h 47.97.170.220 --port 27019 -d gebizuoyou -o /root/gebizuoyou/db
+	恢复：./mongorestore -h localhost:27019 -d gebizuoyou /root/gebizuoyou/db/gebizuoyou
+
+
+9.用robo 3T 链接数据库提示network is unreachable
+	原因：服务器中未添加对应数据库端口的安全组
+
+
+【node部署服务器步骤】：
+	
+1.安装node和npm
+	（1）下载node新版本 wget https://nodejs.org/dist/v12.14.0/node-v12.14.0-linux-x64.tar.xz
+		若未安装wget 先下载wget        yum install -y wget
+	（2）解压 tar xvf node-v12.14.0-linux-x64.tar.xz
+	（3）设置为全局命令  ln -s /root/node-v12.14.0-linux-x64/bin/node /usr/local/bin/node
+			 ln -s /root/node-v12.14.0-linux-x64/bin/npm /usr/local/bin/npm
+	（4）检测版本 node -v   与   npm -v
+2.安装cnpm
+	（1）npm install -g cnpm --registry=https://registry.npm.taobao.org
+	（2）设置为全局命令    ln -s /root/node-v12.14.0-linux-x64/lib/node_modules/cnpm/bin/cnpm /usr/local/bin/cnpm
+3.安装mongodb4.X
+	（1）cd /etc/yum.repos.d/
+	（2）touch mongodb-org-4.2.repo
+	（3）进入vi mongodb-org-4.2.repo 文件 输入以下内容：
+	（具体根据以下网页内容设置：https://docs.mongodb.com/manual/tutorial/install-mongodb-enterprise-on-red-hat/）
+		[mongodb-org-4.2]
+		name=MongoDB Repository
+		baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/4.2/x86_64/
+		gpgcheck=1
+		enabled=1
+		gpgkey=https://www.mongodb.org/static/pgp/server-4.2.asc
+	（4）下载 yum install -y mongodb-org  或者  yum install -y mongodb-enterprise
+	（5）systemctl启动   systemctl start mongod
+	（6）查看mongod是否是开机自启动 systemctl list-unit-files 如果需要设置开机启动 systemctl enable mongod
+	（7）开启端口防火墙 7001 80 8080 443 一起开通
+		firewall-cmd --zone=public --add-port=27117/tcp --permanent; 
+		firewall-cmd --zone=public --add-port=27118/tcp --permanent; 
+		firewall-cmd --zone=public --add-port=27119/tcp --permanent; 
+		firewall-cmd --zone=public --add-port=80/tcp --permanent; 
+		firewall-cmd --zone=public --add-port=8080/tcp --permanent; 
+		firewall-cmd --zone=public --add-port=443/tcp --permanent; 
+		firewall-cmd --reload
+		查看开启的端口号   firewall-cmd --zone=public --list-ports
+	（8）远程连接设置    vi /etc/mongod.conf (点i或者a进入编辑模式)
+		                 将原来 bindIp:127.0.0.1 修改为 0.0.0.0
+			Esc+Shift+:  wq  enter
+	（9）重启mongod    systemctl restart mongod
+	
+4.设置操作mongo权限
+	（1）	mkdir -p /var/lib/mongo
+		mkdir -p /var/log/mongodb
+	（2）	chown -R mongod:mongod /var/lib/mongo
+		chown -R mongod:mongod /var/log/mongodb
+
+
+
+5.设置mongodb用户权限设置超级管理员
+	（1）连接mongodb   输入mongo
+	（2）use admin
+	（3）db.createUser({user:'admin',pwd:'123456',roles:[{role:'root',db:'admin'}]})
+	（4）修改配置文件    vi /etc/mongod.conf
+			security:
+			  authorization: enabled
+	（5）重启mongod服务   systemctl restart mongod
+	（6）mongo admin -u admin -p 123456
+	（7）设置数据库与初始化表结构
+		use eggshop
+		db.createCollection('admin')
+		远程连接数据库 直接插入超级管理员信息
+6.安装 pm2 
+	（1）cnpm install -g pm2
+	（2）设为全局变量 ln -s /root/node-v12.14.0-linux-x64/lib/node_modules/pm2/bin/pm2 /usr/local/bin
+7.上传egg项目
+	（1）上传项目 除node_modules外 其他文件上传 .开头文件不能上传或上传不显示 不影响
+	（2）在项目根目录中新建 app.js 打开文件 输入以下内容
+			const egg = require('egg');
+			const workers = Number(process.argv[2] || require('os').cpus().length);
+			egg.startCluster({
+  				workers,
+  				baseDir: __dirname,
+			});
+	（3）下载依赖    cnpm install 或者 cnpm install --production
+	（4）启动项目    pm2 start app.js    启动成功后 进入浏览器 ip+:7001  ( 查看当前服务器ip:hostname -I )
+8.安装nginx 并配置反向代理  （也可参考官网安装方式 https://nginx.org/en/linux_packages.html#RHEL-CentOS）
+	（1）搜索有没有安装nginx    rpm -qa | grep nginx
+	（2）下载源rpm -ivh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
+	（3）查看源是否下载成功 cd /etc/yum.repos.d   +    ls 
+	（4）安装nginx  yum install -y nginx
+	（5）启动nginx   systemctl start nginx
+	（6）浏览器输入ip访问80窗口 如果出现nginx欢迎界面说明安装成功
+	（7）设置开机自启动 systemctl enable nginx   
+		查询是否成功  systemctl list-unit-files | grep nginx
+9.配置nginx反向代理
+	（1）关闭 Selinux 
+		vi /etc/selinux/config
+		修改 SELINUX=enforcing 为 SELINUX=disabled
+		source /etc/selinux/config
+		
+	（2）配置开启80端口 （上面已经配过了）
+	（3）找到nginx配置文件  cat /etc/nginx/ngnix.conf 读取
+		进入真正配置文件 cd /etc/nginx/con.d/  
+		将新写的配置文件放在里面 
+//------------------------www_aaa_com.conf wenjiajia ----------------------------------------------
+server {
+    listen       80;
+    server_name  192.168.6.128;
+
+    #charset koi8-r;
+    #access_log  /var/log/nginx/host.access.log  main;
+
+    location / {
+	#设置主机头和客户端真实地址，以便服务器获取客户端真实 IP
+	proxy_set_header Host $host;
+	proxy_set_header X-Real-IP $remote_addr;
+	proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+	#禁用缓存
+	proxy_buffering off;
+        
+	proxy_pass http://127.0.0.1:7001;
+    }
+
+    #error_page  404              /404.html;
+
+    # redirect server error pages to the static page /50x.html
+    #
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   /usr/share/nginx/html;
+    }
+ 
+}
+//----------------------------------------------------------------------
+
+	（4）配置好后 重启  systemctl restart nginx  (或者先stop再start）
+		如果不生效可能需要重启系统生效    init 6
+	（5）重启后检测防火墙和nginx是否开启
+		systemctl is-active firewalld
+		systemctl is-active nginx
+	（6）重启后记得启动node项目并检查防火墙80端口是否开启  firewall-cmd --zone=public --list-ports
+
+
+至此已全部配置完毕  访问配置域名  远程连接数据库 成功即可
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+湖北省武汉市洪山区光谷创业街文华学院10栋B座125 刘梦凡 18086412588

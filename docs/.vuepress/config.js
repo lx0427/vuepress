@@ -26,7 +26,7 @@ module.exports = {
       },
       {
         text: 'Server',
-        link: '/server/express',
+        link: '/server/egg/egg',
       },
       {
         text: '算法学习',
@@ -76,6 +76,7 @@ module.exports = {
           collapsable: false,
           children: [
             ['egg/egg', 'egg'],
+            ['egg/oracle', 'oracle'],
             ['egg/admin-docs', '后台管理系统文档'],
             ['egg/koa', 'koa'],
             ['egg/paypal', 'paypal'],
