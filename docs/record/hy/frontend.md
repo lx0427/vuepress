@@ -99,21 +99,16 @@ yarn stop
 
 - 本地目录：F:\CODE\hengyi-boot-web\dist
 - 文件位置：/data/static
+- 启动服务
 
-## 老闭环
-
-### 服务部署
-
--启动服务：
-
-    ```bash
-    # 启动
-    start nginx
-    # 停止
-    nginx -s stop
-    # 重载配置
-    nginx -s reload
-    ```
+  ```bash
+  # 启动
+  start nginx
+  # 停止
+  nginx -s stop
+  # 重载配置
+  nginx -s reload
+  ```
 
 - nginx 配置：
 
@@ -122,11 +117,27 @@ yarn stop
   cat nginx.conf
   ```
 
+### 服务器信息
+
+- ip: 192.168.0.200
+- port: 8080
+- 外网 ip: 220.189.213.71
+- 外网 port: 8099
+- [前端地址](http://220.189.213.71:8099/user/login?redirect=%2F)
+
+## 老闭环
+
+### 服务部署
+
+- 本地目录：F:\CODE\hengyi_scmls
 - 文件路径: /webapps/hengyi_scmls_1213
+- 启动服务: 同新闭环
+- nginx 配置：同新闭环
 
 ### 服务器信息
 
 - ip: 106.14.207.187(SFTP)
+- port: 80
 - 账号密码: root/qw!@er34
 - [前端地址](http://sales.hengyi.com/#/)
   - 账号密码：admin/hengYi321
