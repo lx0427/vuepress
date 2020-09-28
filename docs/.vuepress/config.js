@@ -235,7 +235,7 @@ module.exports = {
           collapsable: false,
           children: [
             ['hy/frontend', '项目管理'],
-            ['hy/loop', '新闭环'],
+            ['hy/question', '问题记录'],
             ['hy/cangcu', '仓储管理'],
             ['hy/yuanquwuliu', '园区物流'],
           ],

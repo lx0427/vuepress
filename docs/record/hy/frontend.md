@@ -93,6 +93,13 @@ yarn stop
 - [后台管理系统](http://220.189.213.67:8082/hrsystem/loginController.do?login#)
   - 账号密码：HRAdmin/123456
 
+## 新闭环
+
+### 服务部署
+
+- 本地目录：F:\CODE\hengyi-boot-web\dist
+- 文件位置：/data/static
+
 ## 老闭环
 
 ### 服务部署
