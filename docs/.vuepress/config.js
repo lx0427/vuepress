@@ -234,6 +234,7 @@ module.exports = {
           title: '恒逸',
           collapsable: false,
           children: [
+            ['hy/frontend', '项目管理'],
             ['hy/loop', '新闭环'],
             ['hy/closed-loop', '老闭环'],
             ['hy/cangcu', '仓储管理'],
