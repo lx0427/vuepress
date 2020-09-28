@@ -64,10 +64,7 @@ module.exports = {
         {
           title: 'MARKDOWN',
           collapsable: false,
-          children: [
-            ['markdown/', '学习使用'],
-            ['markdown/difficulty', '难点'],
-          ],
+          children: [['markdown/', '学习使用']],
         },
       ],
       '/server/': [

@@ -26,11 +26,6 @@ spm
 | 手机   |   \$12 |  12  |
 | 管线   |    \$1 | 234  |
 
-## [LaTeX 公式](http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference)
-
-1.  行内公式：$E=mc^2$
-2.  整行公式：$$\sum_{i=1}^n a_i=0$$
-
 ## html 标签
 
 <table>
@@ -46,14 +41,3 @@ spm
         <td>王平</td>
     </tr>
 </table>
-
-## 脚注
-
-笔记摘录于[Cmd Markdown](https://www.zybuluo.com/mdeditor?url=https://www.zybuluo.com/static/editor/md-help.markdown#fnref:footnote)[^note]
-[^note]: Cmd Markdown 希望用起来十分愉快
-
-## 使用图标
-
-search 什么呢？<i class="icon-search icon-3x"></i>
-
-Tags: note
