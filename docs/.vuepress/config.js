@@ -251,10 +251,7 @@ module.exports = {
         {
           title: 'other',
           collapsable: false,
-          children: [
-            ['other/browser', '浏览器'],
-            ['other/ppt-font', 'ppt字体'],
-          ],
+          children: [['other/ppt-font', 'ppt字体']],
         },
       ],
     },
