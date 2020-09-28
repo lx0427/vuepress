@@ -150,6 +150,15 @@ sudo npm uninstall npm -g
 yum remove nodejs npm -y
 ```
 
+### 查看 node 进程
+
+```bash
+# 查找node进程 22285
+ps -aux | grep node
+# 关闭进程
+kill -9 18056
+```
+
 ## glob
 
 ```js
