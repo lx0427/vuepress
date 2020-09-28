@@ -38,10 +38,12 @@ nginx 服务配置地址：
 - 服务器: 192.168.0.94
 - 外网 ip: 220.189.213.67
 - 开放的外网端口：
-  1. 3009：[前端移动端](http://220.189.213.67:3009/)
-  2. 4009：[前端后台管理系统](http://220.189.213.67:4009/)
+  1. 3009：前端 mobile
+  2. 4009：前端 admin
   3. 8800：后台接口
   4. 9999：导出报表
+- [前端移动端](http://220.189.213.67:3009/)
+- [前端后台管理系统](http://220.189.213.67:4009/)
 
 ## ccf 爬虫
 
@@ -85,6 +87,39 @@ yarn stop
 
 - 服务器：192.168.0.32
 - 外网 ip: 220.189.213.67
-  1. [前端地址](http://220.189.213.67:8082/hrsystem/webpage/com/hrsystem/index.html#/)
-  2. [后台管理系统](http://220.189.213.67:8082/hrsystem/loginController.do?login#)
 - 端口：8082
+- [前端地址](http://220.189.213.67:8082/hrsystem/webpage/com/hrsystem/index.html#/)
+  - 账号密码：15172413095/123456
+- [后台管理系统](http://220.189.213.67:8082/hrsystem/loginController.do?login#)
+  - 账号密码：HRAdmin/123456
+
+## 老闭环
+
+### 服务部署
+
+-启动服务：
+
+    ```bash
+    # 启动
+    start nginx
+    # 停止
+    nginx -s stop
+    # 重载配置
+    nginx -s reload
+    ```
+
+- nginx 配置：
+
+  ```bash
+  cd /etc/nginx
+  cat nginx.conf
+  ```
+
+- 文件路径: /webapps/hengyi_scmls_1213
+
+### 服务器信息
+
+- ip: 106.14.207.187(SFTP)
+- 账号密码: root/qw!@er34
+- [前端地址](http://sales.hengyi.com/#/)
+  - 账号密码：admin/hengYi321

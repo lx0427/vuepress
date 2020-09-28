@@ -236,7 +236,6 @@ module.exports = {
           children: [
             ['hy/frontend', '项目管理'],
             ['hy/loop', '新闭环'],
-            ['hy/closed-loop', '老闭环'],
             ['hy/cangcu', '仓储管理'],
             ['hy/yuanquwuliu', '园区物流'],
           ],
