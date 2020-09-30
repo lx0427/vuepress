@@ -26,7 +26,7 @@ module.exports = {
       },
       {
         text: 'Server',
-        link: '/server/egg/egg',
+        link: '/server/utils/docker',
       },
       {
         text: '算法学习',
@@ -71,6 +71,15 @@ module.exports = {
         },
       ],
       '/server/': [
+        {
+          title: 'utils',
+          collapsable: false,
+          children: [
+            ['utils/docker', 'docker'],
+            ['utils/ab', 'Apache24'],
+            ['utils/kafka', 'kafka'],
+          ],
+        },
         {
           title: 'egg',
           collapsable: false,
@@ -119,14 +128,6 @@ module.exports = {
             ['nodejs/nestjs-interface', 'nestjs-interface'],
             ['nodejs/docs', 'docs'],
             ['nodejs/router', 'router'],
-          ],
-        },
-        {
-          title: 'other',
-          collapsable: false,
-          children: [
-            ['other/ab', 'Apache24'],
-            ['other/kafka', 'kafka'],
           ],
         },
       ],
