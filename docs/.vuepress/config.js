@@ -161,7 +161,10 @@ module.exports = {
         {
           title: '功能',
           collapsable: false,
-          children: [['func/upload', '上传']],
+          children: [
+            ['func/upload', '上传'],
+            ['func/bignumber', 'bignumber'],
+          ],
         },
         {
           title: 'Q&A',
