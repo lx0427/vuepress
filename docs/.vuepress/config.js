@@ -29,6 +29,10 @@ module.exports = {
         link: '/environment/server/docker',
       },
       {
+        text: 'grammar',
+        link: '/grammar/linux',
+      },
+      {
         text: 'javascript',
         link: '/javascript/issue',
       },
@@ -118,6 +122,21 @@ module.exports = {
           ],
         },
       ],
+      '/grammar/': [
+        {
+          title: '语法',
+          collapsable: false,
+          children: [
+            ['pattern', '正则'],
+            ['linux', 'linux'],
+            ['es6', 'es6'],
+            ['markdown', 'markdown'],
+            ['typescript', 'typescript'],
+            ['alg', 'alg'],
+            ['art-template', 'art-template'],
+          ],
+        },
+      ],
       '/javascript/': [
         {
           title: '框架',
@@ -132,18 +151,6 @@ module.exports = {
             ['issue', 'issue'],
             ['fork', 'fork'],
             ['question', 'question'],
-          ],
-        },
-        {
-          title: '语法',
-          collapsable: false,
-          children: [
-            ['grammar/pattern', '正则'],
-            ['grammar/es6', 'es6'],
-            ['grammar/markdown', 'markdown'],
-            ['grammar/typescript', 'typescript'],
-            ['grammar/alg', 'alg'],
-            ['grammar/art-template', 'art-template'],
           ],
         },
         {
