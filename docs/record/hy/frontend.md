@@ -4,8 +4,8 @@
 
 ### 账号信息
 
-mobile: oa 账号
-admin: admin/123456
+- mobile: oa 账号
+- admin: admin/123456
 
 ### 前端服务部署
 
@@ -85,8 +85,8 @@ yarn stop
 
 ### 账号信息
 
-pc: 15172413095/123456
-admin: HRAdmin/123456
+- pc: 15172413095/123456
+- admin: HRAdmin/123456
 
 ### 服务部署
 
@@ -107,7 +107,7 @@ admin: HRAdmin/123456
 
 ### 账号信息
 
-admin: admin/123456
+- admin: admin/123456
 
 ### 服务部署
 
@@ -143,7 +143,7 @@ admin: admin/123456
 
 ### 账号信息
 
-admin: admin/hengYi321
+- admin: admin/hengYi321
 
 ### 服务部署
 
