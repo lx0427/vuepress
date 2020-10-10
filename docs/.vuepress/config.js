@@ -214,6 +214,11 @@ module.exports = {
           ],
         },
         {
+          title: '运维',
+          collapsable: false,
+          children: [['operations/closeloop', '闭环']],
+        },
+        {
           title: 'wb',
           collapsable: false,
           children: [['wb/game-mall', '游戏商城']],

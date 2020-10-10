@@ -50,7 +50,7 @@ jQuery.ajax = function(
     cache = true,
     complete = function() {},
     crossDomain = false,
-    global = true
+    global = true,
     // ... more config
   } = {}
 ) {
@@ -142,7 +142,7 @@ import { get, post } from 'api.js'
 // `http.js`
 export default {
   get() {},
-  post() {}
+  post() {},
 }
 
 import http from 'http.js'
