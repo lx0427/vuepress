@@ -1,5 +1,7 @@
 # mongoose
 
+[egg-mongoose 文档](https://www.npmjs.com/package/egg-mongoose)
+
 ## 基本使用
 
 ### 1. 引入
@@ -28,8 +30,8 @@ const UserSchema = new mongoose.Schema({
   age: Number,
   gender: {
     type: Number,
-    default: 1
-  }
+    default: 1,
+  },
 })
 ```
 
@@ -44,7 +46,7 @@ const UserModel = mongoose.model('User', UserSchema)
 ```js
 const user = new UserModel({
   name: 'zhangsan',
-  age: 14
+  age: 14,
 })
 user.save(function(err, doc) {
   console.log(err, doc)
@@ -77,7 +79,7 @@ const mongoose = require('./db')
 const UserSchema = new mongoose.Schema({
   name: String,
   age: Number,
-  gender: String
+  gender: String,
 })
 
 module.exports = mongoose.model('User', UserSchema, 'users')
@@ -96,8 +98,8 @@ const UserSchema = new mongoose.Schema({
   name: {
     trim: true,
     uppercase: true,
-    lowercase: true
-  }
+    lowercase: true,
+  },
 })
 ```
 
@@ -110,8 +112,8 @@ const UserSchema = new mongoose.Schema({
   num: {
     set(val) {
       return '00' + val
-    }
-  }
+    },
+  },
 })
 ```
 
@@ -151,8 +153,8 @@ const UserSchema = new mongoose.Schema({
     type: String,
     validate(desc) {
       return desc.length >= 10
-    }
-  }
+    },
+  },
 })
 ```
 
@@ -168,14 +170,14 @@ OrderItemModel.aggregate([
       from: 'order', // 关联表名
       localField: 'order_id', // 当前表字段
       foreignField: 'order_id', // 管理表字段
-      as: 'order_info' // 关联后数据存放字段
-    }
+      as: 'order_info', // 关联后数据存放字段
+    },
   },
   {
     $match: {
-      _id: mongoose.Types.ObjectId('5b743da92c327f8d1b360546')
-    }
-  }
+      _id: mongoose.Types.ObjectId('5b743da92c327f8d1b360546'),
+    },
+  },
 ])
 ```
 
@@ -192,7 +194,7 @@ const schema = new mongoose.Schema({
     set(val) {
       // 散列
       return require('bcrypt').hashSync(val, 10)
-    }
+    },
   },
   // 多个关联字段
   categories: [{ type: mongoose.SchemaTypes.ObjectId, ref: 'Category' }],
@@ -200,21 +202,21 @@ const schema = new mongoose.Schema({
     difficult: { type: Number },
     skill: { type: Number },
     attack: { type: Number },
-    survive: { type: Number }
+    survive: { type: Number },
   },
   skills: [
     {
       name: { type: String },
       icon: { type: String },
-      description: { type: String }
-    }
+      description: { type: String },
+    },
   ],
   partner: [
     {
       hero: { type: mongoose.SchemaTypes.ObjectId },
-      description: { type: String }
-    }
-  ]
+      description: { type: String },
+    },
+  ],
 })
 
 module.exports = mongoose.model('Hero', schema)
@@ -227,7 +229,7 @@ const mongoose = require('mongoose')
 const schema = new mongoose.Schema({
   // 设置外键对应的数据库表名
   categories: [{ type: mongoose.SchemaTypes.ObjectId, ref: 'Category' }],
-  parent: { type: mongoose.SchemaTypes.ObjectId, ref: 'Category' }
+  parent: { type: mongoose.SchemaTypes.ObjectId, ref: 'Category' },
 })
 const Menu = mongoose.model('Menu', schema, 'menus')
 // 多个关联查询
@@ -236,6 +238,12 @@ const items = await Menu.find()
   .populate('parent')
 ```
 
-## egg-mongoose
+## issue
 
-[egg-mongoose 文档](https://www.npmjs.com/package/egg-mongoose)
+### Cannot create namespace game_mall.log_order_status in multi-document transaction.
+
+由于事务不能在不存在的集合上进行，所以要进行事务的集合必须已经创建。如果集合没有创建，就会报这个异常。
+解决方案是在先把集合创建好，再开启事务
+
+可尝试如下方法：
+db.createCollection("xxx")

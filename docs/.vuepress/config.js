@@ -21,16 +21,20 @@ module.exports = {
         link: '/css/issue',
       },
       {
-        text: 'Javascript',
+        text: 'database',
+        link: '/database/mongodb/mongoose',
+      },
+      {
+        text: 'environment',
+        link: '/environment/server/docker',
+      },
+      {
+        text: 'javascript',
         link: '/javascript/issue',
       },
       {
-        text: 'Server',
-        link: '/server/utils/docker',
-      },
-      {
-        text: 'tool',
-        link: '/tool/environment/git',
+        text: 'node',
+        link: '/node/egg/egg',
       },
       {
         text: '常用记录',
@@ -40,12 +44,77 @@ module.exports = {
     sidebar: {
       '/css/': [
         {
-          title: '开始',
+          title: 'CSS',
           collapsable: false,
           children: [
-            ['brower', '浏览器'],
             ['issue', 'issue'],
             ['style', 'style'],
+            ['brower', '浏览器'],
+          ],
+        },
+      ],
+      '/database/': [
+        {
+          title: 'mongodb',
+          collapsable: false,
+          children: [
+            ['mongodb/mongodb', 'mongodb'],
+            ['mongodb/mongoose', 'mongoose'],
+            ['mongodb/replica', 'replica'],
+          ],
+        },
+        {
+          title: 'mysql',
+          collapsable: false,
+          children: [
+            ['mysql/mysql', 'mysql'],
+            ['mysql/practice', 'practice'],
+            ['mysql/search', 'search'],
+          ],
+        },
+        {
+          title: 'oracle',
+          collapsable: false,
+          children: [['oracle/oracle', 'oracle']],
+        },
+      ],
+      '/environment/': [
+        {
+          title: 'node',
+          collapsable: false,
+          children: [
+            ['node/git', 'git'],
+            ['node/node', 'node'],
+            ['node/nvm', 'nvm'],
+          ],
+        },
+        {
+          title: 'server',
+          collapsable: false,
+          children: [
+            ['server/ab', 'ab'],
+            ['server/docker', 'docker'],
+            ['server/kafka', 'kafka'],
+            ['server/RabbitMQ', 'RabbitMQ'],
+            ['server/redis', 'redis'],
+          ],
+        },
+        {
+          title: 'system',
+          collapsable: false,
+          children: [
+            ['system/bat', 'bat'],
+            ['system/mddir', 'mddir'],
+          ],
+        },
+        {
+          title: 'edito',
+          collapsable: false,
+          children: [
+            ['edito/powerdesigner', 'powerdesigner'],
+            ['edito/software', 'software'],
+            ['edito/vscode-template', 'vscode-template'],
+            ['edito/vscode', 'vscode'],
           ],
         },
       ],
@@ -57,7 +126,11 @@ module.exports = {
             ['framework/antd', 'ant design'],
             ['framework/element-ui', 'element ui'],
             ['framework/react', 'react'],
+            ['framework/hexo', 'hexo'],
+            ['framework/vuepress', 'vuepress'],
+            ['framework/webpack', 'webpack'],
             ['issue', 'issue'],
+            ['fork', 'fork'],
             ['question', 'question'],
           ],
         },
@@ -96,47 +169,14 @@ module.exports = {
           ],
         },
       ],
-      '/server/': [
-        {
-          title: 'utils',
-          collapsable: false,
-          children: [
-            ['utils/docker', 'docker'],
-            ['utils/ab', 'Apache24'],
-            ['utils/kafka', 'kafka'],
-          ],
-        },
+      '/node/': [
         {
           title: 'egg',
           collapsable: false,
           children: [
+            ['egg/admin-docs', 'admin-docs'],
             ['egg/egg', 'egg'],
-            ['egg/oracle', 'oracle'],
-            ['egg/admin-docs', '后台管理系统文档'],
             ['egg/koa', 'koa'],
-            ['egg/paypal', 'paypal'],
-          ],
-        },
-        {
-          title: 'mongoDB',
-          collapsable: false,
-          children: [
-            ['mongodb/mongodb', 'mongodb'],
-            ['mongodb/mongoose', 'mongoose'],
-            ['mongodb/replica', 'replica'],
-            ['mongodb/RabbitMQ', 'RabbitMQ'],
-            ['mongodb/error', 'error'],
-            ['mongodb/redis', 'redis'],
-          ],
-        },
-        {
-          title: 'Mysql',
-          collapsable: false,
-          children: [
-            ['mysql/mysql', 'mysql'],
-            ['mysql/search', 'search'],
-            ['mysql/practice', 'practice'],
-            ['mysql/powerdesigner', 'powerdesigner'],
           ],
         },
         {
@@ -145,47 +185,20 @@ module.exports = {
           children: [['ejs/snippet', 'snippet']],
         },
         {
-          title: 'nodeJs',
+          title: 'func',
+          collapsable: false,
+          children: [['func/paypal', 'paypal']],
+        },
+        {
+          title: 'nodejs',
           collapsable: false,
           children: [
-            ['nodejs/express', 'express'],
-            ['nodejs/express-project', 'express-project'],
-            ['nodejs/nestjs', 'nestjs'],
-            ['nodejs/nestjs-interface', 'nestjs-interface'],
             ['nodejs/docs', 'docs'],
+            ['nodejs/express-project', 'express-project'],
+            ['nodejs/express', 'express'],
+            ['nodejs/nestjs-interface', 'nestjs-interface'],
+            ['nodejs/nestjs', 'nestjs'],
             ['nodejs/router', 'router'],
-          ],
-        },
-      ],
-      '/tool/': [
-        {
-          title: 'environment',
-          collapsable: false,
-          children: [
-            ['environment/git', 'git'],
-            ['environment/node', 'node'],
-            ['environment/nvm', 'nvm'],
-            ['environment/mddir', 'mddir'],
-            ['environment/bat', 'bat'],
-            ['environment/software', 'software'],
-          ],
-        },
-        {
-          title: 'front',
-          collapsable: false,
-          children: [
-            ['front/fork', 'fork'],
-            ['front/hexo', 'hexo'],
-            ['front/vuepress', 'vuepress'],
-            ['front/webpack', 'webpack'],
-          ],
-        },
-        {
-          title: 'vscode',
-          collapsable: false,
-          children: [
-            ['vscode/vscode-template', 'vscode-template'],
-            ['vscode/vscode', 'vscode'],
           ],
         },
       ],
