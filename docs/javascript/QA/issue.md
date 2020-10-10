@@ -1,6 +1,4 @@
-# 常见问题
-
-## 兼容性
+# 开发常见问题
 
 ### 手机点击触发不灵敏问题
 
@@ -45,36 +43,3 @@ document.body.addEventListener('focusout', () => {
   }
 })
 ```
-
-## uniApp
-
-### 页面跳转
-
-<table>
-  <tr>
-    <td>属性</td>
-    <td>值</td>
-    <td>用法</td>
-  </tr>
-  <tr>
-    <td rowspan="2">data-action</td>
-    <td>navigateTo</td>
-    <td>底部tab页</td>
-  </tr>
-  <tr>
-    <td>switchTab</td>
-    <td>非底部tab页</td>
-  </tr>
-</table>
-
-```js
-document.addEventListener('UniAppJSBridgeReady', function() {
-  $('.uniAppJSBridgeReady').bind('toApp', function(evt) {
-    uni[$(this).attr('data-action')]({
-      url: $(this).val()
-    })
-  })
-})
-```
-
-## other

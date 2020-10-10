@@ -22,7 +22,7 @@ module.exports = {
       },
       {
         text: 'Javascript',
-        link: '/javascript/pattern/method',
+        link: '/javascript/grammar/pattern',
       },
       {
         text: 'Server',
@@ -38,7 +38,7 @@ module.exports = {
       },
       {
         text: '常用记录',
-        link: '/record/wsc/develop',
+        link: '/record/hy/develop',
       },
     ],
     sidebar: {
@@ -130,16 +130,12 @@ module.exports = {
       ],
       '/javascript/': [
         {
-          title: 'ES6',
-          collapsable: false,
-          children: [['ES6/grammar', '语法']],
-        },
-        {
-          title: 'pattern',
+          title: '语法',
           collapsable: false,
           children: [
-            ['pattern/grammar', '语法'],
-            ['pattern/method', '方法'],
+            ['grammar/pattern', '正则'],
+            ['grammar/es6', 'es6'],
+            ['grammar/art-template', 'art-template'],
           ],
         },
         {
@@ -170,6 +166,7 @@ module.exports = {
           title: 'Q&A',
           collapsable: true,
           children: [
+            ['QA/issue', '开发常见问题'],
             ['QA/question', '问题'],
             ['QA/answer', '解答'],
             ['QA/compatible', '兼容问题'],
@@ -218,24 +215,13 @@ module.exports = {
       ],
       '/record/': [
         {
-          title: '微商城',
-          collapsable: false,
-          children: [
-            ['wsc/develop', '开发常用'],
-            ['wsc/wsc-admin', '后台管理系统'],
-            ['wsc/art-template', 'art-template'],
-            ['wsc/components', '自定义组件'],
-            ['wsc/issue', '常见问题'],
-            ['wsc/rules', '规则'],
-            ['wsc/other', '其他'],
-          ],
-        },
-        {
           title: '恒逸',
           collapsable: false,
           children: [
+            ['hy/develop', '前端开发'],
             ['hy/frontend', '项目管理'],
-            ['hy/question', '问题记录'],
+            ['hy/issue', '项目记录'],
+            ['hy/wsc-admin', '后台管理系统'],
           ],
         },
         {

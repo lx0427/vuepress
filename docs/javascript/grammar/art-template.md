@@ -1,10 +1,10 @@
 # art-template
 
-## 官方文档
-
 [art-template 文档](http://aui.github.io/art-template/zh-cn/docs/index.html)
 
-## each
+## 语法
+
+### each
 
 ```html
 <script id="listTpl" type="text/html">
@@ -16,7 +16,7 @@
 $('#wrap').append(template('listTpl', { data: [] }))
 ```
 
-## if
+### if
 
 ```html
 <script id="listTpl" type="text/html">
@@ -28,7 +28,7 @@ $('#wrap').append(template('listTpl', { data: [] }))
 $('#wrap').append(template('listTpl', { a: 3 }))
 ```
 
-## #function
+### #function
 
 ```html
 <script id="listTpl" type="text/html">
