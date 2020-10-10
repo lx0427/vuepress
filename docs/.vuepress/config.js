@@ -216,6 +216,7 @@ module.exports = {
           children: [
             ['hy/develop', '前端开发'],
             ['hy/frontend', '项目管理'],
+            ['hy/database', 'database'],
             ['hy/record', '项目记录'],
             ['hy/wsc-admin', '后台管理系统'],
           ],
