@@ -17,20 +17,16 @@ module.exports = {
     lastUpdated: 'Last Updated',
     nav: [
       {
-        text: '笔记',
-        link: '/note/react/',
+        text: 'CSS',
+        link: '/css/issue',
       },
       {
         text: 'Javascript',
-        link: '/javascript/grammar/pattern',
+        link: '/javascript/issue',
       },
       {
         text: 'Server',
         link: '/server/utils/docker',
-      },
-      {
-        text: '算法学习',
-        link: '/alg/',
       },
       {
         text: 'tool',
@@ -42,29 +38,62 @@ module.exports = {
       },
     ],
     sidebar: {
-      '/note/': [
+      '/css/': [
         {
-          title: 'REACT',
+          title: '开始',
           collapsable: false,
           children: [
-            ['react/', '开始学习'],
-            ['react/antd', 'Ant Design'],
-            ['react/record', '记录'],
+            ['brower', '浏览器'],
+            ['issue', 'issue'],
+            ['style', 'style'],
+          ],
+        },
+      ],
+      '/javascript/': [
+        {
+          title: '框架',
+          collapsable: false,
+          children: [
+            ['framework/antd', 'ant design'],
+            ['framework/element-ui', 'element ui'],
+            ['framework/react', 'react'],
+            ['issue', 'issue'],
+            ['question', 'question'],
           ],
         },
         {
-          title: 'CSS',
+          title: '语法',
           collapsable: false,
           children: [
-            ['css/', 'CSS'],
-            ['css/selector', 'last-child & last-of-type'],
-            ['css/scroll-penetrate', '滚动穿透'],
+            ['grammar/pattern', '正则'],
+            ['grammar/es6', 'es6'],
+            ['grammar/markdown', 'markdown'],
+            ['grammar/typescript', 'typescript'],
+            ['grammar/alg', 'alg'],
+            ['grammar/art-template', 'art-template'],
           ],
         },
         {
-          title: 'MARKDOWN',
+          title: 'vue',
           collapsable: false,
-          children: [['markdown/', '学习使用']],
+          children: [
+            ['vue/create', 'create'],
+            ['vue/vue-cli', 'vue-cli'],
+            ['vue/component', 'component'],
+            ['vue/router', 'router'],
+            ['vue/axios', 'axios'],
+            ['vue/mixins', 'mixins'],
+            ['vue/vue3-ts', 'vue3-ts'],
+            ['vue/nuxt-vuetify', 'nuxt-vuetify'],
+          ],
+        },
+        {
+          title: '功能',
+          collapsable: false,
+          children: [
+            ['func/upload', '上传'],
+            ['func/bignumber', 'bignumber'],
+          ],
         },
       ],
       '/server/': [
@@ -128,59 +157,6 @@ module.exports = {
           ],
         },
       ],
-      '/javascript/': [
-        {
-          title: '语法',
-          collapsable: false,
-          children: [
-            ['grammar/pattern', '正则'],
-            ['grammar/es6', 'es6'],
-            ['grammar/art-template', 'art-template'],
-          ],
-        },
-        {
-          title: 'vue',
-          collapsable: false,
-          children: [
-            ['vue/create', 'create'],
-            ['vue/vue-cli', 'vue-cli'],
-            ['vue/component', 'component'],
-            ['vue/router', 'router'],
-            ['vue/axios', 'axios'],
-            ['vue/mixins', 'mixins'],
-            ['vue/typescript-grammar', 'typescript-grammar'],
-            ['vue/vue3-ts', 'vue3-ts'],
-            ['vue/element-ui', 'element-ui'],
-            ['vue/nuxt-vuetify', 'nuxt-vuetify'],
-          ],
-        },
-        {
-          title: '功能',
-          collapsable: false,
-          children: [
-            ['func/upload', '上传'],
-            ['func/bignumber', 'bignumber'],
-          ],
-        },
-        {
-          title: 'Q&A',
-          collapsable: true,
-          children: [
-            ['QA/issue', '开发常见问题'],
-            ['QA/question', '问题'],
-            ['QA/answer', '解答'],
-            ['QA/compatible', '兼容问题'],
-            ['QA/brower', '浏览器'],
-          ],
-        },
-      ],
-      '/alg/': [
-        {
-          title: '开始',
-          collapsable: false,
-          children: [['', '算法学习']],
-        },
-      ],
       '/tool/': [
         {
           title: 'environment',
@@ -220,7 +196,7 @@ module.exports = {
           children: [
             ['hy/develop', '前端开发'],
             ['hy/frontend', '项目管理'],
-            ['hy/issue', '项目记录'],
+            ['hy/record', '项目记录'],
             ['hy/wsc-admin', '后台管理系统'],
           ],
         },
