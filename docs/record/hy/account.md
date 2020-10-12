@@ -41,8 +41,8 @@
 ### 老闭环
 
 - address: http://sales.hengyi.com/
-- username: admin
-- password: hengYi321
+- username: hyadmin
+- password: hy@123
 
 ### 优逸
 

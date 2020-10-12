@@ -4,7 +4,9 @@
 
 ### 账号信息
 
+- [前端移动端](http://220.189.213.67:3009/)
 - mobile: oa 账号
+- [前端后台管理系统](http://220.189.213.67:4009/)
 - admin: admin/123456
 
 ### 前端服务部署
@@ -47,8 +49,6 @@ nginx 服务配置地址：
   2. 4009：前端 admin
   3. 8800：后台接口
   4. 9999：导出报表
-- [前端移动端](http://220.189.213.67:3009/)
-- [前端后台管理系统](http://220.189.213.67:4009/)
 
 ## ccf 爬虫
 
@@ -85,7 +85,9 @@ yarn stop
 
 ### 账号信息
 
+- [前端地址](http://220.189.213.67:8082/hrsystem/webpage/com/hrsystem/index.html#/)
 - pc: 15172413095/123456
+- [后台管理系统](http://220.189.213.67:8082/hrsystem/loginController.do?login#)
 - admin: HRAdmin/123456
 
 ### 服务部署
@@ -98,15 +100,12 @@ yarn stop
 - 服务器：192.168.0.32
 - 外网 ip: 220.189.213.67
 - 端口：8082
-- [前端地址](http://220.189.213.67:8082/hrsystem/webpage/com/hrsystem/index.html#/)
-  - 账号密码：15172413095/123456
-- [后台管理系统](http://220.189.213.67:8082/hrsystem/loginController.do?login#)
-  - 账号密码：HRAdmin/123456
 
 ## 新闭环
 
 ### 账号信息
 
+- [前端地址](http://220.189.213.71:8099/user/login?redirect=%2F)
 - admin: admin/123456
 
 ### 服务部署
@@ -137,13 +136,13 @@ yarn stop
 - port: 8080
 - 外网 ip: 220.189.213.71
 - 外网 port: 8099
-- [前端地址](http://220.189.213.71:8099/user/login?redirect=%2F)
 
 ## 老闭环
 
 ### 账号信息
 
-- admin: admin/hengYi321
+- [前端地址](http://sales.hengyi.com/#/)
+- admin: hyadmin/hy@123
 
 ### 服务部署
 
@@ -157,5 +156,3 @@ yarn stop
 - ip: 106.14.207.187(SFTP)
 - port: 80
 - 账号密码: root/qw!@er34
-- [前端地址](http://sales.hengyi.com/#/)
-  - 账号密码：admin/hengYi321
