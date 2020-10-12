@@ -98,6 +98,7 @@ module.exports = {
           children: [
             ['server/ab', 'ab'],
             ['server/docker', 'docker'],
+            ['server/docker-compose', 'docker-compose'],
             ['server/kafka', 'kafka'],
             ['server/RabbitMQ', 'RabbitMQ'],
             ['server/redis', 'redis'],

@@ -55,6 +55,10 @@ docker start ng01
 
 ### restart
 
+:::tip
+启动服务，status: created, 尝试重启 docker
+:::
+
 ```bash
 docker restart ng01
 ```
