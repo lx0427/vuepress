@@ -2,12 +2,69 @@
 
 ## 系统账号
 
+### 自动化
+
+- address: http://10.2.0.215/
+- username: mes-admin
+- password: jappmes123
+
+### 高新
+
+- address: http://10.2.0.216:8080/
+- username: admin
+- password: 123456
+
+### 逸鹏
+
+- address: http://192.168.0.185:8080/
+- username: admin
+- password: 123456
+
+### PDA
+
+- username: admin
+- password: 123456
+
 ### sap
 
 > mm60
 
 - username: RFC_EOS
 - password: RFC_EOS
+
+### 微商城后台
+
+- address: http://wxstore.hengyi.com:9099/hengyi-exmanager/admin/login/index.htm
+- username: hengyi
+- password: hengyi2019
+
+### 老闭环
+
+- address: http://sales.hengyi.com/
+- username: admin
+- password: hengYi321
+
+### 优逸
+
+- address: http://youyi.hengyi.com:81/
+- username: 56000000
+- password: Hy654321
+
+### 组织机构代码打印
+
+- address: http://192.168.0.76:8080/
+- username: admin
+- password: 123456
+
+## 服务器
+
+### 闭环前端
+
+- protocol: SFTP
+- ip: 106.14.207.187
+- port: 22
+- username: root
+- password: qw!@er34
 
 ## 数据库
 
@@ -59,3 +116,22 @@
 - port: 23306
 - username: root
 - password: rootpassword
+
+## 个人账号
+
+### gitlab
+
+- address: http://192.168.0.80/users/sign_in
+- username: lixiong
+- password: abc123456
+
+### vpn
+
+- username: lixiong
+- password: 123456
+
+### 堡垒机
+
+- address: https://10.1.1.5/
+- username: lixiong
+- password: aini123456

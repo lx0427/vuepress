@@ -131,7 +131,6 @@ module.exports = {
             ['linux', 'linux'],
             ['es6', 'es6'],
             ['typescript', 'typescript'],
-            ['jeecg', 'jeecg'],
             ['markdown', 'markdown'],
             ['art-template', 'art-template'],
             ['alg', 'alg'],
