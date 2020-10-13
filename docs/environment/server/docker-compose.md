@@ -38,6 +38,13 @@ rs.initiate({ _id: "rs", members: [{ _id: 0, host: "192.168.0.94:27001", priorit
 
 ### 问题处理
 
+> 服务启动，status: created
+
+```bash
+# 关闭防火墙
+systemctl restart docker
+```
+
 > 服务启动，status: restart
 
 ```bash
