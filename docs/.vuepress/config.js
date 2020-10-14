@@ -230,10 +230,7 @@ module.exports = {
         {
           title: 'wb',
           collapsable: false,
-          children: [
-            ['wb/docker-deploy', 'docker部署'],
-            ['wb/serve', '服务器'],
-          ],
+          children: [['wb/serve', '服务器']],
         },
         {
           title: 'fdc',
