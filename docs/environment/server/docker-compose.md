@@ -59,6 +59,17 @@ systemctl stop firewalld
 systemctl stop iptables
 ```
 
+### 备份恢复
+
+```bash
+# 启动副本集，备份数据（本地环境）
+mongodump -uadmin -p123456 -h localhost:27117 -d game_mall --authenticationDatabase admin -o D:\MongoDB\bin\dump
+
+# 把文件拷贝到 docker-compose.yml中volumes挂载到本地服务器 ./data/backup 中
+# 启动副本集，服务器环境
+mongorestore -h localhost:27001 -uroot -p123456 --authenticationDatabase admin -d game_mall --dir /data/backup/game_mall
+```
+
 ## 配置文件
 
 ### docker-compose.yml
@@ -66,7 +77,7 @@ systemctl stop iptables
 > volumes: 挂载目录是用相对路径
 
 ```yml
-version: '3.3'
+version: '3.4'
 
 services:
   master:
@@ -75,6 +86,7 @@ services:
     container_name: master
     volumes:
       - ./data/db/master:/data/db
+      - ./data/backup:/data/backup
       - ./mongodb.key:/data/mongodb.key
     ports:
       - 27001:27017
