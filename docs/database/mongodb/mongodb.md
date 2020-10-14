@@ -36,7 +36,7 @@ _4.0 版本开始自动设置为 window 服务_
 db.createUser({
   user: 'admin',
   pwd: '123456',
-  roles: [{ role: 'root', db: 'admin' }]
+  roles: [{ role: 'root', db: 'admin' }],
 })
 ```
 
@@ -308,8 +308,8 @@ db.user.find({ name: 'app121' }).explain('executionStats').executionStats.execut
 db.order.find({}, { order_id: 1, trade_no: 1, all_price: 1 })
 db.order.aggregate([
   {
-    $project: { order_id: 1, trade_no: 1, all_price: 1 }
-  }
+    $project: { order_id: 1, trade_no: 1, all_price: 1 },
+  },
 ])
 ```
 
@@ -320,8 +320,8 @@ db.order.aggregate([
 ```js
 db.order.aggregate([
   {
-    $match: { all_price: { $gt: 90 } }
-  }
+    $match: { all_price: { $gt: 90 } },
+  },
 ])
 ```
 
@@ -334,9 +334,9 @@ db.order_item.aggregate([
   {
     $group: {
       _id: '$order_id',
-      total: { $sum: '$num' }
-    }
-  }
+      total: { $sum: '$num' },
+    },
+  },
 ])
 ```
 
@@ -347,8 +347,8 @@ db.order_item.aggregate([
 ```js
 db.order_item.aggregate([
   {
-    $limit: 2
-  }
+    $limit: 2,
+  },
 ])
 ```
 
@@ -362,11 +362,11 @@ var pagesize = 2
 var pages = 2
 db.order_item.aggregate([
   {
-    $skip: pagesize * (pages - 1)
+    $skip: pagesize * (pages - 1),
   },
   {
-    $limit: pagesize
-  }
+    $limit: pagesize,
+  },
 ])
 ```
 
@@ -378,9 +378,9 @@ db.order_item.aggregate([
 db.order_item.aggregate([
   {
     $sort: {
-      price: 1
-    }
-  }
+      price: 1,
+    },
+  },
 ])
 ```
 
@@ -392,17 +392,17 @@ db.order_item.aggregate([
 db.order.aggregate([
   {
     $match: {
-      all_price: { $gte: 90 }
-    }
+      all_price: { $gte: 90 },
+    },
   },
   {
     $lookup: {
       from: 'order_item',
       localField: 'order_id', // 当前表字段
       foreignField: 'order_id', // 管理表字段
-      as: 'items' // 关联后数据存放字段
-    }
-  }
+      as: 'items', // 关联后数据存放字段
+    },
+  },
 ])
 ```
 
@@ -433,3 +433,17 @@ db.order.aggregate([
 ## 可视化工具
 
 [studio 3t](https://robomongo.org/)
+
+## mongo.conf
+
+```conf
+# 配置mongodb.conf
+vi mongodb.conf
+dbpath = /opt/mongodb/data/db # 数据文件存放目录
+logpath =/opt/mongodb/data/logs # 日志文件
+port = 27017 # 端口
+fork = true # 以守护程序的方式启用，即在后台运行
+# auth = true # 验证用户名密码 ，这个暂时先不开放
+logappend = true
+bind_ip = 0.0.0.0 # 这里默认是127.0.0.1, 设置成0.0.0.0是表示所有IP地址都可以访问(后面会具体介绍)
+```
