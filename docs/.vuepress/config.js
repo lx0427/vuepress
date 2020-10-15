@@ -230,7 +230,7 @@ module.exports = {
         {
           title: 'wb',
           collapsable: false,
-          children: [['wb/serve', '服务器']],
+          children: [['wb/game-mall', '游戏商城']],
         },
         {
           title: 'fdc',

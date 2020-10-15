@@ -114,9 +114,13 @@ http {
     server {
         listen       8081;
         server_name  localhost;
+        root         /webserver;
         location / {
-            root   /webserver;
+            try_files $uri $uri/ /index.html;
             index  index.html index.htm;
+        }
+        location @router {
+          rewrite ^.*$ /index.html last;
         }
     }
     include /etc/nginx/conf.d/*.conf;
