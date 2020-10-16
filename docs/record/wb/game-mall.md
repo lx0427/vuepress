@@ -33,7 +33,6 @@ db.log_order_status.drop()
 db.message.drop()
 db.order.drop()
 db.sms.drop()
-db.user.drop()
 ```
 
 ### 订单定时测试
