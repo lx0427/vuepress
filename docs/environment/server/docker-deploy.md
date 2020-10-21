@@ -7,6 +7,16 @@
 - username: root
 - password: Aa123456@
 
+```bash
+# permission denied, mkdir '/root/gamemart/egg/node_modules/bcrypt/.node-gyp'
+npm -g config set user root
+
+# cnpm
+npm i -g cnpm
+# cnpm: command not found 创建软连接
+sudo ln -s /root/node-v12.14.0-linux-x64/bin/cnpm /usr/local/bin/
+```
+
 ## docker 环境
 
 ```bash
