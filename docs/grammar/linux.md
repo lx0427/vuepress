@@ -34,6 +34,30 @@ unalias xin
 
 > 查看命令帮助
 
+### free
+
+> 查看剩余内存
+
+```bash
+free -h
+```
+
+### ps
+
+> 查找 node 进程 22285
+
+```bash
+ps -aux | grep node
+```
+
+### kill
+
+> 关闭进程
+
+```bash
+kill -9 18056
+```
+
 ## 文件操作
 
 > 去除默认-i, `\cp` ==> (\+命令)
@@ -110,4 +134,15 @@ ls -lta
 mv test test3
 # 移动
 # `mv <sourcePath> <targetPath>`
+```
+
+## 防火墙
+
+```bash
+# 开启端口
+firewall-cmd --zone=public --add-port=27017/tcp --permanent;
+# 重载
+firewall-cmd --reload
+# 查看已开启端口
+firewall-cmd --zone=public --list-ports
 ```

@@ -5,7 +5,7 @@
 - ip: 160.251.21.249
 - port: 22
 - username: root
-- password: Aa123456@
+- method: Public Key
 
 ```bash
 # permission denied, mkdir '/root/gamemart/egg/node_modules/bcrypt/.node-gyp'
@@ -17,17 +17,35 @@ npm i -g cnpm
 sudo ln -s /root/node-v12.14.0-linux-x64/bin/cnpm /usr/local/bin/
 ```
 
+## node 最新版环境安装
+
+```bash
+wget https://nodejs.org/dist/v12.19.0/node-v12.19.0-linux-x64.tar.xz
+tar xf node-v12.19.0-linux-x64.tar.xz
+
+cd node-v12.19.0-linux-x64/
+# 备份
+cp /etc/profile /etc/profile.bak
+vim /etc/profile
+# 最下方插入，
+export PATH=\$PATH:/root/node-v12.19.0-linux-x64/bin
+# 退出编辑
+# 立即生效路径配置
+source /etc/profile
+
+npm i -g npm
+# permission denied, mkdir '/root/gamemart/egg/node_modules/bcrypt/.node-gyp'
+npm -g config set user root
+```
+
 ## docker 环境
 
 ```bash
-# 安装
-curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
-
 # requires containerd.io >= 1.2.2-3, but none of the providers can be installed
 wget https://download.docker.com/linux/centos/7/x86_64/stable/Packages/containerd.io-1.2.13-3.1.el7.x86_64.rpm
 yum -y install ./containerd.io-1.2.13-3.1.el7.x86_64.rpm
 
-# 重新安装
+# 安装
 curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
 docker -v
 
@@ -41,9 +59,10 @@ sudo systemctl start docker
 # 安装
 sudo curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 
-docker-compose -v
 # /usr/local/bin/docker-compose: Permission denied
 chmod +x /usr/local/bin/docker-compose
+
+docker-compose -v
 ```
 
 ## 其他环境
@@ -58,10 +77,16 @@ docker pull mongo:latest
 
 ```bash
 mkdir -p /root/gamemart
+cd /root/gamemart/
+mkdir admin
+mkdir egg
+mkdir mobile
 # /root/gamemart/
 # ├── admin
 # ├── egg
 # └── mobile
+
+# 上传项目代码
 ```
 
 ## 配置文件
@@ -255,16 +280,15 @@ networks:
 ```bash
 # 启动docker-compose
 docker-compose up -d
+# 关闭防火墙
+# "errmsg" : "No host described in new configuration with {version: 1, term: 0} for replica set rs maps to this node"
+systemctl stop firewalld
 # 进入容器
 docker exec -it master /bin/bash
 # 连接数据库
 mongo -uroot -p123456
 # 初始化副本集
 rs.initiate({ _id: "rs", members: [{ _id: 0, host: "160.251.21.249:27001", priority:2 },{ _id: 1, host: "160.251.21.249:27002", priority:1 },{ _id: 2, host: "160.251.21.249:27003", arbiterOnly:true }]});
-# "errmsg" : "No host described in new configuration with {version: 1, term: 0} for replica set rs maps to this node"
-
-systemctl stop firewalld
-# 重复上述操作
 ```
 
 ### 导入数据库
@@ -292,17 +316,6 @@ service docker restart
 # egg 启动
 cd /root/gamemart/egg
 yarn start
-```
-
-## 防火墙
-
-```bash
-# 开启端口
-firewall-cmd --zone=public --add-port=27017/tcp --permanent;
-# 重载
-firewall-cmd --reload
-# 查看已开启端口
-firewall-cmd --zone=public --list-ports
 ```
 
 ## 问题列表

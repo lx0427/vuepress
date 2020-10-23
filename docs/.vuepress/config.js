@@ -84,12 +84,14 @@ module.exports = {
       ],
       '/environment/': [
         {
-          title: 'node',
+          title: 'tool',
           collapsable: false,
           children: [
-            ['node/git', 'git'],
-            ['node/node', 'node'],
-            ['node/nvm', 'nvm'],
+            ['tool/git', 'git'],
+            ['tool/node', 'node'],
+            ['tool/npm', 'npm'],
+            ['tool/nginx', 'nginx'],
+            ['tool/nvm', 'nvm'],
           ],
         },
         {
@@ -202,7 +204,7 @@ module.exports = {
           title: 'nodejs',
           collapsable: false,
           children: [
-            ['nodejs/docs', 'docs'],
+            ['nodejs/api', 'nodeJS API'],
             ['nodejs/express-project', 'express-project'],
             ['nodejs/express', 'express'],
             ['nodejs/nestjs-interface', 'nestjs-interface'],
