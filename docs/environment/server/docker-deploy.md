@@ -338,9 +338,9 @@ systemctl restart docker
 systemctl stop firewalld
 ```
 
-## linux 开机自启动
+## docker-compose 自启动
 
-### docker-compose
+### linux 自启动设置
 
 ```bash
 #编辑开机自启动脚本
@@ -367,9 +367,9 @@ systemctl stop firewalld
 /usr/local/bin/docker-compose -f /data/gamemart/docker-compose.yml up -d
 ```
 
-## pm2 开机自启动
+## pm2
 
-### 自启动命令
+### 自启动设置
 
 ```bash
 pm2 start server.js
