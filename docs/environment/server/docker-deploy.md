@@ -372,7 +372,7 @@ systemctl stop firewalld
 ### 自启动设置
 
 ```bash
-pm2 start server.js
+pm2 start pm2.config.js --env production
 # 保存当前应用列表
 pm2 save
 # 创建开机自启动命令
@@ -393,6 +393,28 @@ egg.startCluster({
   workers,
   baseDir: __dirname,
 })
+```
+
+### pm2.config.js
+
+```js
+module.exports = {
+  apps: [
+    {
+      name: 'gamermart-egg',
+      script: './server.js',
+      watch: false,
+      env: {
+        PORT: 7001,
+        NODE_ENV: 'development',
+      },
+      env_production: {
+        PORT: 7001,
+        NODE_ENV: 'production',
+      },
+    },
+  ],
+}
 ```
 
 ### 常用命令
@@ -447,4 +469,58 @@ pm2 resurrect                # 重新加载保存的应用列表
 pm2 update                    # Save processes, kill PM2 and restore processes
 
 pm2 generate                  # Generate a sample json configuration file
+```
+
+### pm2 配置文件
+
+```js
+const day = require('dayjs')
+module.exports = {
+  apps: [
+    {
+      // 项目名
+      name: 'server',
+      // 执行文件
+      script: './server.js',
+      // 根目录
+      cwd: './',
+      // 传递给脚本的参数
+      args: 'one two',
+      // 指定的脚本解释器
+      interpreter: '',
+      // 传递给解释器的参数
+      interpreter_args: '',
+      // 应用启动模式，支持fork和cluster模式
+      exec_mode: 'cluster_mode',
+      // 应用启动实例个数，仅在cluster模式有效 默认为fork；或者 max
+      instances: 1,
+      // 最大内存限制数，超出自动重启
+      max_memory_restart: '1G',
+      // 错误日志文件
+      error_file: `./logs/pm2/${day().format('YYYYMMDD')}/app-err.log`,
+      // 正常日志文件
+      out_file: `./logs/pm2/${day().format('YYYYMMDD')}/app-out.log`,
+      // 设置追加日志而不是新建日志
+      merge_logs: true,
+      // 指定日志文件的时间格式
+      log_date_format: 'YYYY-MM-DD HH:mm:ss',
+      // 应用运行少于时间被认为是异常启动
+      min_uptime: 1000,
+      // 最大异常重启次数，即小于min_uptime运行时间重启次数；
+      max_restarts: 30,
+      // 默认为true, 发生异常的情况下自动重启
+      autorestart: true,
+      // crontab时间格式重启应用，目前只支持cluster模式;
+      cron_restart: '',
+      // 异常重启情况下，延时重启时间
+      restart_delay: 60,
+      // 是否监听文件变动然后重启
+      watch: true,
+      // 不用监听的文件
+      ignore_watch: ['node_modules', 'logs', 'news', 'run', 'test', 'typings', 'pm2.config'],
+      env: { NODE_ENV: 'development' },
+      env_production: { NODE_ENV: 'production' },
+    },
+  ],
+}
 ```
