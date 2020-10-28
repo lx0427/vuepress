@@ -377,6 +377,10 @@ pm2 start server.js
 pm2 save
 # 创建开机自启动命令
 pm2 startup
+# 重启，发现之前的服务都已经启动
+sudo systemctl reboot
+# 删除自动启动服务
+sudo pm2 unstartup systemd
 ```
 
 ### server.js
