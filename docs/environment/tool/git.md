@@ -72,3 +72,32 @@ $ git fetch --all
 $ git reset --hard origin/master
 $ git fetch
 ```
+
+## ssh clone
+
+### 生成秘钥
+
+```bash
+# 查看是否有秘钥文件
+cd ~/.ssh
+# not found
+
+# 生成秘钥，回车3连
+ssh-keygen -t rsa -C "1749239438@qq.com"
+```
+
+### 公钥添加到远程仓库
+
+- 设置位置：我的头像 - settings - SSH and GPG keys - New SSH Key
+- Title: 随意
+- Key: 如下
+
+  ```bash
+  cat ~/.ssh/id_rsa.pub
+  # ssh-rsa ... 1749239438@qq.com
+
+  # 验证下这个key是不是正常工作
+  ssh -T git@github.com
+  # Are you sure you want to continue connecting (yes/no)? yes
+  # Hi lx0427! You've successfully authenticated, but GitHub does not provide shell access.
+  ```
