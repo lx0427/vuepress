@@ -1,5 +1,14 @@
 # git
 
+## 安装
+
+选择默认目录及配置
+
+```bash
+git config --global user.name "lx0427"
+git config --global user.email "1749239438@qq.com"
+```
+
 ## git 操作
 
 ```
