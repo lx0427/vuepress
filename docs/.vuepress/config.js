@@ -149,7 +149,6 @@ module.exports = {
             ['framework/element-ui', 'element ui'],
             ['framework/jeecg', 'jeecg'],
             ['framework/react', 'react'],
-            ['framework/hexo', 'hexo'],
             ['framework/vuepress', 'vuepress'],
             ['framework/webpack', 'webpack'],
             ['issue', 'issue'],
