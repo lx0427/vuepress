@@ -15,6 +15,11 @@
 
 zzyiy00@gmail.com/Zzy_0521
 
+### outlook 商用版
+
+- gamermart@gamermart.onmicrosoft.com
+- Aini123456
+
 ## 发布准备
 
 ### 清理数据库

@@ -157,6 +157,11 @@ module.exports = {
           ],
         },
         {
+          title: 'base',
+          collapsable: false,
+          children: [['base/ewomail', 'ewomail']],
+        },
+        {
           title: 'vue',
           collapsable: false,
           children: [
