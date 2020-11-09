@@ -10,25 +10,37 @@
 
 [line API](https://notify-bot.line.me/doc/ja/)
 
+1. 点击授权链接获取 code
+2. 根据 code 获取 access_token
+3. 使用 access_token 推送消息
+
 ## 进入 line 授权链接
 
-- response_type
-- client_id：进入管理后台客户端 ID
-- redirect_uri
-- scope
-- state
+- response_type：固定値，code
+- scope：固定値，notify
+- redirect_uri: 进入已建服务 Callback URL
+- client_id: 进入已建服务 Client ID
+- state：userId
 
 `https://notify-bot.line.me/oauth/authorize?response_type=code&client_id=9hPRLUepY9uQv2GhyXNOYm&redirect_uri=http://gamermart.jp:7001/line/bindback&scope=notify&state=${userId}`
 
 授权完成重定向到 redirect_uri
 
-## 回调接口，获取 access_token
+## 回调接口
 
 接口对应 redirect_uri，如下：
 `http://gamermart.jp:7001/line/bindback?code=xk3H2GnL8tIoO2Ylo7Bda4&state=${userId}`
 
-- state：授权时传的 userId
-- code：用于获取授权 token
+- state： 指定的状态参数按原样传递，即 userId
+- code： 获取访问令牌的代码
+
+## OAuth2 access_token
+
+- grant_type：固定值，authorization_code
+- code：获取访问令牌的代码，上述回调中获取
+- redirect_uri: 进入已建服务 Callback URL
+- client_id: 进入已建服务 Client ID
+- client_secret: 进入已建服务 Client Secret
 
 ```js
 async getToken(code) {
