@@ -4,7 +4,7 @@
 - 点击登录：
   - 747079868@qq.com
   - zzyiy5555
-- Manage registered services
+- 进入 Manage registered services
 
 ## 接口文档
 
@@ -24,11 +24,7 @@
 
 `https://notify-bot.line.me/oauth/authorize?response_type=code&client_id=9hPRLUepY9uQv2GhyXNOYm&redirect_uri=http://gamermart.jp:7001/line/bindback&scope=notify&state=${userId}`
 
-授权完成重定向到 redirect_uri
-
-## 回调接口
-
-接口对应 redirect_uri，如下：
+授权完成重定向到 redirect_uri，如下：
 `http://gamermart.jp:7001/line/bindback?code=xk3H2GnL8tIoO2Ylo7Bda4&state=${userId}`
 
 - state： 指定的状态参数按原样传递，即 userId
@@ -68,7 +64,7 @@ async getToken(code) {
 
 ## 消息推送
 
-access_token: 永久储存，用于消息推送
+access_token: 永久储存，用于消息推送，失效需重新授权
 
 ```bash
 curl -X POST -H 'Authorization: Bearer 1KF2OqLxIGE5aedTQ5kipb6dzDMxKjwEn0s3L5UHonD' -F 'message=foobar' \
