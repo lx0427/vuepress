@@ -61,6 +61,28 @@ hengyi/hengyi2019
 
 ### 本地启动
 
+#### 使用 chrome 访问
+
+cookies 不同源问题 disabled
+
+```bash
+# Indicate whether a cookie is intended to be set in a cross-site context by s
+chrome://flags/#same-site-by-default-cookies
+chrome://flags/#cookies-without-same-site-must-be-secure
+```
+
+限制微信设备访问：
+
+- Customize and control DevTools
+- More DevTools
+- Network conditions
+- User agent
+- Select automatically: 取消勾选
+- Custom...:
+  ```md
+  Mozilla/5.0 (iPhone; CPU iPhone OS 7_1_2 like Mac OS X) > AppleWebKit/537.51.2 (KHTML, like Gecko) Mobile/11D257 > MicroMessenger/6.0.1 NetType/WIFI
+  ```
+
 #### 微信端
 
 1. 拉取 develop 分支代码
@@ -210,23 +232,23 @@ function queryData() {
   <ul class="top_filter"></ul>
   ```
 - `id` \<string\>
-- `label` \<string\> 展示文本
+- `label` \<string\> 默认展示文本
 - `options` \<object\> 参考 [select 组件](http://old.jqweui.com/extends#select)
   - `onChange` \<callback\> 重置默认效果，参考`_select.art`
+  - `title` \<string\> 选择框标题
+  - `items` \<Array\> 下拉项数组
+  - `initialValue` \<Array\> 初始值 value
 
 #### 示例
 
 ```js
 selectInit(
-  'pm',
-  '品名',
+  'company',
+  '销售组织',
   {
-    title: '选择品名',
-    items: [
-      { title: '不限', value: '' },
-      { title: 'DTY', value: 'DTY' },
-      { title: 'POY', value: 'POY' },
-    ],
+    title: '选择销售组织',
+    items: [{ title: '恒逸石化有限公司', value: '9800' }],
+    initialValue: '9800',
   },
   queryData // 选择完成执行回调
 )
@@ -249,6 +271,7 @@ selectInit(
 - `id` \<string\>
 - `label` \<string\> 展示文本
 - `options` \<object\> 参考 [日历组件](http://old.jqweui.com/extends#calendar)
+  - value: \<Array\> 初始值
 - `callback` \<string\> 回调函数
 
 #### 示例
