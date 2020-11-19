@@ -15,7 +15,8 @@ unzip instantclient-sdk-linux.x64-12.2.0.1.0.zip
 cd instantclient_12_2
 # 配置软连接
 ln -s libclntsh.so.12.2 libclntsh.so
-# 配置环境变量
+# 所有用户永久生效的环境变量配置
+vim /etc/profile
 export LD_LIBRARY_PATH=/root/oracle/instantclient_12_2:$LD_LIBRARY_PATH
 export OCI_LIB_DIR=/root/oracle/instantclient_12_2
 export OCI_INC_DIR=/root/oracle/instantclient_12_2/sdk/include
