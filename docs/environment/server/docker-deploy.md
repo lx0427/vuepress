@@ -289,6 +289,8 @@ docker exec -it master /bin/bash
 mongo -uroot -p123456
 # 初始化副本集
 rs.initiate({ _id: "rs", members: [{ _id: 0, host: "160.251.21.249:27001", priority:2 },{ _id: 1, host: "160.251.21.249:27002", priority:1 },{ _id: 2, host: "160.251.21.249:27003", arbiterOnly:true }]});
+# 强制重置配置
+rs.reconfig({ _id: "rs", members: [{ _id: 0, host: "192.168.0.61:27001", priority:2 },{ _id: 1, host: "192.168.0.61:27002", priority:1 },{ _id: 2, host: "192.168.0.61:27003", arbiterOnly:true }]},{force:true})
 ```
 
 ### 导入数据库
