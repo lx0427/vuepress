@@ -119,6 +119,12 @@
 
 ### v-has
 
+> 使用授权码：后台配置（表名:操作）
+
+```html
+<el-button v-has="'admin_user:edit'" type="text" size="small">{{ $t('table.edit') }}</el-button>
+```
+
 ```js
 // TableListMixin.js
 computed: {
@@ -143,4 +149,74 @@ export const hasPermission = {
     })
   },
 }
+```
+
+```js
+// main.js
+import { hasPermission } from '@/plugins/directive'
+Vue.use(hasPermission)
+```
+
+### v-preview
+
+> id：绑定是为了区分不同的 v-preview
+
+```html
+<el-image v-preview :id="row._id"></el-image>
+```
+
+```js
+// directive.js
+export const preview = {
+  install(Vue, options) {
+    Vue.directive('preview', {
+      inserted(el) {
+        el.addEventListener('click', function (e) {
+          e.stopPropagation()
+          console.log(el.childNodes, 'preview')
+          let img = {}
+          for (let i = 0; i < el.childNodes.length; i++) {
+            const v = el.childNodes[i]
+            if (v.nodeName === 'IMG') {
+              img = v // 获取当前的图片链接
+              break
+            }
+          }
+          let _dom = document.querySelector(`#vpreview_${img.id}`)
+          if (!_dom) {
+            _dom = document.createElement('div')
+            _dom.innerHTML = `<div id="vpreview_${img.id}" class="el-dialog__wrapper" style="z-index: 2003;">
+              <div role="dialog" aria-modal="true" aria-label="dialog" class="el-dialog" style="margin-top: 15vh;">
+                <div class="el-dialog__header">
+                  <span class="el-dialog__title"></span>
+                  <button type="button" aria-label="Close" class="el-dialog__headerbtn"><i class="el-dialog__close el-icon el-icon-close"></i></button>
+                </div>
+                <div class="el-dialog__body"><img width="100%" src="${img.src}" alt=""></div>
+              </div>
+              </div>
+            <div class="v-modal" tabindex="0" style="z-index: 2002;"></div>`
+            document.body.appendChild(_dom)
+            _dom.addEventListener('click', function (e) {
+              e.stopPropagation()
+              this.style.display = 'none'
+            })
+          } else {
+            const src = document.querySelector(`#vpreview_${img.id} img`).src
+            if (src !== img.src) {
+              // 修改了图片，但是页面没有刷新
+              document.querySelector(`#vpreview_${img.id} img`).src = img.src
+            }
+            _dom.parentNode.style.display = 'block'
+          }
+        })
+      },
+    })
+  },
+}
+```
+
+```js
+// main.js
+import { preview } from '@/plugins/directive'
+Vue.use(preview)
 ```
