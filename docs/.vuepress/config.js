@@ -192,7 +192,7 @@ module.exports = {
           title: 'egg',
           collapsable: false,
           children: [
-            ['egg/admin-docs', 'admin-docs'],
+            ['egg/admin-docs', '后台管理系统文档'],
             ['egg/egg', 'egg'],
             ['egg/koa', 'koa'],
           ],

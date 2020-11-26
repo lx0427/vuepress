@@ -1,173 +1,146 @@
 # 后台管理系统文档
 
-## LUpload
-
-### 示例
-
-```vue
-<l-upload :item="item" v-model="comValue"></l-upload>
-```
-
-### 参数
-
-- value: v-model
-- item
-  - dir: 图片储存目录
-
-## LDict
-
-> 默认请求所有字典数据缓存至 vuex
-
-### 示例
-
-```vue
-<l-dict v-model="value" :type="type" :dictCode="dictCode"></l-dict>
-```
-
-### 参数
-
-- type: 设置类型
-  - select
-    - mutil: 多选
-  - radio
-  - checkbox
-- dictCode: 字典编码
-
-## LSelect
-
-### 示例
-
-```vue
-<l-select v-model="value" :url="url" :valueKey="valueKey" :labelKey="labelKey"></l-select>
-```
-
-### 参数
-
-- url: 接口请求连接 (实时监听 url 的变化请求接口)
-- multiple: 多选
-- clearable: 可清除
-- valueKey: value 对应字段 key, 默认`value`
-- labelKey: label 对应字段 key, 默认`label`
-
 ## LSearchForm
 
-### 示例
+|     props      |        type         |          desc           |
+| :------------: | :-----------------: | :---------------------: |
+|  queryLoading  |       Boolean       |         loading         |
+|    columns     | Array[item(Object)] | 表单数组,引用 LFormItem |
+|   item.query   |                     |                         |
+| item.onlyQuery |                     |                         |
+|   item.label   |                     |   el-form-item[label]   |
+|   item.prop    |                     |   el-form-item[prop]    |
 
-```vue
+```html
 <l-search-form :columns="columns" :queryLoading="queryLoading" @queryData="queryData"></l-search-form>
 ```
 
-### 参数
+### LFormItem
 
-- columns: `Array`
-  - item
-    - query: 表格展示项，并且是搜索项
-    - queryItem: 仅是搜索项
-    - span: 占当前行比例，默认 6
-- queryLoading: `Boolean` 加载 loading
+| props |             type              |       desc       |
+| :---: | :---------------------------: | :--------------: |
+| value | [String, Number, Array, Date] |     v-model      |
+| item  |            Object             | 参考如下组件参数 |
 
-> 基于 LFormItem
+### LUpload
+
+|    props    |      type       |   desc   |
+| :---------: | :-------------: | :------: |
+|    value    | [String, Array] | v-model  |
+|    item     |     Object      |          |
+|  item.dir   |     String      | 上传目录 |
+| item.upload |     String      |  images  |
+
+### LDict
+
+|   props   |          type           |              desc               |
+| :-------: | :---------------------: | :-----------------------------: |
+|   value   | [String, Number, Array] |             v-model             |
+|   type    |   String, 默认 select   | 可选值：select, radio, checkbox |
+| dictCode  |         String          |       全局通用字典项 key        |
+| multiple  |   Boolean, 默认 false   |                                 |
+| clearable |   Boolean, 默认 true    |                                 |
+
+### LSearchSelect
+
+|   props    |          type           |   desc   |
+| :--------: | :---------------------: | :------: |
+|   value    | [String, Number, Array] | v-model  |
+|    url     |    String, GET 请求     | required |
+|  valueKey  |   String, 默认 value    |          |
+|  labelKey  |   String, 默认 label    |          |
+| clearable  |   Boolean, 默认 true    |          |
+| filterable |   Boolean, 默认 true    |          |
+|   change   |        Function         |          |
+
+### el-date-picker
+
+|    props    |      type       |       desc        |
+| :---------: | :-------------: | :---------------: |
+|    value    |                 | 参考 element 组件 |
+|    type     |      date       |                   |
+| valueFormat | 默认 yyyy-MM-dd |                   |
+
+### el-input
+
+|     props     |                type                 |               desc               |
+| :-----------: | :---------------------------------: | :------------------------------: |
+|     value     |                                     |             v-model              |
+|     type      | text/textarea/radio/number/password |         input 自带 type          |
+|   maxlength   |                                     | 字段长度限制,对 text/number 有效 |
+| showWordLimit |                                     |   展示字段限制，maxlength 必须   |
+
+## operation
+
+```html
+<div class="table_operation">
+  <el-button type="primary" @click="handleAdd">{{ $t('table.add') }}</el-button>
+</div>
+```
 
 ## LTable
 
-### 示例
+|   props    |      key      |           type           |            desc            |
+| :--------: | :-----------: | :----------------------: | :------------------------: |
+| dataSource |               |          Array           |       el-table[data]       |
+|  columns   |               |       Array[item]        |    el-table-column 配置    |
+|            |  scopedSlots  |           slot           |       自定义字段展示       |
+|            |     type      |          image           | el[selection/index/expand] |
+| pagination |               |          Object          |       el-pagination        |
+|            |  currentPage  |            1             |                            |
+|            |   pageSize    |            10            |                            |
+|            |   pageSizes   |    [10, 20, 50, 100]     |                            |
+|            |  sizeChange   |  this.handleSizeChange   |                            |
+|            | currentChange | this.handleCurrentChange |                            |
+|            |     total     |            0             |                            |
 
-```vue
-<!-- 表格区域 -->
-<l-table :columns="columns" :pagination="ipagination" :dataSource="dataSource">
-  <!-- 自定义标签展示 -->
-  <template #tags="{row}">
-    <el-tag
-      v-for="(item, index) in row.tags_info"
-      :key="index"
-      type="primary"
-      closable
-      >{{ item.tagname }}</el-tag
-    >
+```html
+<l-table :dataSource="dataSource" :columns="columns" :pagination="ipagination">
+  <template #tags="{ row }">
+    <el-tag v-for="(tag, i) in row.tags" :key="i"> {{ tag }} </el-tag>
   </template>
-  <!-- 操作按钮 -->
-  <template #action="{row}">
-    <el-button @click="handleEdit(row)" type="text" size="small">
-      {{ $t('table.edit') }}
-    </el-button>
-    <el-button @click="handleDelete(row._id)" type="text" size="small">
-      {{ $t('table.delete') }}
-    </el-button>
+  <template #action="{ row }">
+    <el-button @click="handleEdit(row)" type="text" size="small">{{ $t('table.edit') }}</el-button>
+    <el-divider direction="vertical"></el-divider>
+    <el-button @click="handleDelete(row._id)" type="text" size="small">{{ $t('table.delete') }}</el-button>
   </template>
 </l-table>
 ```
 
-> formatter 示例
+## Model
+
+```html
+<game-model ref="modelForm" @ok="loadData"></game-model>
+```
+
+## EditTableMixin
+
+## TableListMixin
+
+### v-has
 
 ```js
-// 使用关联字段渲染
-{
-  formatter(row, column, cellValue) {
-    return row.game_info[0].gamename
-  }
-}
-
-// 使用字典项渲染
-{
-  tagType: 'radio',
-  dictCode: 'enable',
-  formatter: (row, column, cellValue) => {
-    return this.$store.getters.getDictLabel('enable', cellValue)
+// TableListMixin.js
+computed: {
+  permissions() {
+    return this.$store.getters.getBtnPermissions(this.$route.path)
   }
 }
 ```
 
-### 参数
-
-- dataSource: `Array` 表格数据
-- columns: `Array`
-  - item
-    - scopedSlots: 自定义扩展 slot 名称
-    - label: 列名
-    - prop: 属性 key
-    - type: 原生表格 type(selection/index/expand) + 自定义 type(image)
-    - width: 表格列宽
-    - formatter
-    - queryItem: 不渲染仅 searchFormItem
-- pagination: `Object` 分页配置
-  - sizeChange
-  - currentChange
-  - current
-  - pageSizes
-  - pageSize
-  - total
-
-## LFormItem
-
-### 示例
-
-```vue
-<el-form-item v-for="(item, i) in columns" :key="i" :label="item.label" :prop="item.prop">
-  <l-form-item v-model="modelForm[item.prop]" :item="item"></l-form-item>
-</el-form-item>
+```js
+// directive.js
+export const hasPermission = {
+  install(Vue, options) {
+    console.log(options)
+    Vue.directive('has', {
+      inserted: (el, binding, vnode) => {
+        const temp = vnode.context.permissions.find((v) => v.authcode === binding.value)
+        if (!temp) {
+          el.parentNode.removeChild(el)
+        }
+      },
+    })
+  },
+}
 ```
-
-### 参数
-
-- item(columns)
-  - label
-  - prop
-  - upload: `LUpload`
-  - dir: `LUpload`
-  - dictCode: `LDict`
-  - multiple: `LDict select`
-  - clearable: `LDict select`
-  - tagType:
-    - `LDict`: select, radio, checkbox
-    - `el-input`: 参考 element 文档
-  - url: `LSelect`
-  - valueKey: `LSelect`
-  - labelKey: `LSelect`
-- value
-
-> 依赖组件
-
-- LUpload
-- LDict
-- LSelect
-- el-input (支持组件 type)
