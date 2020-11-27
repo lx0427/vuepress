@@ -2,6 +2,8 @@
 
 ## 人事基层政委
 
+> personnel-committee-frontend[gitlab]
+
 ### 账号信息
 
 - [前端移动端](http://220.189.213.67:3009/)
@@ -52,7 +54,7 @@ nginx 服务配置地址：
 
 ## ccf 爬虫
 
-> ccf-clawer
+> ccf-clawer/egg-1[github]
 
 ### 服务部署
 
@@ -83,6 +85,8 @@ yarn stop
 
 ## 人事招聘系统
 
+> HRSystem-2019-Front[gitlab]
+
 ### 账号信息
 
 - [前端地址](http://220.189.213.67:8082/hrsystem/webpage/com/hrsystem/index.html#/)
@@ -92,7 +96,6 @@ yarn stop
 
 ### 服务部署
 
-> 项目名: HRSystem-2019-Front
 > 前端服务部署在后端 tomcat 中
 
 ### 服务器信息
@@ -103,6 +106,8 @@ yarn stop
 - 文件地址：D:\apache-tomcat-9.0.20\webapps\hrsystem\webpage\com
 
 ## 新闭环
+
+> hengyi-boot-web[gitlab]
 
 ### 账号信息
 
@@ -139,6 +144,8 @@ yarn stop
 - 外网 port: 8099
 
 ## 老闭环
+
+> hengyi_scmls[gitee]
 
 ### 账号信息
 
