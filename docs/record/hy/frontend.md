@@ -92,14 +92,15 @@ yarn stop
 
 ### 服务部署
 
+> 项目名: HRSystem-2019-Front
 > 前端服务部署在后端 tomcat 中
-> 文件地址：TODO:
 
 ### 服务器信息
 
 - 服务器：192.168.0.32
 - 外网 ip: 220.189.213.67
 - 端口：8082
+- 文件地址：D:\apache-tomcat-9.0.20\webapps\hrsystem\webpage\com
 
 ## 新闭环
 
