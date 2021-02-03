@@ -155,6 +155,7 @@ cp -r /app/server/jboss-4.2.2.GA/server/default/deploy/ /app/server/jboss-4.2.2.
 - 文件目录：`F:\CODE\hy_wsc_frontend\dist`
 - 测试：`/home/jboss-4.2.3.GA/server/default/deploy/hengyi-mobile.war`
 - 正式：`/app/server/jboss-4.2.2.GA/server/default/deploy/hengyi-mobile.war`
+- 更新：`/app/server/jboss-4.2.2.GA/server/default/upload/hengyi-mobile.war`
 
 ## 自定义组件
 
@@ -372,7 +373,12 @@ var tempInput = ['emergency']
 - `title`: 同提示
 
 ```html
-<div required id="downstreamMarket" title="下游市场" class="visited__row-content checkbox"></div>
+<div
+  required
+  id="downstreamMarket"
+  title="下游市场"
+  class="visited__row-content checkbox"
+></div>
 ```
 
 ::: warning messageVistAddressAddNew.js

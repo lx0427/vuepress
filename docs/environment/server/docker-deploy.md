@@ -165,7 +165,7 @@ http {
 ### docker-compose.yml
 
 ```yml
-version: '3.13'
+version: '3.12'
 services:
   gamemart_redis:
     image: redis
@@ -206,6 +206,7 @@ services:
     container_name: master
     volumes:
       - ./data/db/master:/data/db
+      - ./data/db/master/log:/data/mongo/log
       - ./data/backup:/data/backup
       - ./mongodb.key:/data/mongodb.key
     ports:
@@ -229,6 +230,7 @@ services:
     container_name: secondary
     volumes:
       - ./data/db/secondary:/data/db
+      - ./data/db/secondary/log:/data/mongo/log
       - ./mongodb.key:/data/mongodb.key
     ports:
       - 27002:27017
@@ -251,6 +253,7 @@ services:
     container_name: arbiter
     volumes:
       - ./data/db/arbiter:/data/db
+      - ./data/db/arbiter/log:/data/mongo/log
       - ./mongodb.key:/data/mongodb.key
     ports:
       - 27003:27017
