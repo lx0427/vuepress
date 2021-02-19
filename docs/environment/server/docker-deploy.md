@@ -2,20 +2,12 @@
 
 ## 服务器连接
 
-- ip: 160.251.21.249
+- ip: source /etc/profile
 - port: 22
 - username: root
+- password: @Zzyiy0521
 - method: Public Key
-
-```bash
-# permission denied, mkdir '/root/gamemart/egg/node_modules/bcrypt/.node-gyp'
-npm -g config set user root
-
-# cnpm
-npm i -g cnpm
-# cnpm: command not found 创建软连接
-sudo ln -s /root/node-v12.14.0-linux-x64/bin/cnpm /usr/local/bin/
-```
+- centos: 8.3
 
 ## node 最新版环境安装
 
@@ -27,8 +19,8 @@ cd node-v12.19.0-linux-x64/
 # 备份
 cp /etc/profile /etc/profile.bak
 vim /etc/profile
-# 最下方插入，
-export PATH=\$PATH:/root/node-v12.19.0-linux-x64/bin
+# 找到export PATH，在下方插入
+export PATH=$PATH:/root/node-v12.19.0-linux-x64/bin
 # 退出编辑
 # 立即生效路径配置
 source /etc/profile
@@ -36,6 +28,11 @@ source /etc/profile
 npm i -g npm
 # permission denied, mkdir '/root/gamemart/egg/node_modules/bcrypt/.node-gyp'
 npm -g config set user root
+
+# cnpm
+npm i -g cnpm
+# cnpm: command not found 创建软连接
+sudo ln -s /root/node-v12.14.0-linux-x64/bin/cnpm /usr/local/bin/
 ```
 
 ## docker 环境
@@ -48,9 +45,6 @@ yum -y install ./containerd.io-1.2.13-3.1.el7.x86_64.rpm
 # 安装
 curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
 docker -v
-
-# 启动docker(重启自动启动)
-sudo systemctl start docker
 ```
 
 ## docker-compose 环境
@@ -288,12 +282,16 @@ docker exec -it master /bin/bash
 # 连接数据库
 mongo -uroot -p123456
 # 初始化副本集
-rs.initiate({ _id: "rs", members: [{ _id: 0, host: "160.251.21.249:27001", priority:2 },{ _id: 1, host: "160.251.21.249:27002", priority:1 },{ _id: 2, host: "160.251.21.249:27003", arbiterOnly:true }]});
-# 强制重置配置
+rs.initiate({ _id: "rs", members: [{ _id: 0, host: "118.27.9.229:27001", priority:2 },{ _id: 1, host: "118.27.9.229:27002", priority:1 },{ _id: 2, host: "118.27.9.229:27003", arbiterOnly:true }]});
+# 强制重置配置(测试环境)
 rs.reconfig({ _id: "rs", members: [{ _id: 0, host: "192.168.0.61:27001", priority:2 },{ _id: 1, host: "192.168.0.61:27002", priority:1 },{ _id: 2, host: "192.168.0.61:27003", arbiterOnly:true }]},{force:true})
+# 退出容器
+exit
 ```
 
 ### 导入数据库
+
+> 使用 studio 3T 进行导入
 
 ```bash
 # 导出本地数据库
@@ -302,7 +300,7 @@ mongodump -h localhost:27117 -uadmin -p123456 -d game_mall --authenticationDatab
 # 进入容器
 docker exec -it master /bin/bash
 # 执行导入
-mongorestore -h 160.251.21.249:27001 -uroot -p123456 --authenticationDatabase admin -d game_mall --dir /data/backup/game_mall
+mongorestore -h 118.27.9.229:27001 -uroot -p123456 --authenticationDatabase admin -d game_mall --dir /data/backup/game_mall
 ```
 
 ## 服务启动
@@ -374,6 +372,9 @@ systemctl stop firewalld
 ### 自启动设置
 
 ```bash
+# 下载
+npm i pm2 -g
+# 使用生产环境启动服务
 pm2 start pm2.config.js --env production
 # 保存当前应用列表
 pm2 save
