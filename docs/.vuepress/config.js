@@ -120,8 +120,6 @@ module.exports = {
           children: [
             ['edito/powerdesigner', 'powerdesigner'],
             ['edito/software', 'software'],
-            ['edito/vscode-template', 'vscode-template'],
-            ['edito/vscode', 'vscode'],
           ],
         },
       ],
