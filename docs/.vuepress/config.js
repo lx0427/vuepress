@@ -155,6 +155,11 @@ module.exports = {
           ],
         },
         {
+          title: 'experience',
+          collapsable: false,
+          children: [['experience/ym', '经验贴']],
+        },
+        {
           title: 'base',
           collapsable: false,
           children: [
