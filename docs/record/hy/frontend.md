@@ -155,12 +155,12 @@ yarn stop
 ### 服务部署
 
 - 本地目录：F:\CODE\hengyi_scmls
-- 文件路径: /webapps/hengyi_scmls_1213
+- 文件路径: /webapps/hengyi_scmls
 - 启动服务: 同新闭环
 - nginx 配置：同新闭环
 
 ### 服务器信息
 
 - ip: 106.14.207.187(SFTP)
-- port: 80
+- port: 22
 - 账号密码: root/qw!@er34
