@@ -127,6 +127,7 @@
 
 ### vpn
 
+- 服务网址: https://220.189.213.77
 - username: lixiong
 - password: 123456
 
