@@ -3,6 +3,7 @@
   "version": "1.0.1",
   "main": "index.js",
   "license": "MIT",
+  "homepage": "https://lx0427.github.io/vuepress",
   "scripts": {
     "dev": "vuepress dev docs",
     "build": "vuepress build docs",
