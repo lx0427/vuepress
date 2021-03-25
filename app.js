@@ -1,37 +1,31 @@
 const fs = require('fs')
 const { Z_FIXED } = require('zlib')
-const { getDirFiles, getDirLevel } = require('./utils/utils')
+const { getAllDirFiles, getDirLevel, getDirFiles } = require('./utils/utils')
 
-let files = getDirFiles(['.vuepress', 'draft'])('./docs')
+let files = getAllDirFiles(['.vuepress', 'draft'])('./docs')
 let navDirs = getDirLevel(['.vuepress', 'draft'])('./docs')
 
 let sidebar = {}
 let nav = navDirs.map((v) => {
   let match = files.find((file) => file.fullPath.indexOf(`docs\\${v}`) > -1)
   let currentNavDirList = getDirLevel(['.vuepress', 'draft'])(`./docs/${v}`)
-  if (!currentNavDirList.length) {
-    sidebar[`/${v}/`] = [
-      {
-        title: v.toUpperCase(),
-        collapsable: false,
-        children: fs.readdirSync(`./docs/${v}`).map((item) => {
-          let name = item.replace('.md', '')
-          return [name, name]
-        }),
-      },
-    ]
-  } else {
-    sidebar[`/${v}/`] = currentNavDirList.map((curDir) => {
-      return {
-        title: curDir.toUpperCase(),
-        collapsable: false,
-        children: fs.readdirSync(`./docs/${v}/${curDir}`).map((item) => {
-          let name = item.replace('.md', '')
-          return [`${curDir}/${name}`, name]
-        }),
+  currentNavDirList.unshift('')
+  sidebar[`/${v}/`] = currentNavDirList
+    .map((curDir) => {
+      let dirPath = curDir ? `./docs/${v}/${curDir}` : `./docs/${v}`
+      let files = getDirFiles(dirPath)
+      if (files.length) {
+        return {
+          title: (curDir ? curDir : v).toUpperCase(),
+          collapsable: false,
+          children: files.map((item) => {
+            let name = item.replace('.md', '')
+            return [curDir ? `${curDir}/${name}` : name, name]
+          }),
+        }
       }
     })
-  }
+    .filter((v) => !!v)
 
   return {
     text: v.toUpperCase(),

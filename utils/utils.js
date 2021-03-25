@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 
-exports.getDirFiles = (except = []) =>
+exports.getAllDirFiles = (except = []) =>
   function dealDir(dir, fileList = []) {
     let files = fs.readdirSync(dir)
     files.forEach((v) => {
@@ -32,3 +32,15 @@ exports.getDirLevel = (except = []) =>
     })
     return dirList
   }
+
+exports.getDirFiles = function(dir, dirList = []) {
+  let files = fs.readdirSync(dir)
+  files.forEach((v) => {
+    let filePath = path.join(dir, v)
+    const stat = fs.statSync(filePath)
+    if (!stat.isDirectory()) {
+      dirList.push(v)
+    }
+  })
+  return dirList
+}
