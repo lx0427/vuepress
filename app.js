@@ -1,10 +1,8 @@
 const fs = require('fs')
-const path = require('path')
 const { Z_FIXED } = require('zlib')
 const { getDirFiles, getDirLevel } = require('./utils/utils')
 
 let files = getDirFiles(['.vuepress', 'draft'])('./docs')
-// console.log(JSON.stringify(files))
 let navDirs = getDirLevel(['.vuepress', 'draft'])('./docs')
 
 let sidebar = {}
@@ -36,7 +34,7 @@ let nav = navDirs.map((v) => {
   }
 
   return {
-    text: v,
+    text: v.toUpperCase(),
     link: match.fullPath
       .replace('docs\\', '/')
       .replace(/\\/g, '/')
