@@ -117,10 +117,7 @@ module.exports = {
         {
           title: 'edito',
           collapsable: false,
-          children: [
-            ['edito/powerdesigner', 'powerdesigner'],
-            ['edito/software', 'software'],
-          ],
+          children: [['edito/powerdesigner', 'powerdesigner']],
         },
       ],
       '/grammar/': [
@@ -129,12 +126,12 @@ module.exports = {
           collapsable: false,
           children: [
             ['pattern', '正则'],
-            ['linux', 'linux'],
-            ['es6', 'es6'],
-            ['typescript', 'typescript'],
-            ['markdown', 'markdown'],
+            ['linux', 'LINUX'],
+            ['es6', 'ES6'],
+            ['typescript', 'TS'],
+            ['markdown', 'MARKDOWN'],
             ['art-template', 'art-template'],
-            ['alg', 'alg'],
+            ['alg', 'ALG'],
           ],
         },
       ],
