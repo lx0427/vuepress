@@ -7,7 +7,7 @@ let navDirs = getDirLevel(['.vuepress', 'draft'])('./docs')
 
 let sidebar = {}
 let nav = navDirs.map((v) => {
-  let match = files.find((file) => file.fullPath.indexOf(`docs\\${v}`) > -1)
+  let match = files.find((file) => file.fullPath.indexOf(`docs/${v}`) > -1)
   let currentNavDirList = getDirLevel(['.vuepress', 'draft'])(`./docs/${v}`)
   currentNavDirList.unshift('')
   sidebar[`/${v}/`] = currentNavDirList
@@ -29,10 +29,7 @@ let nav = navDirs.map((v) => {
 
   return {
     text: v.toUpperCase(),
-    link: match.fullPath
-      .replace('docs\\', '/')
-      .replace(/\\/g, '/')
-      .replace('.md', ''),
+    link: match.fullPath.replace('docs/', '/').replace('.md', ''),
   }
 })
 
