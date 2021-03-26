@@ -97,7 +97,7 @@
 ```html
 <l-table :dataSource="dataSource" :columns="columns" :pagination="ipagination">
   <template #tags="{ row }">
-    <el-tag v-for="(tag, i) in row.tags" :key="i"> {{ tag }} </el-tag>
+    <el-tag v-for="(tag, i) in row.tags" :key="i">{{ tag }}</el-tag>
   </template>
   <template #action="{ row }">
     <el-button @click="handleEdit(row)" type="text" size="small">{{ $t('table.edit') }}</el-button>
@@ -171,7 +171,7 @@ export const preview = {
   install(Vue, options) {
     Vue.directive('preview', {
       inserted(el) {
-        el.addEventListener('click', function (e) {
+        el.addEventListener('click', function(e) {
           e.stopPropagation()
           console.log(el.childNodes, 'preview')
           let img = {}
@@ -196,7 +196,7 @@ export const preview = {
               </div>
             <div class="v-modal" tabindex="0" style="z-index: 2002;"></div>`
             document.body.appendChild(_dom)
-            _dom.addEventListener('click', function (e) {
+            _dom.addEventListener('click', function(e) {
               e.stopPropagation()
               this.style.display = 'none'
             })
