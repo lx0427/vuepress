@@ -3,6 +3,7 @@ const { Z_FIXED } = require('zlib')
 const { getAllDirFiles, getDirLevel, getDirFiles } = require('./utils/utils')
 
 let files = getAllDirFiles(['.vuepress', 'draft'])('./docs')
+files = JSON.parse(JSON.stringify(files).replace(/\\\\/g, '/'))
 let navDirs = getDirLevel(['.vuepress', 'draft'])('./docs')
 
 let sidebar = {}
