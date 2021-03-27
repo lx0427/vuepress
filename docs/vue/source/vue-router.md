@@ -1,10 +1,10 @@
 # vue-router
 
-## vue插件
+## vue 插件
 
-- 要求实现install方法
-- install传参：
-    - vue：使用Vue.use时传入Vue构造函数
+- 要求实现 install 方法
+- install 传参：
+  - vue：使用 Vue.use 时传入 Vue 构造函数
 
 ## mixin
 
@@ -26,7 +26,8 @@ VueRouer.install = function(_Vue) {
 
 export default VueRouer
 ```
-### 挂载$router
+
+### 挂载\$router
 
 ```js
 VueRouer.install = function(_Vue) {
@@ -52,11 +53,10 @@ VueRouer.install = function(_Vue) {
 }
 ```
 
-### render函数
+### router-link
 
 > template or render function not defined<br/>
 > 实现目标：`<router-link to="/about">home</router-link>`
-
 
 ```js
 VueRouer.install = function(_Vue) {
@@ -106,9 +106,7 @@ VueRouer.install = function(_Vue) {
   Vue.component('router-view', {
     render(h) {
       let Component = null
-      let route = this.$router.$options.routes.find(
-        route => route.path === this.$router.current
-      )
+      let route = this.$router.$options.routes.find((route) => route.path === this.$router.current)
       if (route) {
         Component = route.component
       }
@@ -139,8 +137,3 @@ class VueRouer {
   }
 }
 ```
-
-
-
-
-
