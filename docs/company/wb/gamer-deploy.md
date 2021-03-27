@@ -28,7 +28,7 @@ zzyiy/zzyiy5555
 https://lx0427.github.io/ewomail/
 ```
 
-## docker安装
+## docker 安装
 
 ```bash
 # apt升级
@@ -43,37 +43,37 @@ curl -fsSL https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/gpg | sudo apt-key
 # source.list 中添加 Docker 软件源
 sudo add-apt-repository "deb [arch=amd64] https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu $(lsb_release -cs) stable"
 
-# 安装 Docker CE 
-sudo apt-get update 
+# 安装 Docker CE
+sudo apt-get update
 sudo apt-get install docker-ce
 
-# 启动 Docker CE 
-sudo systemctl enable docker 
+# 启动 Docker CE
+sudo systemctl enable docker
 sudo systemctl start docker
 
-# 建立 docker 用户组(附加) 
-sudo groupadd docker 
+# 建立 docker 用户组(附加)
+sudo groupadd docker
 sudo usermod -aG docker $USER
 
-# Helloworld测试 
+# Helloworld测试
 docker run hello-world
 ```
 
 ## 镜像加速
 
 ```bash
-# /etc/docker/daemon.json 
-{ 
-	"registry-mirrors": [ 
-		"https://dockerhub.azk8s.cn", 
-		"https://reg-mirror.qiniu.com" 
-	] 
+# /etc/docker/daemon.json
+{
+	"registry-mirrors": [
+		"https://dockerhub.azk8s.cn",
+		"https://reg-mirror.qiniu.com"
+	]
 }
-sudo systemctl daemon-reload 
+sudo systemctl daemon-reload
 sudo systemctl restart docker
 ```
 
-## docker-compose安装
+## docker-compose 安装
 
 ```bash
 apt install docker-compose
@@ -99,13 +99,17 @@ npm i pm2 -g
 # 启动docker-compose
 cd /root/source/gamermart
 docker-compose up -d
-# 将docker-compose添加开机启动
+```
+
+### docker-compose 开机启动
+
+```bash
 cd /etc
 touch rc.local
 vim rc.local
 ```
 
-### rc.local
+rc.local
 
 ```rc.local
 # 内容跟启动一致
@@ -124,11 +128,10 @@ pm2 save
 pm2 startup
 ```
 
-## window安装依赖python报错
+## window 安装依赖 python 报错
 
 ```bash
 # 管理员打开cmd, 安装
 npm install --global --production windows-build-tools
 npm install --global node-gyp
 ```
-
