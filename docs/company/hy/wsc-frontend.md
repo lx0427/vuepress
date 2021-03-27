@@ -87,7 +87,7 @@ chrome://flags/#cookies-without-same-site-must-be-secure
 
 1. 拉取 develop 分支代码
 2. `config.js` 中修改接口请求路径
-   ![solar](../../.vuepress/images/wsc-config.png)
+   ![solar](../../.vuepress/images/wsc-frontend_config.png)
 3. 启动`微信端`命令
    ```bash
    npm run dev_app
@@ -98,7 +98,7 @@ chrome://flags/#cookies-without-same-site-must-be-secure
 
 1. 拉取 develop 分支代码
 2. `config.js` 中修改接口请求路径
-   ![solar](../../.vuepress/images/wsc-config.png)
+   ![solar](../../.vuepress/images/wsc-frontend_config.png)
 3. 启动`微信端`命令
    ```bash
    npm run dev_app
@@ -373,12 +373,7 @@ var tempInput = ['emergency']
 - `title`: 同提示
 
 ```html
-<div
-  required
-  id="downstreamMarket"
-  title="下游市场"
-  class="visited__row-content checkbox"
-></div>
+<div required id="downstreamMarket" title="下游市场" class="visited__row-content checkbox"></div>
 ```
 
 ::: warning messageVistAddressAddNew.js
