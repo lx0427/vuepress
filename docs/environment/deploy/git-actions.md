@@ -9,7 +9,7 @@
 # Generate new token
 # 令牌值生成时可查看，以后只能更新或重新生成
 # ** 注意保存
-# c2e8d9d9f81ae055c00a47dae36220cf461967bf
+# d66eece86e4e0dfa78abd4202631e74fbe91cefe
 ```
 
 ### Secrets
@@ -18,7 +18,7 @@
 # lx0427/vuepress / Settings / Secrets
 # New repository secret
 	name: ACCESS_TOKEN
-	value: c2e8d9d9f81ae055c00a47dae36220cf461967bf # 与上面的保存一致
+	value: d66eece86e4e0dfa78abd4202631e74fbe91cefe  # 与上面的保存一致
 ```
 
 ### 项目发布的根目录
@@ -27,7 +27,7 @@ package.json
 
 ```json
 {
-    "homepage": "https://lx0427.github.io/vuepress",
+  "homepage": "https://lx0427.github.io/vuepress"
 }
 ```
 
@@ -60,4 +60,3 @@ jobs:
           BRANCH: gh-pages
           FOLDER: docs/.vuepress/dist
 ```
-
