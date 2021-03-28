@@ -1,10 +1,12 @@
-### 安装教程
+# React Native 安装
+
+## 安装教程
 
 https://www.react-native.cn/docs/0.63/environment-setup
 
-> **安装注意，打开代理
+> \*\*安装注意，打开代理
 
-### 安装位置
+## 安装位置
 
 ```
 |-- D:\android
@@ -15,22 +17,21 @@ https://www.react-native.cn/docs/0.63/environment-setup
 |   |-- sdk // SDK Manager下载安装目录
 ```
 
-### 环境变量配置
+## 环境变量配置
 
 ```
 ## * user
 
 # android studio
 ANDROID_HOME: D:\android\sdk
-path: 
+path:
 	%ANDROID_HOME%\platform-tools
 	%ANDROID_HOME%\emulator
 	%ANDROID_HOME%\tools
 	%ANDROID_HOME%\tools\bin
-	
+
 # java
 JAVA_HOME: D:\android\java\jdk1.8
 path:
 	%JAVA_HOME%\bin
 ```
-
