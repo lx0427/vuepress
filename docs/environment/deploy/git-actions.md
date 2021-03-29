@@ -11,7 +11,7 @@
 # Generate new token
 # 令牌值生成时可查看，以后只能更新或重新生成
 # ** 注意保存
-# f082bd390e541aba6693e07501e3f8a80cfb9cdd
+# be22244a1757d56a9b9018912b5553d1f46c76ec
 ```
 
 ### Secrets
@@ -20,7 +20,7 @@
 # lx0427/vuepress / Settings / Secrets
 # New repository secret
 	name: ACCESS_TOKEN
-	value: f082bd390e541aba6693e07501e3f8a80cfb9cdd   # 与上面的保存一致
+	value: be22244a1757d56a9b9018912b5553d1f46c76ec    # 与上面的保存一致
 ```
 
 ### 项目发布的根目录
