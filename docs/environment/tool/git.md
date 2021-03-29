@@ -6,7 +6,7 @@
 
 ```bash
 git config --global user.name "lx0427"
-git config --global user.email "1749239438@qq.com"
+git config --global user.email "lx15172413095@163.com"
 ```
 
 ## git 操作

@@ -1,6 +1,8 @@
-## actions
+# git actions
 
 > 持续集成, [参考链接](http://www.ruanyifeng.com/blog/2019/09/getting-started-with-github-actions.html)
+
+## 流程
 
 ### Generate new token
 
@@ -9,7 +11,7 @@
 # Generate new token
 # 令牌值生成时可查看，以后只能更新或重新生成
 # ** 注意保存
-# d66eece86e4e0dfa78abd4202631e74fbe91cefe
+# f082bd390e541aba6693e07501e3f8a80cfb9cdd
 ```
 
 ### Secrets
@@ -18,7 +20,7 @@
 # lx0427/vuepress / Settings / Secrets
 # New repository secret
 	name: ACCESS_TOKEN
-	value: d66eece86e4e0dfa78abd4202631e74fbe91cefe  # 与上面的保存一致
+	value: f082bd390e541aba6693e07501e3f8a80cfb9cdd   # 与上面的保存一致
 ```
 
 ### 项目发布的根目录
@@ -59,4 +61,11 @@ jobs:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           BRANCH: gh-pages
           FOLDER: docs/.vuepress/dist
+```
+
+## 运行报错
+
+```bash
+# fatal: could not read Password for 'https://***@github.com': No such device or address
+# The deploy step encountered an error: The process '/usr/bin/git' failed with exit code 128
 ```
