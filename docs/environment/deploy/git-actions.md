@@ -20,7 +20,7 @@
 # lx0427/vuepress / Settings / Secrets
 # New repository secret
 	name: ACCESS_TOKEN
-	value: be22244a1757d56a9b9018912b5553d1f46c76ec    # 与上面的保存一致
+	value: be22244a1757d56a9b9018912b5553d1f46c76ec # 与上面的保存一致
 ```
 
 ### 项目发布的根目录
