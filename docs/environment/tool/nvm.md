@@ -9,7 +9,7 @@
 
 1. 解压安装
    - nvm 安装至`D:\dev\nvm`
-   - node 安装至`D:\dev`
+   - node 安装至`D:\dev\nodejs`
    - 安装目录中不能含有`汉字`或`空格`
 2. 设置`setting.txt`文件
    ```
@@ -37,14 +37,29 @@
 4. 使用命令
 
    ```bash
-   nvm install 8
+   nvm install 8.16.0
    nvm use 8.16.0
 
    nvm ls
    # * 8.16.0
+   nvm -v                  # 查看版本
+   nvm ls                  # 已安装列表
+   nvm use 6.11.1          # 切换node版本
+   nvm uninstall 6.11.1 # 卸载指定版本
    ```
 
+5. 查看文件安装位置
+
+   ```powershell
+   $ which nvm
+   # C:\dev\nvm\nvm.EXE
+   ```
+
+### 常用命令
+
 ## npm
+
+> [查看所有 node 版本](https://nodejs.org/download/release/)
 
 ### 命令
 
@@ -60,7 +75,17 @@ npm cache clean -f # 缓存
 npm rebuild node-sass # 重装npm包
 ```
 
-### 问题
+## cnpm
+
+```bash
+# 设置全局安装依赖目录，利用添加到path中的 %NVM_SYMLINK%
+npm config set prefix "D:\dev\nodejs"
+npm config get prefix
+
+npm i -g cnpm
+```
+
+## 问题
 
 1. Error: Can't find Python executable "python", you can set the PYTHON env variable.
 
@@ -73,27 +98,3 @@ npm rebuild node-sass # 重装npm包
    # 临时设置环境变量
    set PYTHON "C:\Users\Administrator\.windows-build-tools\python27\python.exe"
    ```
-
-## 指令
-
-### 常用命令
-
-> [查看所有 node 版本](https://nodejs.org/download/release/)
-
-```bash
-nvm -v                  # 查看版本
-nvm ls                  # 已安装列表
-nvm use 6.11.1          # 切换node版本
-
-# node及npm(安装/卸载)
-nvm install 8           # 8的最新版本
-nvm install 6.11.1      # 指定版本
-nvm uninstall 6.11.1    # 卸载指定版本
-```
-
-### 查看文件安装位置
-
-```powershell
-$ which nvm
-# C:\dev\nvm\nvm.EXE
-```
