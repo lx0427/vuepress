@@ -90,7 +90,7 @@ chrome://flags/#cookies-without-same-site-must-be-secure
    ![solar](../../.vuepress/images/wsc-frontend_config.png)
 3. 启动`微信端`命令
    ```bash
-   npm run dev_app
+   npm run dev
    ```
 4. 打开首页[`http://localhost:3000/wx/pages/customer`](http://localhost:3000/wx/pages/customer)
 
@@ -190,7 +190,7 @@ html
 js
 
 ```js
-$(function() {
+$(function () {
   initPage()
 })
 function initPage() {
@@ -206,7 +206,7 @@ function queryData() {
       pm: $('#pm').attr('value') || 'FDY',
       pageSize: 10, // 设置每页数据条数，默认10条(可不传)
     },
-    function(res) {
+    function (res) {
       $('#list').append(template('listTmp', { data: res.data.result }))
       console.log(res.data)
     },
@@ -410,8 +410,8 @@ var tempRadio = ['creditExtension']
 </table>
 
 ```js
-document.addEventListener('UniAppJSBridgeReady', function() {
-  $('.uniAppJSBridgeReady').bind('toApp', function(evt) {
+document.addEventListener('UniAppJSBridgeReady', function () {
+  $('.uniAppJSBridgeReady').bind('toApp', function (evt) {
     uni[$(this).attr('data-action')]({
       url: $(this).val(),
     })
