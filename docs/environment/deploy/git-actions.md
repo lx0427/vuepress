@@ -12,7 +12,7 @@
 # ** 不是 Generate new token
 # 令牌值生成时可查看，以后只能更新或重新生成
 # ** 注意保存
-# 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
+# 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
 ```
 
 ### Secrets
@@ -21,7 +21,7 @@
 # lx0427/vuepress / Settings / Secrets
 # New repository secret
 	name: ACCESS_TOKEN
-	value: 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 # 与上面的保存一致
+	value: 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 # 与上面的保存一致
 ```
 
 ### 项目发布的根目录
