@@ -83,7 +83,7 @@ chrome://flags/#cookies-without-same-site-must-be-secure
   Mozilla/5.0 (iPhone; CPU iPhone OS 7_1_2 like Mac OS X) > AppleWebKit/537.51.2 (KHTML, like Gecko) Mobile/11D257 > MicroMessenger/6.0.1 NetType/WIFI
   ```
 
-#### 微信端
+#### 微信公众号网页
 
 1. 拉取 develop 分支代码
 2. `config.js` 中修改接口请求路径
@@ -94,7 +94,7 @@ chrome://flags/#cookies-without-same-site-must-be-secure
    ```
 4. 打开首页[`http://localhost:3000/wx/pages/customer`](http://localhost:3000/wx/pages/customer)
 
-#### App 端
+#### App 中 h5 网页
 
 1. 拉取 develop 分支代码
 2. `config.js` 中修改接口请求路径
