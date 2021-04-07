@@ -81,8 +81,8 @@
 
 <p class="flex-wrap">
   <span>仓储管理系统（后台管理系统及 PDA）</span>
-  <span>web前端工程师</span>
   <span>2019.06 - 至今</span>
+  <span>web前端工程师</span>
 </p>
 
 **介绍**：对接自动化设备，实现数据采集及工厂流程的线上管理
@@ -93,8 +93,8 @@
 
 <p class="flex-wrap">
   <span>微商城公众号及 APP</span>
-  <span>web前端工程师</span>
   <span>2019.08 - 至今</span>
+  <span>web前端工程师</span>
 </p>
 
 **介绍**：产品线上化销售，原有微商城公众号，为提升客户体验，需开发 APP
@@ -105,8 +105,8 @@
 
 <p class="flex-wrap">
   <span>游戏商城</span>
-  <span>Node全栈开发工程师</span>
   <span>2020.05 - 2021.01</span>
+  <span>Node全栈开发工程师</span>
 </p>
 
 **介绍**：为实现集游戏发布、购买及售后的电商平台
@@ -117,8 +117,8 @@
 
 <p class="flex-wrap">
   <span>小亿二手房（小程序）</span>
-  <span>web前端工程师</span>
   <span>2019.01 - 2019.03</span>
+  <span>web前端工程师</span>
 </p>
 
 **介绍**：为房源推广，提供文章推送及周边配套，同时支持房源快速发布的小程序
@@ -129,8 +129,8 @@
 
 <p class="flex-wrap">
   <span>房源网站M站重构</span>
-  <span>web前端工程师</span>
   <span>2018.06 - 2019.03</span>
+  <span>web前端工程师</span>
 </p>
 
 **介绍**：为标准化房源数据结构，客户画像数据收集，统一网站面貌，优化界面展示及交互
