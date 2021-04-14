@@ -205,11 +205,11 @@ Person pe = new Person('das', 16, 0);
 
 ### 抽象类 extends & implements
 
-> 抽象类通过 abstract 关键字来定义
-> 抽象类中不实现方法体的方法就叫抽象方法
-> 如果某个类 extends 一个抽象类，则必须实现抽象类中的抽象方法
-> 如果某个类 implements 一个抽象类,则必须实现抽象类中的所有属性和方法
-> 抽象类不能被 new（实例化）,只有继承或实现它的子类可以
+> 抽象类通过 abstract 关键字来定义<br />
+> 抽象类中不实现方法体的方法就叫抽象方法<br />
+> 如果某个类 extends 一个抽象类，则必须实现抽象类中的抽象方法<br />
+> 如果某个类 implements 一个抽象类,则必须实现抽象类中的所有属性和方法<br />
+> 抽象类不能被 new（实例化）,只有继承或实现它的子类可以<br />
 
 ```dart
 abstract class Vehicle {
@@ -254,8 +254,8 @@ car1.getWheelsNum();
 
 ### 私有变量
 
-> \_wheels: 私有属性
-> 需要分文件
+> \_wheels: 私有属性<br />
+> 需要分文件<br />
 
 ```dart
 class Vehicle {
@@ -269,8 +269,8 @@ class Vehicle {
 
 ### 静态属性及静态方法
 
-> 非静态方法可以访问静态或非静态成员
-> 静态方法只可以访问静态成员
+> 非静态方法可以访问静态或非静态成员<br />
+> 静态方法只可以访问静态成员<br />
 
 ```dart
 class Vehicle {
