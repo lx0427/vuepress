@@ -70,7 +70,7 @@
 
 <p class="flex-wrap">
   <span>武汉定风波文化传媒有限公司</span>
-  <span>2016.03 - 2017.03</span>
+  <span>2016.06 - 2017.03</span>
   <span>web 前端工程师</span>
 </p>
 

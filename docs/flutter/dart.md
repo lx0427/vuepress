@@ -297,11 +297,25 @@ import 'Vehicle.dart' hide Vehicle;
 
 ### 第三方库
 
-内置库
+> 依赖安装报错或者加载缓慢
 
-```dart
-import'package:flutter/material.dart';
-import'dart/math';
+```bash
+# 添加环境变量
+PUB_HOSTED_URL = https://pub.flutter-io.cn
+FLUTTER_STORAGE_BASE_URL = https://storage.flutter-io.cn
 ```
 
-[外部库 https://pub.dev/packages](https://pub.dev/packages)
+> [外部库 https://pub.dev/packages](https://pub.dev/packages)
+
+webview
+
+```yaml
+# pubspec.yaml
+dependencies:
+  webview_flutter: ^2.0.4
+```
+
+```dart
+// 引用
+import 'package:webview_flutter/webview_flutter.dart';
+```
