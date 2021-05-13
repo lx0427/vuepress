@@ -82,6 +82,20 @@ $ git reset --hard origin/master
 $ git fetch
 ```
 
+### 443: Timed out
+
+> 在开启 shadowsocks 的前提下，手动配置 git 的代理。git 客户端输入如下两个命令就可以了。
+
+```bash
+# 开启
+git config --global http.proxy http://127.0.0.1:1080
+git config --global https.proxy http://127.0.0.1:1080
+
+# 取消代理
+git config --global --unset http.proxy
+git config --global --unset https.proxy
+```
+
 ## ssh clone
 
 ### 生成秘钥
