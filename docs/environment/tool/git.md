@@ -126,7 +126,9 @@ ssh-keygen -t rsa -C "lixiong@thalys.net.cn"
   ```
 
 
-## 生成第二个ssh
+## 多个ssh账号设置
+
+### 生成ssh
 
 ```bash
 cd ~/.ssh
