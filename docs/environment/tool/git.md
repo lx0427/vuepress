@@ -106,7 +106,7 @@ cd ~/.ssh
 # not found
 
 # 生成秘钥，回车3连
-ssh-keygen -t rsa -C "1749239438@qq.com"
+ssh-keygen -t rsa -C "lixiong@thalys.net.cn"
 ```
 
 ### 公钥添加到远程仓库
@@ -120,7 +120,37 @@ ssh-keygen -t rsa -C "1749239438@qq.com"
   # ssh-rsa ... 1749239438@qq.com
 
   # 验证下这个key是不是正常工作
-  ssh -T git@github.com
+  ssh -T git@code.aliyun.com
   # Are you sure you want to continue connecting (yes/no)? yes
   # Hi lx0427! You've successfully authenticated, but GitHub does not provide shell access.
   ```
+
+
+## 生成第二个ssh
+
+```bash
+cd ~/.ssh
+ssh-keygen -t rsa -C "lx15172413095@163.com" -f ~/.ssh/github_rsa
+cat ~/.ssh/github_rsa.pub
+```
+
+### 添加config文件
+
+> 无后缀，config
+
+```
+Host code.aliyun.com
+    HostName code.aliyun.com
+    User thalys_lixiong
+    IdentityFile ~/.ssh/id_rsa
+Host github.com
+    HostName github.com
+    User lx0427
+    IdentityFile ~/.ssh/github_rsa
+```
+### 检验是否连通
+
+```
+ssh -T git@code.aliyun.com
+ssh -T git@github.com
+```

@@ -28,7 +28,7 @@ https://m.baidu.com/video/page?pd=video_page&nid=14607056791261972311&sign=12134
 
 http://m.kuwo.cn/newh5app/play_detail/19295731?from=baidu
 
-### 2.ctrl+shift+f,打开控制台
+### 2.按F12,打开控制台
 
 ### 3.如下图步骤，搜索 audio 标签，获取音频链接
 
