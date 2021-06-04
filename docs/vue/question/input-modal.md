@@ -11,6 +11,20 @@
 2. 涉及多个接口不同，返回字段不同问题
     - 使用传入api方式进行接口调用
     - 使用传入columns方式进行表格展示扩展
+3. 组件销毁时不清除事件订阅会生成多次订阅
+    - beforeDestroy时清理
+4. 组件在mounted中订阅事件，避免切换时被错误清理
+
+## 组件切换时触发的生命周期顺序
+
+> com1 to com2
+
+- beforeCreate com2 
+- created com2 
+- beforeDestroy com1 
+- destroyed com1 
+- beforeMounted com2 
+- mounted com2
 
 ## 优化
 
