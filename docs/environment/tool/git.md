@@ -96,6 +96,13 @@ git config --global --unset http.proxy
 git config --global --unset https.proxy
 ```
 
+### OpenSSL SSL_read: Connection was reset, errno 10054
+
+```bash
+git config --global --unset http.proxy
+git config --global --unset https.proxy
+```
+
 ## ssh clone
 
 ### 生成秘钥
@@ -125,10 +132,9 @@ ssh-keygen -t rsa -C "lixiong@thalys.net.cn"
   # Hi lx0427! You've successfully authenticated, but GitHub does not provide shell access.
   ```
 
+## 多个 ssh 账号设置
 
-## 多个ssh账号设置
-
-### 生成ssh
+### 生成 ssh
 
 ```bash
 cd ~/.ssh
@@ -136,7 +142,7 @@ ssh-keygen -t rsa -C "lx15172413095@163.com" -f ~/.ssh/github_rsa
 cat ~/.ssh/github_rsa.pub
 ```
 
-### 添加config文件
+### 添加 config 文件
 
 > 无后缀，config
 
@@ -150,6 +156,7 @@ Host github.com
     User lx0427
     IdentityFile ~/.ssh/github_rsa
 ```
+
 ### 检验是否连通
 
 ```
