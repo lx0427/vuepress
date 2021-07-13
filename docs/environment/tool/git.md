@@ -103,6 +103,13 @@ git config --global --unset http.proxy
 git config --global --unset https.proxy
 ```
 
+### Failed to connect to 127.0.0.1 port 1080: Connection refused
+
+```bash
+# 查找 .gitconfig 文件
+# 删除其中proxy配置
+```
+
 ## ssh clone
 
 ### 生成秘钥
